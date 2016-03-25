@@ -1,0 +1,22 @@
+{
+  "name": "banding-tracking-v2",
+  "homepage": "https://github.com/Carmain/banding-tracking-v2",
+  "authors": [
+    "Billard Martin <martin.l.billard@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
