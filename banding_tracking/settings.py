@@ -43,6 +43,10 @@ INSTALLED_APPS = [
 STATIC_URL = 'static/'
 STATICFILES_DIRS = (BASE_DIR, 'static')
 
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
+)
+
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,22 +59,6 @@ MIDDLEWARE_CLASSES = [
 ]
 
 ROOT_URLCONF = 'banding_tracking.urls'
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
 
 WSGI_APPLICATION = 'banding_tracking.wsgi.application'
 
