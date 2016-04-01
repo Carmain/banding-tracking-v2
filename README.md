@@ -8,3 +8,9 @@ Work in progress !
 * gettext
     * For Linux users, the package is usually installed by default
     * For Windows, [see here](https://docs.djangoproject.com/en/1.9/topics/i18n/translation/#gettext-on-windows])
+
+## How to lauch the project ?
+
+ * Compile all the translation dictionaries : ```python manage.py compilemessages```
+ * Migrate the database : ```python manage.py migrate```
+ * Launch the project : ```python manage.py runserver```
