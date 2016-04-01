@@ -63,3 +63,6 @@ target/
 
 #Bower folder
 static/libs
+
+#sqlite3 db
+*.sqlite3
