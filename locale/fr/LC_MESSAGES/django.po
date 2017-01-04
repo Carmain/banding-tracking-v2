@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-01 17:29+0200\n"
+"POT-Creation-Date: 2017-01-04 11:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,17 +18,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\banding_tracking\settings.py:122
+#: .\banding_tracking\settings.py:27
 msgid "French"
 msgstr "Français"
 
-#: .\banding_tracking\settings.py:123
+#: .\banding_tracking\settings.py:28
 msgid "English"
 msgstr "Anglais"
 
-#: .\core\templates\core\home.html:6
-#, fuzzy
-#| msgid "Study tool for ringed birds' populations"
+#: .\core\templates\core\home.html:5
 msgid "Study tool for ringed birds' populations"
 msgstr "Outil d'étude pour la population des oiseaux bagués"
 

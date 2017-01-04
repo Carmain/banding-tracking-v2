@@ -14,3 +14,6 @@ Work in progress !
  * Compile all the translation dictionaries : ```python manage.py compilemessages```
  * Migrate the database : ```python manage.py migrate```
  * Launch the project : ```python manage.py runserver```
+
+## Other usefull commands
+ * Generate the translation file for a specific language : ```django-admin.py makemessages -l <LANGUAGE CODE>```
