@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 15:14+0100\n"
+"POT-Creation-Date: 2017-01-04 16:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,13 +34,30 @@ msgstr "A propos"
 msgid "Administration"
 msgstr "Administration"
 
-#: .\core\templates\core\home.html:6
+#: .\core\templates\core\home.html:7
 msgid "Study tool for ringed birds' populations"
 msgstr "Outil d'étude pour la population des oiseaux bagués"
 
+#: .\core\templates\core\home.html:13 .\core\templates\core\home.html:15
+msgid "Record an observation"
+msgstr "Ajouter une observation"
+
+#: .\core\templates\core\home.html:25
+msgid "GONm website"
+msgstr "Site web du GONm"
+
+#: .\core\templates\core\home.html:27
+msgid "The GONm"
+msgstr "Le GONm"
+
+#: .\core\templates\core\home.html:36 .\core\templates\core\home.html:38
+msgid "Bretagne vivante"
+msgstr "Bretagne vivante"
+
 #: .\core\templates\core\observation_form.html:5
 msgid "Record an observation about a kentish plover"
-msgstr "Enregistrer une observation à propos d'un gravelot à collier interrompu"
+msgstr ""
+"Enregistrer une observation à propos d'un gravelot à collier interrompu"
 
 #: .\templates\template.html:12 .\templates\template.html:35
 msgid "Home"

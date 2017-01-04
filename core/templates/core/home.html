@@ -1,7 +1,45 @@
 {% extends "template.html" %}
+{% load staticfiles %}
 {% load i18n %}
 
 {% block content %}
-  <h1>Banding-Tracking</h1>
-  <h4 class="margin-title">{% blocktrans %}Study tool for ringed birds' populations{% endblocktrans %}</h4>
+<h1>Banding-Tracking</h1>
+<h4 class="margin-title">{% blocktrans %}Study tool for ringed birds' populations{% endblocktrans %}</h4>
+
+<div class="row">
+  <div class="col-sm-8">
+    <a href="{% url 'observation_form' %}">
+      <div class="thumbnail">
+        <img src="{% static 'media/plover.jpg' %}" alt="{% trans 'Record an observation' %}">
+        <div class="caption">
+          <h3>{% trans "Record an observation" %}</h3>
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="col-sm-12">
+      <a href="http://www.gonm.org/" target="_blank">
+        <div class="thumbnail">
+          <img src="{% static 'media/gonm.jpg' %}" alt="{% trans 'GONm website' %}">
+          <div class="caption">
+            <h3>{% trans "The GONm" %}</h3>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-sm-12">
+      <a href="http://www.bretagne-vivante-dev.org/gravelot/index.php" target="_blank">
+        <div class="thumbnail">
+          <img src="{% static 'media/bretagne_vivante.jpg' %}" alt="{% trans 'Bretagne vivante' %}">
+          <div class="caption">
+            <h3>{% trans "Bretagne vivante" %}</h3>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
 {% endblock %}
