@@ -3,42 +3,65 @@
 
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Banding tracking - {% block title %}{% trans "Home" %}{% endblock %}</title>
 
-    <!-- Bootstrap -->
-    <link href="{% static 'libs/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Banding tracking - {% block title %}{% trans "Home" %}{% endblock %}</title>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+  <!-- Bootstrap -->
+  <link href="{% static 'libs/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
-    <form action="/i18n/setlang/" method="post">
-        {% csrf_token %}
+</head>
 
-        <select name="language">
-        {% for lang in LANGUAGES %}
-            <option value="{{ lang.0 }}">{{ lang.1 }}</option>
-        {% endfor %}
-        </select>
-
-        <input type="submit" value="{% trans 'Submit' %}"/>
-    </form>
-
+<body>
+  <nav class="navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-burger">
+          <span class="sr-only">{% trans "Toggle navigation" %}</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">{% trans "Home" %}</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse-burger">
+        <ul class="nav navbar-nav">
+          <li><a href="#">{% trans "Did you saw a kentish plover ?" %}</a></li>
+          <li><a href="#">{% trans "Administration" %}</a></li>
+          <li><a href="#">{% trans "About" %}</a></li>
+        </ul>
+        <form class="navbar-form navbar-right" action="/i18n/setlang/" method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <select name="language" class="form-control">
+              {% for lang in LANGUAGES %}
+                  <option value="{{ lang.0 }}">{{ lang.1 }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
     {% block content %}
     {% endblock %}
+  </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="{% static 'libs/jquery/dist/jquery.min.js' %}"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{% static 'libs/bootstrap/dist/js/bootstrap.min.js' %}"></script>
-  </body>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="{% static 'libs/jquery/dist/jquery.min.js' %}"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="{% static 'libs/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+</body>
 </html>
