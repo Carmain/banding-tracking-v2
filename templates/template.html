@@ -32,14 +32,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">{% trans "Home" %}</a>
+        <a class="navbar-brand" href="{% url 'index' %}">{% trans "Home" %}</a>
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse-burger">
         <ul class="nav navbar-nav">
-          <li><a href="#">{% trans "Did you saw a kentish plover ?" %}</a></li>
-          <li><a href="#">{% trans "Administration" %}</a></li>
-          <li><a href="#">{% trans "About" %}</a></li>
-          <li><a href="#">{% trans "The C.R.B.P.O" %}</a></li>
+          <li><a href="{% url 'observation_form' %}">{% trans "Did you saw a kentish plover ?" %}</a></li>
+          <li><a href="{% url 'administration' %}">{% trans "Administration" %}</a></li>
+          <li><a href="{% url 'about' %}">{% trans "About" %}</a></li>
+          <li><a href="http://crbpo.mnhn.fr/" target="_blank">{% trans "The C.R.B.P.O" %}</a></li>
         </ul>
         <form class="navbar-form navbar-right" action="/i18n/setlang/" method="post">
           {% csrf_token %}
