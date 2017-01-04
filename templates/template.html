@@ -2,7 +2,7 @@
 {% load i18n %}
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -39,6 +39,7 @@
           <li><a href="#">{% trans "Did you saw a kentish plover ?" %}</a></li>
           <li><a href="#">{% trans "Administration" %}</a></li>
           <li><a href="#">{% trans "About" %}</a></li>
+          <li><a href="#">{% trans "The C.R.B.P.O" %}</a></li>
         </ul>
         <form class="navbar-form navbar-right" action="/i18n/setlang/" method="post">
           {% csrf_token %}
@@ -49,7 +50,7 @@
               {% endfor %}
             </select>
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <button type="submit" class="btn btn-default">{% trans "Submit" %}</button>
         </form>
       </div>
     </div>

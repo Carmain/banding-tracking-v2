@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 11:41+0100\n"
+"POT-Creation-Date: 2017-01-04 14:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,14 +25,34 @@ msgstr "French"
 msgid "English"
 msgstr "English"
 
-#: .\core\templates\core\home.html:5
+#: .\core\templates\core\home.html:6
 msgid "Study tool for ringed birds' populations"
 msgstr "Study tool for ringed birds' populations"
 
-#: .\templates\template.html:11
+#: .\templates\template.html:12 .\templates\template.html:35
 msgid "Home"
 msgstr "Home"
 
-#: .\templates\template.html:33
+#: .\templates\template.html:30
+msgid "Toggle navigation"
+msgstr "Toggle navigation"
+
+#: .\templates\template.html:39
+msgid "Did you saw a kentish plover ?"
+msgstr "Did you saw a kentish plover ?"
+
+#: .\templates\template.html:40
+msgid "Administration"
+msgstr "Administration"
+
+#: .\templates\template.html:41
+msgid "About"
+msgstr "About"
+
+#: .\templates\template.html:42
+msgid "The C.R.B.P.O"
+msgstr "The C.R.B.P.O"
+
+#: .\templates\template.html:53
 msgid "Submit"
 msgstr "Submit"
