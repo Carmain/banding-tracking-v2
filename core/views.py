@@ -14,5 +14,9 @@ def administration(request):
     return render(request, 'core/administration.html')
 
 
-def observation_form(request):
-    return render(request, 'core/observation_form.html')
+def map(request):
+    return render(request, 'core/map.html')
+
+
+def observations(request):
+    return render(request, 'core/observations.html')
