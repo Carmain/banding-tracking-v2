@@ -7,6 +7,39 @@ function handleLocationError(browserHasGeolocation, pos) {
                         'Error: Your browser doesn\'t support geolocation.');
 }
 
+function parseAddress(addressObject, index) {
+  var addressComponent = '';
+  try {
+    addressComponent = addressObject.address_components[index].long_name;
+  } catch (e){
+    // TODO: Display a popup instead of an infoWindow
+    console.log('Can\'t get all the components of the formatted address');
+    console.console.error(e);
+  }
+
+  return addressComponent
+}
+
+function reverseGeocode(location) {
+  var geocoder = new google.maps.Geocoder();
+
+  geocoder.geocode({'location': location}, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      if(results[1]) {
+        var addressObject = results[1];
+        console.log(addressObject.formatted_address,
+          parseAddress(addressObject, 0),
+          parseAddress(addressObject, 1),
+          parseAddress(addressObject, 2),
+          parseAddress(addressObject, 3));
+      }
+    } else {
+      // TODO: Display a popup instead of an infoWindow
+      console.log('Geocoder failed due to: ' + status);
+    }
+  });
+}
+
 function clearMarkers() {
   for (var i = 0; i < markers.length; i++) {
     markers[i].setMap(null);
@@ -23,6 +56,8 @@ function placeMaker(latLng, map) {
   // Center the map on the marker
   markers.push(marker);
   map.panTo(latLng);
+
+  reverseGeocode(latLng);
 }
 
 function initMap() {
