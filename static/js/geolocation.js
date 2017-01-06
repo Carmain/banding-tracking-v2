@@ -1,9 +1,8 @@
 var markers = [];
 
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+function handleLocationError(browserHasGeolocation, pos) {
   // TODO: Display a popup instead of an infoWindow
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
+  console.log(browserHasGeolocation ?
                         'Error: The Geolocation service failed.' :
                         'Error: Your browser doesn\'t support geolocation.');
 }
@@ -14,14 +13,14 @@ function clearMarkers() {
   }
 }
 
-function placeMarkerAndPanTo(latLng, map) {
+function placeMaker(latLng, map) {
   clearMarkers();
   var marker = new google.maps.Marker({
     position: latLng,
     map: map
   });
 
-
+  // Center the map on the marker
   markers.push(marker);
   map.panTo(latLng);
 }
@@ -31,7 +30,6 @@ function initMap() {
     center: {lat: 49.174924, lng: -0.339841},
     zoom: 15
   });
-  var infoWindow = new google.maps.InfoWindow({map: map});
 
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
@@ -41,12 +39,9 @@ function initMap() {
         lng: position.coords.longitude
       };
 
-      infoWindow.setPosition(pos);
-      // TODO: Display a popup instead of an infoWindow
-      infoWindow.setContent('Location found.');
-      map.setCenter(pos);
+      placeMaker(pos, map);
     }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
+      handleLocationError(true, map.getCenter());
     });
   } else {
     // Browser doesn't support Geolocation
@@ -54,6 +49,6 @@ function initMap() {
   }
 
   map.addListener('click', function(e) {
-    placeMarkerAndPanTo(e.latLng, map);
+    placeMaker(e.latLng, map);
   });
 }
