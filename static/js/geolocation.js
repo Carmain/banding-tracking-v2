@@ -3,8 +3,8 @@ var markers = [];
 function handleLocationError(browserHasGeolocation, pos) {
   // TODO: Display a popup instead of an infoWindow
   console.log(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
+    'Error: The Geolocation service failed.' :
+    'Error: Your browser doesn\'t support geolocation.');
 }
 
 function parseAddress(addressObject, index) {
@@ -27,11 +27,13 @@ function reverseGeocode(location) {
     if (status === google.maps.GeocoderStatus.OK) {
       if(results[1]) {
         var addressObject = results[1];
-        console.log(addressObject.formatted_address,
-          parseAddress(addressObject, 0),
-          parseAddress(addressObject, 1),
-          parseAddress(addressObject, 2),
-          parseAddress(addressObject, 3));
+
+        // Fill the form
+        $('input[name=coordinate_x]').val(location.lat);
+        $('input[name=coordinate_y]').val(location.lng);
+        $('input[name=town]').val(parseAddress(addressObject, 0));
+        $('input[name=departement]').val(parseAddress(addressObject, 1));
+        $('input[name=country]').val(parseAddress(addressObject, 3));
       }
     } else {
       // TODO: Display a popup instead of an infoWindow
@@ -46,7 +48,7 @@ function clearMarkers() {
   }
 }
 
-function placeMaker(latLng, map) {
+function setPosition(latLng, map) {
   clearMarkers();
   var marker = new google.maps.Marker({
     position: latLng,
@@ -56,7 +58,6 @@ function placeMaker(latLng, map) {
   // Center the map on the marker
   markers.push(marker);
   map.panTo(latLng);
-
   reverseGeocode(latLng);
 }
 
@@ -74,7 +75,7 @@ function initMap() {
         lng: position.coords.longitude
       };
 
-      placeMaker(pos, map);
+      setPosition(pos, map);
     }, function() {
       handleLocationError(true, map.getCenter());
     });
@@ -84,6 +85,6 @@ function initMap() {
   }
 
   map.addListener('click', function(e) {
-    placeMaker(e.latLng, map);
+    setPosition(e.latLng, map);
   });
 }
