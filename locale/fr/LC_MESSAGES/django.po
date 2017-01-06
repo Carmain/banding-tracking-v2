@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 16:13+0100\n"
+"POT-Creation-Date: 2017-01-06 16:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,11 +26,11 @@ msgstr "Français"
 msgid "English"
 msgstr "Anglais"
 
-#: .\core\templates\core\about.html:5 .\templates\template.html:41
+#: .\core\templates\core\about.html:5 .\templates\template.html:43
 msgid "About"
 msgstr "A propos"
 
-#: .\core\templates\core\administration.html:5 .\templates\template.html:40
+#: .\core\templates\core\administration.html:5 .\templates\template.html:42
 msgid "Administration"
 msgstr "Administration"
 
@@ -54,27 +54,60 @@ msgstr "Le GONm"
 msgid "Bretagne vivante"
 msgstr "Bretagne vivante"
 
-#: .\core\templates\core\observation_form.html:5
-msgid "Record an observation about a kentish plover"
-msgstr ""
-"Enregistrer une observation à propos d'un gravelot à collier interrompu"
+#: .\core\templates\core\map.html:6
+msgid "Set a location and a date"
+msgstr "Ajoutez un lieu et une date"
 
-#: .\templates\template.html:12 .\templates\template.html:35
+#: .\core\templates\core\map.html:19
+msgid "City"
+msgstr "Ville"
+
+#: .\core\templates\core\map.html:22
+msgid "Department"
+msgstr "Département"
+
+#: .\core\templates\core\map.html:25
+msgid "Country"
+msgstr "Pays"
+
+#: .\core\templates\core\map.html:31
+msgid "Location"
+msgstr "Lieu-dit"
+
+#: .\core\templates\core\map.html:37
+msgid "X coordinate"
+msgstr "Coordonnée X"
+
+#: .\core\templates\core\map.html:40
+msgid "Y coordinate"
+msgstr "Coordonnée Y"
+
+#: .\core\templates\core\map.html:45 .\templates\template.html:55
+msgid "Submit"
+msgstr "Valider"
+
+#: .\core\templates\core\observations.html:5
+#, fuzzy
+#| msgid "Record your observations"
+msgid "Set your observations"
+msgstr "Ajouter une observation"
+
+#: .\templates\template.html:12 .\templates\template.html:37
 msgid "Home"
 msgstr "Accueil"
 
-#: .\templates\template.html:30
+#: .\templates\template.html:32
 msgid "Toggle navigation"
 msgstr "Basculer la navigation"
 
-#: .\templates\template.html:39
+#: .\templates\template.html:41
 msgid "Did you saw a kentish plover ?"
 msgstr "Vous avez vu un gravelot à collier interrompu ?"
 
-#: .\templates\template.html:42
+#: .\templates\template.html:44
 msgid "The C.R.B.P.O"
 msgstr "Le C.R.B.P.O"
 
-#: .\templates\template.html:53
-msgid "Submit"
-msgstr "Valider"
+#~ msgid "Record an observation about a kentish plover"
+#~ msgstr ""
+#~ "Enregistrer une observation à propos d'un gravelot à collier interrompu"

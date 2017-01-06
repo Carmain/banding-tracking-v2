@@ -16,4 +16,4 @@ Work in progress !
  * Launch the project : ```python manage.py runserver```
 
 ## Other usefull commands
- * Generate the translation file for a specific language : ```django-admin.py makemessages -l <LANGUAGE CODE>```
+ * Generate the translation file for a specific language : ```django-admin.py makemessages -l <LANGUAGE CODE>``` or ```django-admin.py makemessages -all```

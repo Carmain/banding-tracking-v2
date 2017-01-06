@@ -10,39 +10,39 @@
   <form class="form-horizontal" role="form" method="post" action="#">
     <div class="form-group">
       <div class="col-xs-12">
-        <input type="date" class="form-control mandatory datepicker" name="date">
+        <input type="date" class="form-control mandatory" name="date">
       </div>
     </div>
 
     <div class="form-group">
       <div class="col-xs-4">
-        <input type="text" class="form-control mandatory" name="town" placeholder="Ville">
+        <input type="text" class="form-control mandatory" name="town" placeholder="{% trans 'City' %}">
       </div>
       <div class="col-xs-4">
-        <input type="text" class="form-control mandatory" name="departement" placeholder="Département">
+        <input type="text" class="form-control mandatory" name="departement" placeholder="{% trans 'Department' %}">
       </div>
       <div class="col-xs-4">
-        <input type="text" class="form-control mandatory" name="country" placeholder="Département">
+        <input type="text" class="form-control mandatory" name="country" placeholder="{% trans 'Country' %}">
       </div>
     </div>
 
     <div class="form-group">
       <div class="col-xs-12">
-        <input type="text" class="form-control mandatory" name="location" placeholder="Lieu-dit">
+        <input type="text" class="form-control mandatory" name="location" placeholder="{% trans 'Location' %}">
       </div>
     </div>
 
     <div class="form-group">
       <div class="col-xs-6">
-        <input type="text" disabled class="form-control mandatory" name="coordinate_x" placeholder="Coordonnée X">
+        <input type="text" disabled class="form-control" name="coordinate_x" placeholder="{% trans 'X coordinate' %}">
       </div>
       <div class="col-xs-6">
-        <input type="text" disabled class="form-control mandatory" name="coordinate_y" placeholder="Coordonnée Y">
+        <input type="text" disabled class="form-control" name="coordinate_y" placeholder="{% trans 'Y coordinate' %}">
       </div>
     </div>
 
     <div class="form-group">
-      <button type="submit" class="btn">Valider</button>
+      <button type="{% trans 'Submit' %}" class="btn">Valider</button>
     </div>
   </form>
 {% endblock %}
