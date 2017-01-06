@@ -1,14 +1,35 @@
+var markers = [];
+
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  // TODO: Display a popup instead of an infoWindow
   infoWindow.setPosition(pos);
   infoWindow.setContent(browserHasGeolocation ?
                         'Error: The Geolocation service failed.' :
                         'Error: Your browser doesn\'t support geolocation.');
 }
 
+function clearMarkers() {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(null);
+  }
+}
+
+function placeMarkerAndPanTo(latLng, map) {
+  clearMarkers();
+  var marker = new google.maps.Marker({
+    position: latLng,
+    map: map
+  });
+
+
+  markers.push(marker);
+  map.panTo(latLng);
+}
+
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
-    zoom: 6
+    center: {lat: 49.174924, lng: -0.339841},
+    zoom: 15
   });
   var infoWindow = new google.maps.InfoWindow({map: map});
 
@@ -21,6 +42,7 @@ function initMap() {
       };
 
       infoWindow.setPosition(pos);
+      // TODO: Display a popup instead of an infoWindow
       infoWindow.setContent('Location found.');
       map.setCenter(pos);
     }, function() {
@@ -30,4 +52,8 @@ function initMap() {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
+
+  map.addListener('click', function(e) {
+    placeMarkerAndPanTo(e.latLng, map);
+  });
 }
