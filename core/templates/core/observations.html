@@ -2,5 +2,35 @@
 {% load i18n %}
 
 {% block content %}
-  <h2>{% trans "Set your observations" %}</h1>
+  <h2>{% trans "Set your observations" %}</h2>
+
+  <form method="post" action="#">
+    <div class="form-group">
+      <label for="code" class="control-label">{% trans 'Code' %}</label>
+      <input type="number" class="form-control" placeholder="{% trans 'Code' %}">
+    </div>
+
+    <div class="form-group">
+      <label for="color" class="control-label">{% trans 'Color' %}</label>
+      <select class="form-control" name="color">
+        <option>{% trans 'Red' %}</option>
+        <option>{% trans 'White' %}</option>
+        <option>{% trans 'Yellow' %}</option>
+        <option>{% trans 'Green' %}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="color" class="control-label">{% trans 'Sex' %}</label>
+      <select class="form-control" name="sex">
+        <option>{% trans 'Male' %}</option>
+        <option>{% trans 'Female' %}</option>
+        <option>{% trans 'undetermined' %}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-default">{% trans 'Submit' %}</button>
+    </div>
+  </form>
 {% endblock %}
