@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 
 def index(request):
@@ -19,4 +19,9 @@ def map(request):
 
 
 def observations(request):
-    return render(request, 'core/observations.html')
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        return render(request, 'core/observations.html')
+    else:
+        # redirect to a new URL:
+        return HttpResponseRedirect('map')
