@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-13 16:19+0100\n"
+"POT-Creation-Date: 2017-01-13 17:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -144,8 +144,8 @@ msgid "Comment"
 msgstr "Comment"
 
 #: .\core\templates\core\observations.html:52
-msgid "All the plover seized"
-msgstr "All the plover seized"
+msgid "All the plovers seized"
+msgstr "All the plovers seized"
 
 #: .\templates\template.html:12 .\templates\template.html:37
 msgid "Home"
