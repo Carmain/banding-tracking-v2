@@ -32,7 +32,7 @@ function reverseGeocode(location) {
         $('input[name=coordinate_x]').val(location.lat);
         $('input[name=coordinate_y]').val(location.lng);
         $('input[name=town]').val(parseAddress(addressObject, 0));
-        $('input[name=departement]').val(parseAddress(addressObject, 1));
+        $('input[name=department]').val(parseAddress(addressObject, 1));
         $('input[name=country]').val(parseAddress(addressObject, 3));
       }
     } else {
