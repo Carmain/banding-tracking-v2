@@ -15,15 +15,16 @@ def administration(request):
 
 
 def map(request):
+    # TODO: Check if it's a good ID...
+    request.session.flush()
     return render(request, 'core/map.html')
 
 
 def observations(request):
     data = {}
 
-    if request.method == 'POST':
-        session = request.session
-        if not request.session.get('location'):
+    if not request.session.get('location'):
+        if request.method == 'POST':
             location = {
                 'date': request.POST.get('date'),
                 'town': request.POST.get('town'),
@@ -35,7 +36,11 @@ def observations(request):
             }
 
             request.session['location'] = location
-        else:
+            data['location'] = location
+
+            return render(request, 'core/observations.html', data)
+    else:
+        if request.method == 'POST':
             plover = {
                 'code': request.POST.get('code'),
                 'color': request.POST.get('color'),
@@ -53,7 +58,7 @@ def observations(request):
             data['location'] = request.session.get('location')
             data['plovers'] = request.session.get('plovers')
 
-        return render(request, 'core/observations.html', data)
-    else:
-        # redirect to a new URL:
-        return HttpResponseRedirect('map')
+            return render(request, 'core/observations.html', data)
+        else:
+            # redirect to a new URL:
+            return HttpResponseRedirect('map')
