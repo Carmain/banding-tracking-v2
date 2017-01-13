@@ -36,6 +36,16 @@ def map(request):
         return render(request, 'core/map.html')
 
 
+# Not a view
+def add_plover_in_session(request, plover):
+    if 'plovers' not in request.session or not request.session['plovers']:
+        request.session['plovers'] = [plover]
+    else:
+        plovers_list = request.session['plovers']
+        plovers_list.append(plover)
+        request.session['plovers'] = plovers_list
+
+
 def observations(request):
     if request.session.get('location'):
         data = {
@@ -51,13 +61,10 @@ def observations(request):
                 'comment': request.POST.get('comment')
             }
 
-            if 'plovers' not in request.session or not request.session['plovers']:
-                request.session['plovers'] = [plover]
-            else:
-                plovers_list = request.session['plovers']
-                plovers_list.append(plover)
-                request.session['plovers'] = plovers_list
+            add_plover_in_session(request, plover)
+            data['plovers'] = request.session.get('plovers')
 
+        elif request.session.get('plovers'):
             data['plovers'] = request.session.get('plovers')
 
         return render(request, 'core/observations.html', data)

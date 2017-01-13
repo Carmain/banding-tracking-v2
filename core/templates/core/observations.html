@@ -56,19 +56,22 @@
             <th>{% trans 'Code' %}</th>
             <th>{% trans 'Color' %}</th>
             <th>{% trans 'Sex' %}</th>
+            <th> </th>
           </tr>
         </thead>
         <tbody>
-          {% if plovers %}
-            {% for plover in plovers %}
-              <tr>
-                <td>{{plover.code}}</td>
-                <td>{{plover.color}}</td>
-                <td>{{plover.sex}}</td>
-                <td><a href="{% url "remove_plover" plover.uuid %}" class="btn btn-danger" role="button">X</a></td>
-              </tr>
-            {% endfor %}
-          {% endif %}
+          {% for plover in plovers %}
+            <tr>
+              <td>{{plover.code}}</td>
+              <td>{{plover.color}}</td>
+              <td>{{plover.sex}}</td>
+              <td>
+                <a href="{% url "remove_plover" plover.uuid %}">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </a>
+              </td>
+            </tr>
+          {% endfor %}
         </tbody>
       </table>
     </div>
