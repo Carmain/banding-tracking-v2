@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-06 16:55+0100\n"
+"POT-Creation-Date: 2017-01-13 16:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,6 +39,7 @@ msgid "Study tool for ringed birds' populations"
 msgstr "Outil d'étude pour la population des oiseaux bagués"
 
 #: .\core\templates\core\home.html:13 .\core\templates\core\home.html:15
+#: .\core\templates\core\observations.html:12
 msgid "Record an observation"
 msgstr "Ajouter une observation"
 
@@ -70,7 +71,7 @@ msgstr "Département"
 msgid "Country"
 msgstr "Pays"
 
-#: .\core\templates\core\map.html:31
+#: .\core\templates\core\map.html:31 .\core\templates\core\observations.html:8
 msgid "Location"
 msgstr "Lieu-dit"
 
@@ -82,15 +83,70 @@ msgstr "Coordonnée X"
 msgid "Y coordinate"
 msgstr "Coordonnée Y"
 
-#: .\core\templates\core\map.html:45 .\templates\template.html:55
+#: .\core\templates\core\map.html:46 .\core\templates\core\observations.html:46
+#: .\templates\template.html:55
 msgid "Submit"
 msgstr "Valider"
 
 #: .\core\templates\core\observations.html:5
-#, fuzzy
-#| msgid "Record your observations"
 msgid "Set your observations"
-msgstr "Ajouter une observation"
+msgstr "Ajouter vos observations"
+
+#: .\core\templates\core\observations.html:7
+msgid "Date"
+msgstr "Date"
+
+#: .\core\templates\core\observations.html:17
+#: .\core\templates\core\observations.html:18
+#: .\core\templates\core\observations.html:56
+msgid "Code"
+msgstr "Code"
+
+#: .\core\templates\core\observations.html:22
+#: .\core\templates\core\observations.html:57
+msgid "Color"
+msgstr "Couleur"
+
+#: .\core\templates\core\observations.html:24
+msgid "Red"
+msgstr "Rouge"
+
+#: .\core\templates\core\observations.html:25
+msgid "White"
+msgstr "Blanc"
+
+#: .\core\templates\core\observations.html:26
+msgid "Yellow"
+msgstr "Jaune"
+
+#: .\core\templates\core\observations.html:27
+msgid "Green"
+msgstr "Vert"
+
+#: .\core\templates\core\observations.html:32
+#: .\core\templates\core\observations.html:58
+msgid "Sex"
+msgstr "Sexe"
+
+#: .\core\templates\core\observations.html:34
+msgid "Male"
+msgstr "Mâle"
+
+#: .\core\templates\core\observations.html:35
+msgid "Female"
+msgstr "Femelle"
+
+#: .\core\templates\core\observations.html:36
+msgid "Undetermined"
+msgstr "Non déterminé"
+
+#: .\core\templates\core\observations.html:41
+msgid "Comment"
+msgstr "Commentaire"
+
+#: .\core\templates\core\observations.html:52
+msgid "All the plover seized"
+msgstr "Tous les gravelots saisis"
 
 #: .\templates\template.html:12 .\templates\template.html:37
 msgid "Home"

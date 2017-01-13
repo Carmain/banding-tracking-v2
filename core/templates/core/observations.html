@@ -4,8 +4,8 @@
 {% block content %}
   <h2>{% trans "Set your observations" %}</h2>
 
-  <p>Date : {{location.date}}</p>
-  <p>Location : {{location.town}}, {{location.department}}</p>
+  <p>{% trans "Date" %} : {{location.date}}</p>
+  <p>{% trans "Location" %} : {{location.town}}, {{location.department}}</p>
 
   <div class="row">
     <div class="col-sm-6">
@@ -33,7 +33,7 @@
           <select class="form-control" name="sex">
             <option>{% trans 'Male' %}</option>
             <option>{% trans 'Female' %}</option>
-            <option>{% trans 'undetermined' %}</option>
+            <option>{% trans 'Undetermined' %}</option>
           </select>
         </div>
 
@@ -49,7 +49,7 @@
     </div>
 
     <div class="col-sm-6">
-      <h3>{% trans 'All the plover recorded' %}</h3>
+      <h3>{% trans 'All the plover seized' %}</h3>
       <table class="table table-striped">
         <thead>
           <tr>
