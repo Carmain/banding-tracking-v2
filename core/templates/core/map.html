@@ -7,7 +7,7 @@
 
   <div id="map" class="map-form"></div>
 
-  <form method="post" action="{% url 'observations' %}">
+  <form method="post" action="{% url 'map' %}">
     {% csrf_token %}
     <div class="form-group">
       <input type="date" class="form-control mandatory" name="date">

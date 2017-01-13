@@ -1,3 +1,5 @@
+import uuid
+
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 
@@ -17,31 +19,32 @@ def administration(request):
 def map(request):
     # TODO: Check if it's a good ID...
     request.session.flush()
-    return render(request, 'core/map.html')
+
+    if request.method == 'POST':
+        request.session['location'] = {
+            'date': request.POST.get('date'),
+            'town': request.POST.get('town'),
+            'department': request.POST.get('department'),
+            'country': request.POST.get('country'),
+            'location': request.POST.get('location'),
+            'coordinate_x': request.POST.get('coordinate_x'),
+            'coordinate_y': request.POST.get('coordinate_y')
+        }
+
+        return HttpResponseRedirect('/observations')
+    else:
+        return render(request, 'core/map.html')
 
 
 def observations(request):
-    data = {}
+    if request.session.get('location'):
+        data = {
+            'location': request.session.get('location')
+        }
 
-    if not request.session.get('location'):
-        if request.method == 'POST':
-            location = {
-                'date': request.POST.get('date'),
-                'town': request.POST.get('town'),
-                'department': request.POST.get('department'),
-                'country': request.POST.get('country'),
-                'location': request.POST.get('location'),
-                'coordinate_x': request.POST.get('coordinate_x'),
-                'coordinate_y': request.POST.get('coordinate_y')
-            }
-
-            request.session['location'] = location
-            data['location'] = location
-
-            return render(request, 'core/observations.html', data)
-    else:
         if request.method == 'POST':
             plover = {
+                'uuid': uuid.uuid4().hex,
                 'code': request.POST.get('code'),
                 'color': request.POST.get('color'),
                 'sex': request.POST.get('sex'),
@@ -55,10 +58,16 @@ def observations(request):
                 plovers_list.append(plover)
                 request.session['plovers'] = plovers_list
 
-            data['location'] = request.session.get('location')
             data['plovers'] = request.session.get('plovers')
 
-            return render(request, 'core/observations.html', data)
-        else:
-            # redirect to a new URL:
-            return HttpResponseRedirect('map')
+        return render(request, 'core/observations.html', data)
+    else:
+        return HttpResponseRedirect('/map')
+
+
+def remove_plover(request, uuid):
+    plovers_in_session = request.session.get('plovers')
+    plovers = [el for el in plovers_in_session if el.get('uuid') != uuid]
+    request.session['plovers'] = plovers
+
+    return HttpResponseRedirect('/observations')

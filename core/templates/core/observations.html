@@ -65,6 +65,7 @@
                 <td>{{plover.code}}</td>
                 <td>{{plover.color}}</td>
                 <td>{{plover.sex}}</td>
+                <td><a href="{% url "remove_plover" plover.uuid %}" class="btn btn-danger" role="button">X</a></td>
               </tr>
             {% endfor %}
           {% endif %}
