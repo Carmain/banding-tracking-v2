@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-18 15:05+0100\n"
+"POT-Creation-Date: 2017-01-18 15:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr "French"
 msgid "English"
 msgstr "English"
 
-#: .\core\forms.py:7 .\core\templates\core\observations.html:7
+#: .\core\forms.py:7 .\core\templates\core\observations.html:8
 msgid "Date"
 msgstr "Date"
 
@@ -33,32 +33,34 @@ msgstr "Date"
 msgid "Town"
 msgstr "Town"
 
-#: .\core\forms.py:24 .\core\forms.py:27 .\core\templates\core\map.html:62
+#: .\core\forms.py:24 .\core\forms.py:27
 msgid "Department"
 msgstr "Department"
 
-#: .\core\forms.py:33 .\core\forms.py:36 .\core\templates\core\map.html:65
+#: .\core\forms.py:33 .\core\forms.py:36
 msgid "Country"
 msgstr "Country"
 
-#: .\core\forms.py:42 .\core\forms.py:45 .\core\templates\core\map.html:71
-#: .\core\templates\core\observations.html:8
+#: .\core\forms.py:42 .\core\forms.py:45
+#: .\core\templates\core\observations.html:9
 msgid "Location"
 msgstr "Location"
 
-#: .\core\forms.py:51 .\core\forms.py:53 .\core\templates\core\map.html:77
+#: .\core\forms.py:51 .\core\forms.py:54
 msgid "X coordinate"
 msgstr "X coordinate"
 
-#: .\core\forms.py:59 .\core\forms.py:61 .\core\templates\core\map.html:80
+#: .\core\forms.py:60 .\core\forms.py:63
 msgid "Y coordinate"
 msgstr "Y coordinate"
 
-#: .\core\templates\core\about.html:5 .\templates\template.html:43
+#: .\core\templates\core\about.html:4 .\core\templates\core\about.html:6
+#: .\templates\template.html:43
 msgid "About"
 msgstr "About"
 
-#: .\core\templates\core\administration.html:5 .\templates\template.html:42
+#: .\core\templates\core\administration.html:4
+#: .\core\templates\core\administration.html:6 .\templates\template.html:42
 msgid "Administration"
 msgstr "Administration"
 
@@ -67,7 +69,7 @@ msgid "Study tool for ringed birds' populations"
 msgstr "Study tool for ringed birds' populations"
 
 #: .\core\templates\core\home.html:13 .\core\templates\core\home.html:15
-#: .\core\templates\core\observations.html:12
+#: .\core\templates\core\observations.html:13
 msgid "Record an observation"
 msgstr "Record an observation"
 
@@ -83,72 +85,69 @@ msgstr "The GONm"
 msgid "Bretagne vivante"
 msgstr "Bretagne vivante"
 
-#: .\core\templates\core\map.html:6
-msgid "Set a location and a date"
-msgstr "Set a location and a date"
-
-#: .\core\templates\core\map.html:46 .\core\templates\core\map.html:86
-#: .\core\templates\core\observations.html:46 .\templates\template.html:55
-msgid "Submit"
-msgstr "Submit"
-
-#: .\core\templates\core\map.html:59
-msgid "City"
-msgstr "City"
-
-#: .\core\templates\core\observations.html:5
+#: .\core\templates\core\map.html:5 .\core\templates\core\observations.html:4
+#: .\core\templates\core\observations.html:6
 msgid "Set your observations"
 msgstr "Set your observations"
 
-#: .\core\templates\core\observations.html:17
+#: .\core\templates\core\map.html:7
+msgid "Set a location and a date"
+msgstr "Set a location and a date"
+
+#: .\core\templates\core\map.html:47 .\core\templates\core\observations.html:47
+#: .\templates\template.html:55
+msgid "Submit"
+msgstr "Submit"
+
 #: .\core\templates\core\observations.html:18
-#: .\core\templates\core\observations.html:56
+#: .\core\templates\core\observations.html:19
+#: .\core\templates\core\observations.html:57
 msgid "Code"
 msgstr "Code"
 
-#: .\core\templates\core\observations.html:22
-#: .\core\templates\core\observations.html:57
+#: .\core\templates\core\observations.html:23
+#: .\core\templates\core\observations.html:58
 msgid "Color"
 msgstr "Color"
 
-#: .\core\templates\core\observations.html:24
+#: .\core\templates\core\observations.html:25
 msgid "Red"
 msgstr "Red"
 
-#: .\core\templates\core\observations.html:25
+#: .\core\templates\core\observations.html:26
 msgid "White"
 msgstr "White"
 
-#: .\core\templates\core\observations.html:26
+#: .\core\templates\core\observations.html:27
 msgid "Yellow"
 msgstr "Yellow"
 
-#: .\core\templates\core\observations.html:27
+#: .\core\templates\core\observations.html:28
 msgid "Green"
 msgstr "Green"
 
-#: .\core\templates\core\observations.html:32
-#: .\core\templates\core\observations.html:58
+#: .\core\templates\core\observations.html:33
+#: .\core\templates\core\observations.html:59
 msgid "Sex"
 msgstr "Sex"
 
-#: .\core\templates\core\observations.html:34
+#: .\core\templates\core\observations.html:35
 msgid "Male"
 msgstr "Male"
 
-#: .\core\templates\core\observations.html:35
+#: .\core\templates\core\observations.html:36
 msgid "Female"
 msgstr "Female"
 
-#: .\core\templates\core\observations.html:36
+#: .\core\templates\core\observations.html:37
 msgid "Undetermined"
 msgstr "Undetermined"
 
-#: .\core\templates\core\observations.html:41
+#: .\core\templates\core\observations.html:42
 msgid "Comment"
 msgstr "Comment"
 
-#: .\core\templates\core\observations.html:52
+#: .\core\templates\core\observations.html:53
 msgid "All the plovers seized"
 msgstr "All the plovers seized"
 
@@ -167,6 +166,9 @@ msgstr "Did you saw a kentish plover ?"
 #: .\templates\template.html:44
 msgid "The C.R.B.P.O"
 msgstr "The C.R.B.P.O"
+
+#~ msgid "City"
+#~ msgstr "City"
 
 #~ msgid "Record an observation about a kentish plover"
 #~ msgstr "Record an observation about a kentish plover"
