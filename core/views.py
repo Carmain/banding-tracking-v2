@@ -3,6 +3,8 @@ import uuid
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 
+from .forms import MapForm
+
 
 def index(request):
     return render(request, 'core/home.html')
@@ -21,19 +23,24 @@ def map(request):
     request.session.flush()
 
     if request.method == 'POST':
-        request.session['location'] = {
-            'date': request.POST.get('date'),
-            'town': request.POST.get('town'),
-            'department': request.POST.get('department'),
-            'country': request.POST.get('country'),
-            'location': request.POST.get('location'),
-            'coordinate_x': request.POST.get('coordinate_x'),
-            'coordinate_y': request.POST.get('coordinate_y')
-        }
+        map_form = MapForm(request.POST)
+        # check whether it's valid:
+        if map_form.is_valid():
+            request.session['location'] = {
+                'date': request.POST.get('date'),
+                'town': request.POST.get('town'),
+                'department': request.POST.get('department'),
+                'country': request.POST.get('country'),
+                'location': request.POST.get('location'),
+                'coordinate_x': request.POST.get('coordinate_x'),
+                'coordinate_y': request.POST.get('coordinate_y')
+            }
 
-        return HttpResponseRedirect('/observations')
+            return HttpResponseRedirect('/observations')
     else:
-        return render(request, 'core/map.html')
+        map_form = MapForm()
+
+    return render(request, 'core/map.html', {'form': map_form})
 
 
 # Not a view
