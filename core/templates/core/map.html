@@ -51,10 +51,7 @@
   {% for field in form %}
     {% if field.errors %}
       {% for error in field.errors %}
-        <div class="alert alert-danger alert-dismissable">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <strong>{{ field.label }} : </strong> {{ error|escape }}
-        </div>
+        {% include "skeletons/alert.html" with type="alert-danger" label=field.label error=error %}
       {% endfor %}
     {% endif %}
   {% endfor %}

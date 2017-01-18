@@ -1,0 +1,6 @@
+{% load staticfiles %}
+
+<div class="alert {{type}} alert-dismissable">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>{{ label }} : </strong> {{ error|escape }}
+</div>
