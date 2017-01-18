@@ -18,9 +18,14 @@ def administration(request):
     return render(request, 'core/administration.html')
 
 
+def flush_session(request, keys):
+    for key in keys:
+        if key in request.session:
+            del request.session[key]
+
+
 def map(request):
-    # TODO: Check if it's a good ID...
-    request.session.flush()
+    flush_session(request, ('plovers', 'location'))
 
     if request.method == 'POST':
         map_form = MapForm(request.POST)
@@ -43,7 +48,6 @@ def map(request):
     return render(request, 'core/map.html', {'form': map_form})
 
 
-# Not a view
 def add_plover_in_session(request, plover):
     if 'plovers' not in request.session or not request.session['plovers']:
         request.session['plovers'] = [plover]
