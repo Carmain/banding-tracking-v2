@@ -49,6 +49,7 @@ class MapForm(forms.Form):
 
     coordinate_x = forms.FloatField(
         label=_('X coordinate'),
+        required=False,
         widget=forms.TextInput(attrs={
             'placeholder': _('X coordinate'),
             'class': 'form-control'
@@ -57,6 +58,7 @@ class MapForm(forms.Form):
 
     coordinate_y = forms.FloatField(
         label=_('Y coordinate'),
+        required=False,
         widget=forms.TextInput(attrs={
             'placeholder': _('Y coordinate'),
             'class': 'form-control'

@@ -47,45 +47,16 @@
     </div>
   </form>
 
-  <!--<form method="post" action="{% url 'map' %}">
-    {% csrf_token %}
-    <div class="form-group">
-      <input type="date" class="form-control" name="date">
-    </div>
-
-    <div class="form-group">
-      <div class="row">
-        <div class="col-xs-4">
-          <input type="text" class="form-control" name="town" placeholder="{% trans 'City' %}">
+  {% for field in form %}
+    {% if field.errors %}
+      {% for error in field.errors %}
+        <div class="alert alert-danger alert-dismissable">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong>{{ field.label }} : </strong> {{ error|escape }}
         </div>
-        <div class="col-xs-4">
-          <input type="text" class="form-control" name="department" placeholder="{% trans 'Department' %}">
-        </div>
-        <div class="col-xs-4">
-          <input type="text" class="form-control" name="country" placeholder="{% trans 'Country' %}">
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <input type="text" class="form-control" name="location" placeholder="{% trans 'Location' %}">
-    </div>
-
-    <div class="form-group">
-      <div class="row">
-        <div class="col-xs-6">
-          <input type="text" class="form-control" name="coordinate_x" placeholder="{% trans 'X coordinate' %}">
-        </div>
-        <div class="col-xs-6">
-          <input type="text" class="form-control" name="coordinate_y" placeholder="{% trans 'Y coordinate' %}">
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <button type="submit" class="btn btn-default">{% trans 'Submit' %}</button>
-    </div>
-  </form>-->
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
 {% endblock %}
 
 {% block extrajs %}
