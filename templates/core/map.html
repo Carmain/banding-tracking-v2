@@ -63,6 +63,28 @@
 
 {% block extrajs %}
   <script src="{% static 'js/geolocation.js' %}"></script>
+
   <!-- Google map API -->
-  <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+  {% if form.coordinate_x.value and form.coordinate_x.value %}
+    <script type="text/javascript">
+      function initMapWithFilledForm() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {
+            /* jshint ignore:start */
+            lat: {{form.coordinate_x.value}},
+            lng: {{form.coordinate_y.value}}
+            /* jshint ignore:end */
+          },
+          zoom: 15
+        });
+
+        map.addListener('click', function(e) {
+          setPosition(e.latLng);
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMapWithFilledForm" async defer></script>
+  {% else %}
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+  {% endif %}
 {% endblock %}

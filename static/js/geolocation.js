@@ -49,7 +49,7 @@ function clearMarkers() {
   }
 }
 
-function setPosition(latLng, map) {
+function setPosition(latLng) {
   clearMarkers();
   var marker = new google.maps.Marker({
     position: latLng,
@@ -69,7 +69,7 @@ function initMap() {
   });
 
   map.addListener('click', function(e) {
-    setPosition(e.latLng, map);
+    setPosition(e.latLng);
   });
 }
 
@@ -82,7 +82,7 @@ function geolocate() {
         lng: position.coords.longitude
       };
 
-      setPosition(pos, map);
+      setPosition(pos);
     }, function() {
       handleLocationError(true, map.getCenter());
     });
