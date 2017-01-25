@@ -62,17 +62,6 @@ function setPosition(latLng) {
   reverseGeocode(latLng);
 }
 
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 49.174924, lng: -0.339841},
-    zoom: 15
-  });
-
-  map.addListener('click', function(e) {
-    setPosition(e.latLng);
-  });
-}
-
 function geolocate() {
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
