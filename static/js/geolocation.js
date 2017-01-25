@@ -1,4 +1,5 @@
 var markers = [];
+var map = null;
 
 function handleLocationError(browserHasGeolocation, pos) {
   // TODO: Display a popup instead of an infoWindow
@@ -62,11 +63,17 @@ function setPosition(latLng, map) {
 }
 
 function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 49.174924, lng: -0.339841},
     zoom: 15
   });
 
+  map.addListener('click', function(e) {
+    setPosition(e.latLng, map);
+  });
+}
+
+function geolocate() {
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -83,8 +90,4 @@ function initMap() {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
-
-  map.addListener('click', function(e) {
-    setPosition(e.latLng, map);
-  });
 }

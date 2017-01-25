@@ -1,9 +1,14 @@
 a:hover{
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .map-form {
-	width: 100%;
-	height:380px;
-    margin-bottom: 30px;
+    width: 100%;
+    height:380px;
+    margin-bottom: 15px;
+}
+
+.geolocation-button {
+    width: 100%;
+    margin-bottom: 15px;
 }
