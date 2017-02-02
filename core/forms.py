@@ -16,6 +16,15 @@ class PloverForm(forms.Form):
         (3, _("Undetermined"))
     )
 
+    def format_choicefield(label, choices):
+        return forms.ChoiceField(
+            label=_(label),
+            choices=choices,
+            widget=forms.Select(attrs={
+                'class': 'form-control'
+            })
+        )
+
     code = forms.IntegerField(
         label=_('Code'),
         widget=forms.TextInput(attrs={
@@ -24,21 +33,8 @@ class PloverForm(forms.Form):
         })
     )
 
-    color = forms.ChoiceField(
-        label=_('Color'),
-        choices=COLOR_CHOICES,
-        widget=forms.Select(attrs={
-            'class': 'form-control'
-        })
-    )
-
-    sex = forms.ChoiceField(
-        label=_('Sex'),
-        choices=SEX_CHOICES,
-        widget=forms.Select(attrs={
-            'class': 'form-control'
-        })
-    )
+    color = format_choicefield('Color', COLOR_CHOICES)
+    sex = format_choicefield('Sex', SEX_CHOICES)
 
     comment = forms.CharField(
         label=_('Comment'),
@@ -50,6 +46,26 @@ class PloverForm(forms.Form):
 
 
 class MapForm(forms.Form):
+    def format_charfield(label, max_length, placeholder):
+        return forms.CharField(
+            label=_(label),
+            max_length=max_length,
+            widget=forms.TextInput(attrs={
+                'placeholder': _(placeholder),
+                'class': 'form-control'
+            })
+        )
+
+    def format_coordiate_field(label, placeholder):
+        return forms.FloatField(
+            label=_(label),
+            required=False,
+            widget=forms.TextInput(attrs={
+                'placeholder': _(placeholder),
+                'class': 'form-control'
+            })
+        )
+
     date = forms.DateField(
         label=_('Date'),
         widget=forms.DateInput(attrs={
@@ -58,74 +74,12 @@ class MapForm(forms.Form):
         })
     )
 
-    last_name = forms.CharField(
-        label=_('Last name'),
-        max_length=255,
-        widget=forms.TextInput(attrs={
-            'placeholder': _('Last name'),
-            'class': 'form-control'
-        })
-    )
+    last_name = format_charfield('Last name', 255, 'Last name')
+    first_name = format_charfield('First name', 255, 'First name')
+    town = format_charfield('Town', 255, 'Town')
+    department = format_charfield('Department', 255, 'Department')
+    country = format_charfield('Country', 255, 'Country')
+    location = format_charfield('Location', 255, 'Location')
 
-    first_name = forms.CharField(
-        label=_('First name'),
-        max_length=255,
-        widget=forms.TextInput(attrs={
-            'placeholder': _('First name'),
-            'class': 'form-control'
-        })
-    )
-
-    town = forms.CharField(
-        label=_('Town'),
-        max_length=255,
-        widget=forms.TextInput(attrs={
-            'placeholder': _('Town'),
-            'class': 'form-control'
-        })
-    )
-
-    department = forms.CharField(
-        label=_('Department'),
-        max_length=255,
-        widget=forms.TextInput(attrs={
-            'placeholder': _('Department'),
-            'class': 'form-control'
-        })
-    )
-
-    country = forms.CharField(
-        label=_('Country'),
-        max_length=255,
-        widget=forms.TextInput(attrs={
-            'placeholder': _('Country'),
-            'class': 'form-control'
-        })
-    )
-
-    location = forms.CharField(
-        label=_('Location'),
-        max_length=255,
-        widget=forms.TextInput(attrs={
-            'placeholder': _('Location'),
-            'class': 'form-control'
-        })
-    )
-
-    coordinate_x = forms.FloatField(
-        label=_('X coordinate'),
-        required=False,
-        widget=forms.TextInput(attrs={
-            'placeholder': _('X coordinate'),
-            'class': 'form-control'
-        })
-    )
-
-    coordinate_y = forms.FloatField(
-        label=_('Y coordinate'),
-        required=False,
-        widget=forms.TextInput(attrs={
-            'placeholder': _('Y coordinate'),
-            'class': 'form-control'
-        })
-    )
+    coordinate_x = format_coordiate_field('X coordinate', 'X coordinate')
+    coordinate_y = format_coordiate_field('X coordinate', 'X coordinate')
