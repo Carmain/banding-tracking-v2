@@ -63,13 +63,7 @@
     </div>
   </form>
 
-  {% for field in form %}
-    {% if field.errors %}
-      {% for error in field.errors %}
-        {% include "skeletons/alert.html" with type="alert-danger" label=field.label error=error %}
-      {% endfor %}
-    {% endif %}
-  {% endfor %}
+  {% include "skeletons/form_errors.html" %}
 {% endblock %}
 
 {% block extrajs %}

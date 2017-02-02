@@ -1,0 +1,7 @@
+{% for field in form %}
+  {% if field.errors %}
+    {% for error in field.errors %}
+      {% include "skeletons/message.html" with type="alert-danger" label=field.label message=error %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
