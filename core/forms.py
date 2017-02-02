@@ -52,7 +52,7 @@ class PloverForm(forms.Form):
 class MapForm(forms.Form):
     date = forms.DateField(
         label=_('Date'),
-        widget=forms.TextInput(attrs={
+        widget=forms.DateInput(attrs={
             'type': 'date',
             'class': 'form-control'
         })
