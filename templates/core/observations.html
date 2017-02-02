@@ -15,39 +15,26 @@
 
       <form method="post" action="{% url 'observations' %}">
         {% csrf_token %}
-        <div class="form-group">
-          <label for="code" class="control-label">{% trans 'Code' %}</label>
-          <input type="number" name="code" class="form-control" placeholder="{% trans 'Code' %}">
-        </div>
 
-        <div class="form-group">
-          <label for="color" class="control-label">{% trans 'Color' %}</label>
-          <select class="form-control" name="color">
-            <option>{% trans 'Red' %}</option>
-            <option>{% trans 'White' %}</option>
-            <option>{% trans 'Yellow' %}</option>
-            <option>{% trans 'Green' %}</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="sex" class="control-label">{% trans 'Sex' %}</label>
-          <select class="form-control" name="sex">
-            <option>{% trans 'Male' %}</option>
-            <option>{% trans 'Female' %}</option>
-            <option>{% trans 'Undetermined' %}</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label class="control-label" for="comment">{% trans 'Comment' %}</label>
-          <textarea class="form-control" rows="3" name="comment"></textarea>
-        </div>
+        {% for field in form %}
+          <div class="form-group">
+            <label for="{{ field.name }}" class="control-label">{{ field.label }}</label>
+            {{ field }}
+          </div>
+        {% endfor %}
 
         <div class="form-group">
           <button type="submit" class="btn btn-default">{% trans 'Submit' %}</button>
         </div>
       </form>
+
+      {% for field in form %}
+        {% if field.errors %}
+          {% for error in field.errors %}
+            {% include "skeletons/alert.html" with type="alert-danger" label=field.label error=error %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
     </div>
 
     <div class="col-sm-6">

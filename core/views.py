@@ -3,7 +3,7 @@ import uuid
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 
-from .forms import MapForm
+from .forms import MapForm, PloverForm
 
 
 def index(request):
@@ -29,6 +29,7 @@ def map(request):
 
     if request.method == 'POST':
         map_form = MapForm(request.POST)
+
         # check whether it's valid:
         if map_form.is_valid():
             request.session['general'] = {
@@ -66,20 +67,29 @@ def observations(request):
         }
 
         if request.method == 'POST':
-            plover = {
-                'uuid': uuid.uuid4().hex,
-                'code': request.POST.get('code'),
-                'color': request.POST.get('color'),
-                'sex': request.POST.get('sex'),
-                'comment': request.POST.get('comment')
-            }
+            plover_from = PloverForm(request.POST)
 
-            add_plover_in_session(request, plover)
-            data['plovers'] = request.session.get('plovers')
+            # check whether it's valid:
+            if plover_from.is_valid():
+                plover = {
+                    'uuid': uuid.uuid4().hex,
+                    'code': request.POST.get('code'),
+                    'color': request.POST.get('color'),
+                    'sex': request.POST.get('sex'),
+                    'comment': request.POST.get('comment')
+                }
+
+                add_plover_in_session(request, plover)
+                data['plovers'] = request.session.get('plovers')
 
         elif request.session.get('plovers'):
             data['plovers'] = request.session.get('plovers')
+            plover_from = PloverForm()
 
+        else:
+            plover_from = PloverForm()
+
+        data['form'] = plover_from
         return render(request, 'core/observations.html', data)
     else:
         return HttpResponseRedirect('/map')
