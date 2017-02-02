@@ -11,6 +11,24 @@ class MapForm(forms.Form):
         })
     )
 
+    last_name = forms.CharField(
+        label=_('Last name'),
+        max_length=255,
+        widget=forms.TextInput(attrs={
+            'placeholder': _('Last name'),
+            'class': 'form-control'
+        })
+    )
+
+    first_name = forms.CharField(
+        label=_('First name'),
+        max_length=255,
+        widget=forms.TextInput(attrs={
+            'placeholder': _('First name'),
+            'class': 'form-control'
+        })
+    )
+
     town = forms.CharField(
         label=_('Town'),
         max_length=255,

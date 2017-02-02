@@ -25,14 +25,16 @@ def flush_session(request, keys):
 
 
 def map(request):
-    flush_session(request, ('plovers', 'location'))
+    flush_session(request, ('plovers', 'general'))
 
     if request.method == 'POST':
         map_form = MapForm(request.POST)
         # check whether it's valid:
         if map_form.is_valid():
-            request.session['location'] = {
+            request.session['general'] = {
                 'date': request.POST.get('date'),
+                'last_name': request.POST.get('last_name').upper(),
+                'first_name': request.POST.get('first_name').capitalize(),
                 'town': request.POST.get('town'),
                 'department': request.POST.get('department'),
                 'country': request.POST.get('country'),
@@ -58,9 +60,9 @@ def add_plover_in_session(request, plover):
 
 
 def observations(request):
-    if request.session.get('location'):
+    if request.session.get('general'):
         data = {
-            'location': request.session.get('location')
+            'general': request.session.get('general')
         }
 
         if request.method == 'POST':
