@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import rollbar
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'core'
 ]
 
@@ -114,7 +116,19 @@ AUTH_PASSWORD_VALIDATORS = [
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (BASE_DIR, 'static')
 
+
+# Import all the local settings
 try:
     from .local_settings import *
 except ImportError as e:
     print('Error : ', e)
+
+
+# Rollbar configuration
+ROLLBAR = {
+    'access_token': ROLLBAR_ACCESS_TOKEN,
+    'environment': 'development' if DEBUG else 'production',
+    'root': BASE_DIR,
+}
+
+rollbar.init(**ROLLBAR)
