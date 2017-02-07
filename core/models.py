@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 class Location(models.Model):
     town = models.CharField(max_length=255)
     department = models.CharField(max_length=255)
-    locality = models.CharField(max_length=255)
+    locality = models.CharField(max_length=255, blank=True)
 
 
 class Observer(models.Model):
@@ -33,14 +33,15 @@ class Plover(models.Model):
     )
 
     bander = models.ForeignKey(Observer, related_name='plovers', default=None)
+    location = models.ForeignKey(Location, related_name='plovers', default=None)
     banding_year = models.IntegerField()
-    metal_ring = models.CharField(max_length=20)
+    metal_ring = models.CharField(max_length=20, unique=True)
     code = models.IntegerField()
     color = models.CharField(choices=COLORS, max_length=20)
     sex = models.CharField(choices=SEX, max_length=20)
     age = models.CharField(max_length=5)
     banding_date = models.DateField()
-    bading_time = models.TimeField()
+    banding_time = models.TimeField(blank=True)
 
 
 class Observation(models.Model):
