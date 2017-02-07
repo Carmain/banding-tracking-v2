@@ -1,0 +1,29 @@
+[
+  {
+    "model": "core.location",
+    "pk": 1,
+    "fields": {
+      "town": "MERVILLE-FRANCEVILLE-PLAGE",
+      "department": "Calvados",
+      "locality": "Plage"
+    }
+  },
+  {
+    "model": "core.location",
+    "pk": 2,
+    "fields": {
+      "town": "AGON-COUTAINVILLE",
+      "department": "Manche",
+      "locality": "Pointe d'Agon"
+    }
+  },
+  {
+    "model": "core.location",
+    "pk": 3,
+    "fields": {
+      "town": "COSQUEVILLE",
+      "department": "Manche",
+      "locality": "Le Hable"
+    }
+  }
+]

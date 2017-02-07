@@ -116,6 +116,8 @@ AUTH_PASSWORD_VALIDATORS = [
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (BASE_DIR, 'static')
 
+# Seeds for the database
+FIXTURE_DIRS = (BASE_DIR, 'fixtures')
 
 # Import all the local settings
 try:
