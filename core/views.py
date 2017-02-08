@@ -101,3 +101,7 @@ def remove_plover(request, uuid):
     request.session['plovers'] = plovers
 
     return HttpResponseRedirect('/observations')
+
+
+def validate_plovers(request):
+    return render(request, 'core/result.html', request.session)
