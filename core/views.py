@@ -1,6 +1,7 @@
 import uuid
 
 from django.shortcuts import render
+from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from core.models import Location, Observer, Observation
 
@@ -93,7 +94,7 @@ def observations(request):
         data['form'] = plover_from
         return render(request, 'core/observations.html', data)
     else:
-        return HttpResponseRedirect('/map')
+        return HttpResponseRedirect(reverse('map'))
 
 
 def remove_plover(request, uuid):
@@ -101,7 +102,7 @@ def remove_plover(request, uuid):
     plovers = [el for el in plovers_in_session if el.get('uuid') != uuid]
     request.session['plovers'] = plovers
 
-    return HttpResponseRedirect('/observations')
+    return HttpResponseRedirect(reverse('observations'))
 
 
 def validate_plovers(request):
