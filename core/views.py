@@ -63,7 +63,7 @@ def add_plover_in_session(request, plover):
 
 
 def observations(request):
-    if request.session.get('general'):
+    if request.session.get('general', False):
         data = {
             'general': request.session.get('general')
         }
@@ -84,7 +84,7 @@ def observations(request):
                 add_plover_in_session(request, plover)
                 data['plovers'] = request.session.get('plovers')
 
-        elif request.session.get('plovers'):
+        elif request.session.get('plovers', False):
             data['plovers'] = request.session.get('plovers')
             plover_from = PloverForm()
 
