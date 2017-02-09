@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-02 14:04+0100\n"
+"POT-Creation-Date: 2017-02-09 14:07+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,49 +18,54 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\banding_tracking\settings.py:27
+#: .\banding_tracking\settings.py:28
 msgid "French"
 msgstr "Français"
 
-#: .\banding_tracking\settings.py:28
+#: .\banding_tracking\settings.py:29
 msgid "English"
 msgstr "Anglais"
 
-#: .\core\forms.py:7 .\templates\core\observations.html:8
+#: .\core\forms.py:7 .\core\models.py:24
+msgid "Red"
+msgstr "Rouge"
+
+#: .\core\forms.py:8 .\core\models.py:25
+msgid "White"
+msgstr "Blanc"
+
+#: .\core\forms.py:9 .\core\models.py:26
+msgid "Yellow"
+msgstr "Jaune"
+
+#: .\core\forms.py:10 .\core\models.py:27
+msgid "Green"
+msgstr "Vert"
+
+#: .\core\forms.py:14 .\core\models.py:31
+msgid "Male"
+msgstr "Mâle"
+
+#: .\core\forms.py:15 .\core\models.py:32
+msgid "Female"
+msgstr "Femelle"
+
+#: .\core\forms.py:16 .\core\models.py:33
+msgid "Undetermined"
+msgstr "Non déterminé"
+
+#: .\core\forms.py:29 .\core\forms.py:31 .\templates\core\observations.html:39
+#: .\templates\core\result.html:10
+msgid "Code"
+msgstr "Code"
+
+#: .\core\forms.py:40
+msgid "Comment"
+msgstr "Commentaire"
+
+#: .\core\forms.py:72 .\templates\core\observations.html:8
 msgid "Date"
 msgstr "Date"
-
-#: .\core\forms.py:15 .\core\forms.py:18
-msgid "Last name"
-msgstr "Nom"
-
-#: .\core\forms.py:24 .\core\forms.py:27
-msgid "First name"
-msgstr "Prénom"
-
-#: .\core\forms.py:33 .\core\forms.py:36
-msgid "Town"
-msgstr "Ville"
-
-#: .\core\forms.py:42 .\core\forms.py:45
-msgid "Department"
-msgstr "Département"
-
-#: .\core\forms.py:51 .\core\forms.py:54
-msgid "Country"
-msgstr "Pays"
-
-#: .\core\forms.py:60 .\core\forms.py:63 .\templates\core\observations.html:10
-msgid "Location"
-msgstr "Lieu-dit"
-
-#: .\core\forms.py:69 .\core\forms.py:72
-msgid "X coordinate"
-msgstr "Coordonnée X"
-
-#: .\core\forms.py:78 .\core\forms.py:81
-msgid "Y coordinate"
-msgstr "Coordonnée Y"
 
 #: .\templates\core\about.html:4 .\templates\core\about.html:6
 #: .\templates\template.html:43
@@ -94,7 +99,7 @@ msgid "Bretagne vivante"
 msgstr "Bretagne vivante"
 
 #: .\templates\core\map.html:5 .\templates\core\observations.html:4
-#: .\templates\core\observations.html:6
+#: .\templates\core\observations.html:6 .\templates\core\result.html:4
 msgid "Set your observations"
 msgstr "Ajouter vos observations"
 
@@ -106,8 +111,7 @@ msgstr "Ajoutez un lieu et une date"
 msgid "Geolocate me"
 msgstr "Géolocalisez moi"
 
-#: .\templates\core\map.html:62 .\templates\core\observations.html:48
-#: .\templates\template.html:61
+#: .\templates\core\map.html:62 .\templates\template.html:61
 msgid "Submit"
 msgstr "Valider"
 
@@ -115,54 +119,41 @@ msgstr "Valider"
 msgid "Observer"
 msgstr "Observateur"
 
-#: .\templates\core\observations.html:19 .\templates\core\observations.html:20
-#: .\templates\core\observations.html:58
-msgid "Code"
-msgstr "Code"
+#: .\templates\core\observations.html:10
+msgid "Location"
+msgstr "Lieu-dit"
 
-#: .\templates\core\observations.html:24 .\templates\core\observations.html:59
+#: .\templates\core\observations.html:27
+msgid "Add my observation"
+msgstr "Ajouter mon observation"
+
+#: .\templates\core\observations.html:35
+msgid "All the plovers seized"
+msgstr "Tous les gravelots saisis"
+
+#: .\templates\core\observations.html:40 .\templates\core\result.html:11
 msgid "Color"
 msgstr "Couleur"
 
-#: .\templates\core\observations.html:26
-msgid "Red"
-msgstr "Rouge"
-
-#: .\templates\core\observations.html:27
-msgid "White"
-msgstr "Blanc"
-
-#: .\templates\core\observations.html:28
-msgid "Yellow"
-msgstr "Jaune"
-
-#: .\templates\core\observations.html:29
-msgid "Green"
-msgstr "Vert"
-
-#: .\templates\core\observations.html:34 .\templates\core\observations.html:60
+#: .\templates\core\observations.html:41 .\templates\core\result.html:12
 msgid "Sex"
 msgstr "Sexe"
 
-#: .\templates\core\observations.html:36
-msgid "Male"
-msgstr "Mâle"
+#: .\templates\core\observations.html:63
+msgid "Send my observations"
+msgstr "Envoyer mes observations"
 
-#: .\templates\core\observations.html:37
-msgid "Female"
-msgstr "Femelle"
+#: .\templates\core\result.html:6
+msgid "Result"
+msgstr "Résultat"
 
-#: .\templates\core\observations.html:38
-msgid "Undetermined"
-msgstr "Non déterminé"
+#: .\templates\core\result.html:13
+msgid "Validated"
+msgstr "Validés"
 
-#: .\templates\core\observations.html:43
-msgid "Comment"
-msgstr "Commentaire"
-
-#: .\templates\core\observations.html:54
-msgid "All the plovers seized"
-msgstr "Tous les gravelots saisis"
+#: .\templates\core\result.html:32
+msgid "Get the history"
+msgstr "Récupérer l'historique"
 
 #: .\templates\template.html:12 .\templates\template.html:37
 msgid "Home"
@@ -179,6 +170,27 @@ msgstr "Vous avez vu un gravelot à collier interrompu ?"
 #: .\templates\template.html:44
 msgid "The C.R.B.P.O"
 msgstr "Le C.R.B.P.O"
+
+#~ msgid "Last name"
+#~ msgstr "Nom"
+
+#~ msgid "First name"
+#~ msgstr "Prénom"
+
+#~ msgid "Town"
+#~ msgstr "Ville"
+
+#~ msgid "Department"
+#~ msgstr "Département"
+
+#~ msgid "Country"
+#~ msgstr "Pays"
+
+#~ msgid "X coordinate"
+#~ msgstr "Coordonnée X"
+
+#~ msgid "Y coordinate"
+#~ msgstr "Coordonnée Y"
 
 #~ msgid "City"
 #~ msgstr "Ville"
