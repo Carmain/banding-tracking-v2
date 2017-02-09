@@ -2,6 +2,7 @@ import uuid
 
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+from core.models import Location, Observer, Observation
 
 from .forms import MapForm, PloverForm
 
@@ -104,4 +105,28 @@ def remove_plover(request, uuid):
 
 
 def validate_plovers(request):
-    return render(request, 'core/result.html', request.session)
+    general = request.session.get('general')
+    plovers = request.session.get('plovers')
+
+    location = Location.objects.get_or_create(
+        country=general.get('country'),
+        town=general.get('town'),
+        department=general.get('department'),
+        locality=general.get('locality')
+    )
+
+    observer = Observer.objects.get_or_create(
+        last_name=general.get('last_name'),
+        first_name=general.get('first_name')
+    )
+
+    # observations = Observation.objects.get_or_create(
+    #     date=general.date,
+    #     coordinate_x=general.coordinate_x,
+    #     coordinate_y=general.coordinate_y
+    # )
+
+    return render(request, 'core/result.html', {
+        'location': location,
+        'observer': observer
+    })
