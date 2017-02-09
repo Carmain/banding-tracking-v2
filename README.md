@@ -38,3 +38,6 @@ Version 2.0 for the banding-tracking website
 ## Other usefull commands
  * Generate the translation file for a specific language : ```django-admin.py makemessages -l <LANGUAGE CODE>```
  * Generate all the translation files ```django-admin.py makemessages -all```
+
+ * Flush database : `python manage.py flush`
+ * Seed database : `python manage.py loaddata locations.json observers.json plovers.json`
