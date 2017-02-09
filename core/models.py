@@ -3,9 +3,10 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class Location(models.Model):
+    country = models.CharField(max_length=255)
     town = models.CharField(max_length=255)
     department = models.CharField(max_length=255)
-    locality = models.CharField(max_length=255, blank=True)
+    locality = models.CharField(max_length=255, null=True)
 
 
 class Observer(models.Model):
@@ -32,8 +33,8 @@ class Plover(models.Model):
         (3, _("Undetermined"))
     )
 
-    bander = models.ForeignKey(Observer, related_name='plovers', default=None)
-    location = models.ForeignKey(Location, related_name='plovers', default=None)
+    bander = models.ForeignKey(Observer, related_name='plovers')
+    location = models.ForeignKey(Location, related_name='plovers')
     banding_year = models.IntegerField()
     metal_ring = models.CharField(max_length=20, unique=True)
     code = models.IntegerField()
@@ -49,6 +50,6 @@ class Observation(models.Model):
     plover = models.ForeignKey(Plover, related_name='observations')
     location = models.ForeignKey(Location, related_name='observations')
     date = models.DateField()
-    x_coordinate = models.FloatField()
-    y_coordinate = models.FloatField()
+    coordinate_x = models.FloatField()
+    coordinate_y = models.FloatField()
     comment = models.TextField()
