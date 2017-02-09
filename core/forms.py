@@ -38,6 +38,7 @@ class PloverForm(forms.Form):
 
     comment = forms.CharField(
         label=_('Comment'),
+        required=False,
         widget=forms.Textarea(attrs={
             'class': 'form-control',
             'rows': 3
@@ -46,9 +47,10 @@ class PloverForm(forms.Form):
 
 
 class MapForm(forms.Form):
-    def format_charfield(label, max_length, placeholder):
+    def format_charfield(label, max_length, placeholder, required=True):
         return forms.CharField(
             label=_(label),
+            required=required,
             max_length=max_length,
             widget=forms.TextInput(attrs={
                 'placeholder': _(placeholder),
@@ -79,7 +81,7 @@ class MapForm(forms.Form):
     town = format_charfield('Town', 255, 'Town')
     department = format_charfield('Department', 255, 'Department')
     country = format_charfield('Country', 255, 'Country')
-    location = format_charfield('Location', 255, 'Location')
+    location = format_charfield('Location', 255, 'Location', False)
 
     coordinate_x = format_coordiate_field('X coordinate', 'X coordinate')
     coordinate_y = format_coordiate_field('X coordinate', 'X coordinate')
