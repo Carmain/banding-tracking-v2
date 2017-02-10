@@ -4,4 +4,39 @@
 {% block title %}{% trans "Set your observations" %}{% endblock %}
 {% block content %}
   <h2>{% trans "Result" %}</h2>
+
+  <h3>
+    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+    {% trans "Accepted observations" %}
+  </h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>{% trans 'Code' %}</th>
+        <th>{% trans 'Color' %}</th>
+        <th>{% trans 'Sex' %}</th>
+        <th><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for observation in accepted_observations %}
+        <tr>
+          <td>{{observation.plover.code}}</td>
+          <td>{{observation.plover.color}}</td>
+          <td>{{observation.plover.sex}}</td>
+          <td>{% trans 'See the history' %}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h3>
+    <span class="glyphicon glyphicon-error" aria-hidden="true"></span>
+    {% trans "Rejected observations" %}
+  </h3>
+  <ul>
+    {% for observation in rejected_observations %}
+      <li>{{observation.code}} {{observation.color}}</li>
+    {% endfor %}
+  </ul>
 {% endblock %}

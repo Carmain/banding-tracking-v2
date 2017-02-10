@@ -3,7 +3,7 @@ import uuid
 from django.shortcuts import render
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
-from core.models import Location, Observer, Observation
+from core.models import Location, Observer, Observation, Plover
 
 from .forms import MapForm, PloverForm
 
@@ -107,27 +107,50 @@ def remove_plover(request, uuid):
 
 def validate_plovers(request):
     general = request.session.get('general')
-    plovers = request.session.get('plovers')
+    observations = request.session.get('plovers')
+    accepted_observations = []
+    rejected_observations = []
 
-    location = Location.objects.get_or_create(
+    location, location_exist = Location.objects.get_or_create(
         country=general.get('country'),
         town=general.get('town'),
         department=general.get('department'),
         locality=general.get('locality')
     )
 
-    observer = Observer.objects.get_or_create(
+    observer, observer_exist = Observer.objects.get_or_create(
         last_name=general.get('last_name'),
         first_name=general.get('first_name')
     )
 
-    # observations = Observation.objects.get_or_create(
-    #     date=general.date,
-    #     coordinate_x=general.coordinate_x,
-    #     coordinate_y=general.coordinate_y
-    # )
+    for observation in observations:
+        try:
+            plover = Plover.objects.get(
+                code=observation.get('code'),
+                color=observation.get('color')
+            )
+        except Plover.DoesNotExist:
+            plover = None
 
-    return render(request, 'core/result.html', {
+        if plover:
+            observation_saved, created = Observation.objects.get_or_create(
+                observer=observer,
+                location=location,
+                plover=plover,
+                date=general.get('date'),
+                supposed_sex=observation.get('sex'),
+                comment=observation.get('comment'),
+                coordinate_x=general.get('coordinate_x'),
+                coordinate_y=general.get('coordinate_y')
+            )
+
+            accepted_observations.append(observation_saved)
+        else:
+            rejected_observations.append(observation)
+
+    result = {
         'location': location,
-        'observer': observer
-    })
+        'accepted_observations': accepted_observations,
+        'rejected_observations': rejected_observations
+    }
+    return render(request, 'core/result.html', result)

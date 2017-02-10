@@ -10,15 +10,12 @@ class Location(models.Model):
 
 
 class Observer(models.Model):
+    unique_together = ('last_name', 'first_name')
     last_name = models.CharField(max_length=255)
     first_name = models.CharField(max_length=255)
     is_bander = models.BooleanField(default=False)
 
 
-# Useless fileds ?
-# `year` int(11) DEFAULT NULL,
-# `action` varchar(6) DEFAULT NULL,
-# `date` varchar(10) DEFAULT NULL,
 class Plover(models.Model):
     COLORS = (
         (1, _("Red")),
@@ -33,6 +30,7 @@ class Plover(models.Model):
         (3, _("Undetermined"))
     )
 
+    unique_together = ('metal_ring', 'code', 'color')
     bander = models.ForeignKey(Observer, related_name='plovers')
     location = models.ForeignKey(Location, related_name='plovers')
     banding_year = models.IntegerField()
@@ -46,10 +44,17 @@ class Plover(models.Model):
 
 
 class Observation(models.Model):
+    SEX = (
+        (1, _("Male")),
+        (2, _("Female")),
+        (3, _("Undetermined"))
+    )
+
     observer = models.ForeignKey(Observer, related_name='observations')
     plover = models.ForeignKey(Plover, related_name='observations')
     location = models.ForeignKey(Location, related_name='observations')
     date = models.DateField()
-    coordinate_x = models.FloatField()
-    coordinate_y = models.FloatField()
-    comment = models.TextField()
+    supposed_sex = models.CharField(choices=SEX, max_length=20)
+    coordinate_x = models.FloatField(null=True)
+    coordinate_y = models.FloatField(null=True)
+    comment = models.TextField(null=True)

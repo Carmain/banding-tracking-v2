@@ -58,7 +58,7 @@ class MapForm(forms.Form):
             })
         )
 
-    def format_coordiate_field(label, placeholder):
+    def format_coordinate_field(label, placeholder):
         return forms.FloatField(
             label=_(label),
             required=False,
@@ -83,5 +83,5 @@ class MapForm(forms.Form):
     country = format_charfield('Country', 255, 'Country')
     location = format_charfield('Location', 255, 'Location', False)
 
-    coordinate_x = format_coordiate_field('X coordinate', 'X coordinate')
-    coordinate_y = format_coordiate_field('X coordinate', 'X coordinate')
+    coordinate_x = format_coordinate_field('X coordinate', 'X coordinate')
+    coordinate_y = format_coordinate_field('X coordinate', 'X coordinate')
