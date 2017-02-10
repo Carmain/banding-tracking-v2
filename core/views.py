@@ -73,12 +73,14 @@ def observations(request):
 
             # check whether it's valid:
             if plover_from.is_valid():
+                form_data = plover_from.cleaned_data
+
                 plover = {
                     'uuid': uuid.uuid4().hex,
-                    'code': request.POST.get('code'),
-                    'color': request.POST.get('color'),
-                    'sex': request.POST.get('sex'),
-                    'comment': request.POST.get('comment')
+                    'code': form_data['code'],
+                    'color': form_data['color'],
+                    'sex': form_data['sex'],
+                    'comment': form_data['comment']
                 }
 
                 add_plover_in_session(request, plover)
@@ -144,7 +146,7 @@ def validate_plovers(request):
                 coordinate_y=general.get('coordinate_y')
             )
 
-            accepted_observations.append(observation_saved)
+            accepted_observations.append(plover)
         else:
             rejected_observations.append(observation)
 

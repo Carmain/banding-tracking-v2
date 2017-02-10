@@ -13,17 +13,19 @@
     <thead>
       <tr>
         <th>{% trans 'Code' %}</th>
+        <th>{% trans 'Number' %}</th>
         <th>{% trans 'Color' %}</th>
         <th>{% trans 'Sex' %}</th>
         <th><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></th>
       </tr>
     </thead>
     <tbody>
-      {% for observation in accepted_observations %}
+      {% for plover in accepted_observations %}
         <tr>
-          <td>{{observation.plover.code}}</td>
-          <td>{{observation.plover.color}}</td>
-          <td>{{observation.plover.sex}}</td>
+          <td>{{plover.metal_ring}}</td>
+          <td>{{plover.code}}</td>
+          <td>{{plover.get_color_display}}</td>
+          <td>{{plover.get_sex_display}}</td>
           <td>{% trans 'See the history' %}</td>
         </tr>
       {% endfor %}
