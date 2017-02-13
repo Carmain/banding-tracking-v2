@@ -1,5 +1,6 @@
 {% extends "template.html" %}
 {% load i18n %}
+{% load core_extras %}
 
 {% block title %}{% trans "Set your observations" %}{% endblock %}
 {% block content %}
@@ -24,8 +25,8 @@
         <tr>
           <td>{{plover.metal_ring}}</td>
           <td>{{plover.code}}</td>
-          <td>{{plover.get_color_display}}</td>
-          <td>{{plover.get_sex_display}}</td>
+          <td>{{plover.color|color_to_string}}</td>
+          <td>{{plover.sex|sex_to_string}}</td>
           <td>{% trans 'See the history' %}</td>
         </tr>
       {% endfor %}

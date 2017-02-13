@@ -1,5 +1,6 @@
 {% extends "template.html" %}
 {% load i18n %}
+{% load core_extras %}
 
 {% block title %}{% trans "Set your observations" %}{% endblock %}
 {% block content %}
@@ -46,8 +47,8 @@
           {% for plover in plovers %}
             <tr>
               <td>{{plover.code}}</td>
-              <td>{{plover.color}}</td>
-              <td>{{plover.sex}}</td>
+              <td>{{plover.color|color_to_string}}</td>
+              <td>{{plover.sex|sex_to_string}}</td>
               <td>
                 <a href="{% url 'remove_plover' plover.uuid %}">
                   <span class="glyphicon glyphicon-trash"></span>
