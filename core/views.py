@@ -69,11 +69,11 @@ def observations(request):
         }
 
         if request.method == 'POST':
-            plover_from = PloverForm(request.POST)
+            plover_form = PloverForm(request.POST)
 
             # check whether it's valid:
-            if plover_from.is_valid():
-                form_data = plover_from.cleaned_data
+            if plover_form.is_valid():
+                form_data = plover_form.cleaned_data
 
                 plover = {
                     'uuid': uuid.uuid4().hex,
@@ -88,12 +88,12 @@ def observations(request):
 
         elif request.session.get('plovers', False):
             data['plovers'] = request.session.get('plovers')
-            plover_from = PloverForm()
+            plover_form = PloverForm()
 
         else:
-            plover_from = PloverForm()
+            plover_form = PloverForm()
 
-        data['form'] = plover_from
+        data['form'] = plover_form
         return render(request, 'core/observations.html', data)
     else:
         return HttpResponseRedirect(reverse('map'))

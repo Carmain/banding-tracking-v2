@@ -4,16 +4,16 @@ from django.utils.translation import ugettext_lazy as _
 
 class PloverForm(forms.Form):
     COLOR_CHOICES = (
-        (1, _("Red")),
-        (2, _("White")),
-        (3, _("Yellow")),
-        (4, _("Green"))
+        (1, _('Red')),
+        (2, _('White')),
+        (3, _('Yellow')),
+        (4, _('Green'))
     )
 
     SEX_CHOICES = (
-        (1, _("Male")),
-        (2, _("Female")),
-        (3, _("Undetermined"))
+        (1, _('Male')),
+        (2, _('Female')),
+        (3, _('Undetermined'))
     )
 
     def format_choicefield(label, choices):
