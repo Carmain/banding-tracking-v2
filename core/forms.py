@@ -1,21 +1,9 @@
 from django import forms
+from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 
 class PloverForm(forms.Form):
-    COLOR_CHOICES = (
-        (1, _('Red')),
-        (2, _('White')),
-        (3, _('Yellow')),
-        (4, _('Green'))
-    )
-
-    SEX_CHOICES = (
-        (1, _('Male')),
-        (2, _('Female')),
-        (3, _('Undetermined'))
-    )
-
     def format_choicefield(label, choices):
         return forms.ChoiceField(
             label=_(label),
@@ -33,8 +21,8 @@ class PloverForm(forms.Form):
         })
     )
 
-    color = format_choicefield('Color', COLOR_CHOICES)
-    sex = format_choicefield('Sex', SEX_CHOICES)
+    color = format_choicefield('Color', settings.COLOR_CHOICES)
+    sex = format_choicefield('Sex', settings.SEX_CHOICES)
 
     comment = forms.CharField(
         label=_('Comment'),

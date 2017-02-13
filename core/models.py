@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
 
 
 class Location(models.Model):
@@ -17,44 +17,26 @@ class Observer(models.Model):
 
 
 class Plover(models.Model):
-    COLORS = (
-        (1, _("Red")),
-        (2, _("White")),
-        (3, _("Yellow")),
-        (4, _("Green"))
-    )
-
-    SEX = (
-        (1, _("Male")),
-        (2, _("Female")),
-        (3, _("Undetermined"))
-    )
-
     unique_together = ('metal_ring', 'code', 'color')
     bander = models.ForeignKey(Observer, related_name='plovers')
     location = models.ForeignKey(Location, related_name='plovers')
     banding_year = models.IntegerField()
     metal_ring = models.CharField(max_length=20, unique=True)
     code = models.IntegerField()
-    color = models.CharField(choices=COLORS, max_length=20)
-    sex = models.CharField(choices=SEX, max_length=20)
+    color = models.CharField(choices=settings.COLOR_CHOICES, max_length=20)
+    sex = models.CharField(choices=settings.SEX_CHOICES, max_length=20)
     age = models.CharField(max_length=5)
     banding_date = models.DateField()
     banding_time = models.TimeField(blank=True)
 
 
 class Observation(models.Model):
-    SEX = (
-        (1, _("Male")),
-        (2, _("Female")),
-        (3, _("Undetermined"))
-    )
-
     observer = models.ForeignKey(Observer, related_name='observations')
     plover = models.ForeignKey(Plover, related_name='observations')
     location = models.ForeignKey(Location, related_name='observations')
     date = models.DateField()
-    supposed_sex = models.CharField(choices=SEX, max_length=20)
+    supposed_sex = models.CharField(choices=settings.SEX_CHOICES,
+                                    max_length=20)
     coordinate_x = models.FloatField(null=True)
     coordinate_y = models.FloatField(null=True)
     comment = models.TextField(null=True)
