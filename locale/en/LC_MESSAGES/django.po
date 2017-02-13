@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-09 14:07+0100\n"
+"POT-Creation-Date: 2017-02-13 19:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,44 +25,44 @@ msgstr "French"
 msgid "English"
 msgstr "English"
 
-#: .\core\forms.py:7 .\core\models.py:24
-msgid "Red"
-msgstr "Red"
-
-#: .\core\forms.py:8 .\core\models.py:25
-msgid "White"
-msgstr "White"
-
-#: .\core\forms.py:9 .\core\models.py:26
-msgid "Yellow"
-msgstr "Yellow"
-
-#: .\core\forms.py:10 .\core\models.py:27
-msgid "Green"
-msgstr "Green"
-
-#: .\core\forms.py:14 .\core\models.py:31
+#: .\banding_tracking\settings.py:123
 msgid "Male"
 msgstr "Male"
 
-#: .\core\forms.py:15 .\core\models.py:32
+#: .\banding_tracking\settings.py:124
 msgid "Female"
 msgstr "Female"
 
-#: .\core\forms.py:16 .\core\models.py:33
+#: .\banding_tracking\settings.py:125
 msgid "Undetermined"
 msgstr "Undetermined"
 
-#: .\core\forms.py:29 .\core\forms.py:31 .\templates\core\observations.html:39
-#: .\templates\core\result.html:10
+#: .\banding_tracking\settings.py:129
+msgid "Red"
+msgstr "Red"
+
+#: .\banding_tracking\settings.py:130
+msgid "White"
+msgstr "White"
+
+#: .\banding_tracking\settings.py:131
+msgid "Yellow"
+msgstr "Yellow"
+
+#: .\banding_tracking\settings.py:132
+msgid "Green"
+msgstr "Green"
+
+#: .\core\forms.py:17 .\core\forms.py:19 .\templates\core\observations.html:40
+#: .\templates\core\result.html:16
 msgid "Code"
 msgstr "Code"
 
-#: .\core\forms.py:40
+#: .\core\forms.py:28
 msgid "Comment"
 msgstr "Comment"
 
-#: .\core\forms.py:72 .\templates\core\observations.html:8
+#: .\core\forms.py:60 .\templates\core\observations.html:9
 msgid "Date"
 msgstr "Date"
 
@@ -81,7 +81,7 @@ msgid "Study tool for ringed birds' populations"
 msgstr "Study tool for ringed birds' populations"
 
 #: .\templates\core\home.html:13 .\templates\core\home.html:15
-#: .\templates\core\observations.html:14
+#: .\templates\core\observations.html:15
 msgid "Record an observation"
 msgstr "Record an observation"
 
@@ -97,8 +97,8 @@ msgstr "The GONm"
 msgid "Bretagne vivante"
 msgstr "Bretagne vivante"
 
-#: .\templates\core\map.html:5 .\templates\core\observations.html:4
-#: .\templates\core\observations.html:6 .\templates\core\result.html:4
+#: .\templates\core\map.html:5 .\templates\core\observations.html:5
+#: .\templates\core\observations.html:7 .\templates\core\result.html:5
 msgid "Set your observations"
 msgstr "Set your observations"
 
@@ -114,45 +114,53 @@ msgstr "Geolocate me"
 msgid "Submit"
 msgstr "Submit"
 
-#: .\templates\core\observations.html:9
+#: .\templates\core\observations.html:10
 msgid "Observer"
 msgstr "Observer"
 
-#: .\templates\core\observations.html:10
+#: .\templates\core\observations.html:11
 msgid "Location"
 msgstr "Location"
 
-#: .\templates\core\observations.html:27
+#: .\templates\core\observations.html:28
 msgid "Add my observation"
 msgstr "Add my observation"
 
-#: .\templates\core\observations.html:35
+#: .\templates\core\observations.html:36
 msgid "All the plovers seized"
 msgstr "All the plovers seized"
 
-#: .\templates\core\observations.html:40 .\templates\core\result.html:11
+#: .\templates\core\observations.html:41 .\templates\core\result.html:18
 msgid "Color"
 msgstr "Color"
 
-#: .\templates\core\observations.html:41 .\templates\core\result.html:12
+#: .\templates\core\observations.html:42 .\templates\core\result.html:19
 msgid "Sex"
 msgstr "Sex"
 
-#: .\templates\core\observations.html:63
+#: .\templates\core\observations.html:64
 msgid "Send my observations"
 msgstr "Send my observations"
 
-#: .\templates\core\result.html:6
+#: .\templates\core\result.html:7
 msgid "Result"
 msgstr "Result"
 
-#: .\templates\core\result.html:13
-msgid "Validated"
-msgstr "Validated"
+#: .\templates\core\result.html:11
+msgid "Accepted observations"
+msgstr "Accepted observations"
 
-#: .\templates\core\result.html:32
-msgid "Get the history"
-msgstr "Get the history"
+#: .\templates\core\result.html:17
+msgid "Number"
+msgstr "Number"
+
+#: .\templates\core\result.html:30
+msgid "See the history"
+msgstr "See the history"
+
+#: .\templates\core\result.html:38
+msgid "Rejected observations"
+msgstr "Rejected observations"
 
 #: .\templates\template.html:12 .\templates\template.html:37
 msgid "Home"
@@ -169,6 +177,9 @@ msgstr "Did you saw a kentish plover ?"
 #: .\templates\template.html:44
 msgid "The C.R.B.P.O"
 msgstr "The C.R.B.P.O"
+
+#~ msgid "Validated"
+#~ msgstr "Validated"
 
 #~ msgid "Last name"
 #~ msgstr "Last name"
