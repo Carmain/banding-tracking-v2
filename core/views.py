@@ -1,6 +1,6 @@
 import uuid
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from core.models import Location, Observer, Observation, Plover
@@ -156,3 +156,13 @@ def validate_plovers(request):
         'rejected_observations': rejected_observations
     }
     return render(request, 'core/result.html', result)
+
+
+def get_history_by_metal_ring(request, ring):
+    plover = get_object_or_404(Plover, metal_ring=ring)
+    return render(request, 'core/plover.html', {'plover': plover})
+
+
+def get_history_by_code(request, number, color):
+    plover = get_object_or_404(Plover, code=number, color=color)
+    return render(request, 'core/plover.html', {'plover': plover})

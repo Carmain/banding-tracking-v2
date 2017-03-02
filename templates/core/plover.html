@@ -1,0 +1,31 @@
+{% extends "template.html" %}
+{% load i18n %}
+{% load core_extras %}
+
+{% block title %}{% trans "Details" %}{% endblock %}
+{% block content %}
+  <h2>{% trans "Observations about the plover" %} {{plover.code}} {{plover.color|color_to_string}}</h2>
+
+
+  <h3>{% trans "Observations" %}</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>{% trans 'Date' %}</th>
+        <th>{% trans 'Town' %}</th>
+        <th>{% trans 'Country' %}</th>
+        <th>{% trans 'Observer' %}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for observation in plover.observations.all %}
+        <tr>
+          <td>{{observation.date}}</td>
+          <td>{{observation.location.town}}</td>
+          <td>{{observation.location.country}}</td>
+          <td>{{observation.observer.last_name|upper}} {{observation.observer.first_name}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
