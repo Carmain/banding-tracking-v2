@@ -3,6 +3,10 @@ from django.conf import settings
 
 
 class Location(models.Model):
+    @property
+    def minimal_location(self):
+        return '{} ({})'.format(self.town, self.country)
+
     country = models.CharField(max_length=255)
     town = models.CharField(max_length=255)
     department = models.CharField(max_length=255)
@@ -12,6 +16,10 @@ class Location(models.Model):
 class Observer(models.Model):
     class Meta:
         unique_together = ('last_name', 'first_name')
+
+    @property
+    def full_name(self):
+        return '{} {}'.format(self.first_name, self.last_name)
 
     last_name = models.CharField(max_length=255)
     first_name = models.CharField(max_length=255)
