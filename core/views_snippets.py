@@ -9,8 +9,11 @@ def add_plover_in_session(request, plover):
         request.session['plovers'] = [plover]
     else:
         plovers_list = request.session['plovers']
-        plovers_list.append(plover)
-        request.session['plovers'] = plovers_list
+
+        if not any(bird['color'] == plover['color'] and
+                   bird['code'] == plover['code'] for bird in plovers_list):
+            plovers_list.append(plover)
+            request.session['plovers'] = plovers_list
 
 
 def search_formatter(plover_collector, form_class, form_url, request):
