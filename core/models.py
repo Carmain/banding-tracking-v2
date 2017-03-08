@@ -31,6 +31,9 @@ class Plover(models.Model):
 
 
 class Observation(models.Model):
+    class Meta:
+        ordering = ['-date']
+
     observer = models.ForeignKey(Observer, related_name='observations')
     plover = models.ForeignKey(Plover, related_name='observations')
     location = models.ForeignKey(Location, related_name='observations')
