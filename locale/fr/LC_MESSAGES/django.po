@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-08 16:08+0100\n"
+"POT-Creation-Date: 2017-03-08 16:36+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -82,20 +82,19 @@ msgstr "Administration"
 msgid "Study tool for ringed birds' populations"
 msgstr "Outil d'étude pour la population des oiseaux bagués"
 
-#: .\templates\core\home.html:13 .\templates\core\home.html:15
-#: .\templates\core\observations.html:15
+#: .\templates\core\home.html:11 .\templates\core\observations.html:15
 msgid "Record an observation"
 msgstr "Ajouter une observation"
 
-#: .\templates\core\home.html:25
+#: .\templates\core\home.html:18
 msgid "GONm website"
 msgstr "Site web du GONm"
 
-#: .\templates\core\home.html:27
+#: .\templates\core\home.html:19
 msgid "The GONm"
 msgstr "Le GONm"
 
-#: .\templates\core\home.html:36 .\templates\core\home.html:38
+#: .\templates\core\home.html:24
 msgid "Bretagne vivante"
 msgstr "Bretagne vivante"
 

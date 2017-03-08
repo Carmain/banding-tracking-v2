@@ -8,37 +8,21 @@
 
 <div class="row">
   <div class="col-sm-8">
-    <a href="{% url 'map' %}">
-      <div class="thumbnail">
-        <img src="{% static 'media/plover.jpg' %}" alt="{% trans 'Record an observation' %}">
-        <div class="caption">
-          <h3>{% trans "Record an observation" %}</h3>
-        </div>
-      </div>
-    </a>
+    {% trans "Record an observation" as title %}
+    {% url 'map' as map_url %}
+    {% include "skeletons/home_thumbnail.html" with src=map_url picture="media/plover.jpg" alt=title title=title %}
   </div>
 
   <div class="col-sm-4">
     <div class="col-sm-12">
-      <a href="http://www.gonm.org/" target="_blank">
-        <div class="thumbnail">
-          <img src="{% static 'media/gonm.jpg' %}" alt="{% trans 'GONm website' %}">
-          <div class="caption">
-            <h3>{% trans "The GONm" %}</h3>
-          </div>
-        </div>
-      </a>
+      {% trans "GONm website" as alt %}
+      {% trans "The GONm" as title %}
+      {% include "skeletons/home_thumbnail.html" with src="http://www.gonm.org/" target="_blank" picture="media/gonm.jpg" alt=alt title=title %}
     </div>
 
     <div class="col-sm-12">
-      <a href="http://www.bretagne-vivante-dev.org/gravelot/index.php" target="_blank">
-        <div class="thumbnail">
-          <img src="{% static 'media/bretagne_vivante.jpg' %}" alt="{% trans 'Bretagne vivante' %}">
-          <div class="caption">
-            <h3>{% trans "Bretagne vivante" %}</h3>
-          </div>
-        </div>
-      </a>
+      {% trans "Bretagne vivante" as title %}
+      {% include "skeletons/home_thumbnail.html" with src="http://www.bretagne-vivante-dev.org/gravelot/index.php" target="_blank" picture="media/bretagne_vivante.jpg" alt=title title=title %}
     </div>
   </div>
 </div>
