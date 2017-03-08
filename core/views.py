@@ -6,6 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from core.models import Location, Observer, Observation, Plover
 
 from .forms import MapForm, PloverForm, CodeForm, MetalForm
+from .views_snippets import *
 
 
 def index(request):
@@ -18,12 +19,6 @@ def about(request):
 
 def administration(request):
     return render(request, 'core/administration.html')
-
-
-def flush_session(request, keys):
-    for key in keys:
-        if key in request.session:
-            del request.session[key]
 
 
 def map(request):
@@ -51,15 +46,6 @@ def map(request):
         map_form = MapForm()
 
     return render(request, 'core/map.html', {'form': map_form})
-
-
-def add_plover_in_session(request, plover):
-    if 'plovers' not in request.session or not request.session['plovers']:
-        request.session['plovers'] = [plover]
-    else:
-        plovers_list = request.session['plovers']
-        plovers_list.append(plover)
-        request.session['plovers'] = plovers_list
 
 
 def observations(request):
@@ -155,30 +141,6 @@ def validate_plovers(request):
         'rejected_observations': rejected_observations
     }
     return render(request, 'core/result.html', result)
-
-
-def search_formatter(plover_collector, form_class, form_url, request):
-    data = {
-        'form_url': form_url,
-        'not_found': False
-    }
-
-    if request.method == 'POST':
-        form = form_class(request.POST)
-
-        if form.is_valid():
-            plover = plover_collector()
-
-            if plover:
-                data['plover'] = plover
-            else:
-                data['not_found'] = True
-    else:
-        form = form_class()
-
-    data['form'] = form
-
-    return data
 
 
 def search_by_code(request):
