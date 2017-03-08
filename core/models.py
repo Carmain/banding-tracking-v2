@@ -10,14 +10,18 @@ class Location(models.Model):
 
 
 class Observer(models.Model):
-    unique_together = ('last_name', 'first_name')
+    class Meta:
+        unique_together = ('last_name', 'first_name')
+
     last_name = models.CharField(max_length=255)
     first_name = models.CharField(max_length=255)
     is_bander = models.BooleanField(default=False)
 
 
 class Plover(models.Model):
-    unique_together = ('metal_ring', 'code', 'color')
+    class Meta:
+        unique_together = ('metal_ring', 'code', 'color')
+
     bander = models.ForeignKey(Observer, related_name='plovers')
     location = models.ForeignKey(Location, related_name='plovers')
     banding_year = models.IntegerField()
