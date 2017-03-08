@@ -1,5 +1,6 @@
 {% extends "template.html" %}
 {% load i18n %}
+{% load staticfiles %}
 {% load core_extras %}
 
 {% block title %}{% trans "Set your observations" %}{% endblock %}
@@ -35,7 +36,49 @@
   {% include "skeletons/form_errors.html" %}
 
   {% if plover %}
-    <h3>{% trans "Observations about the plover" %} <b>{{plover.code}} {{plover.color|color_to_string}}</b></h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <img class="history-logo" src="{% static 'media/gonm.jpg' %}" alt="{% trans 'GONm logo' %}">
+      </div>
+    </div>
+    <div class="col-md-8">
+      <h3 class="text-center">{% trans "History of observations about a banded kentish plover" %}<b></b></h3>
+      <h4 class="text-center"><i>{% trans "Charadrius alexandrinus" %}</i></h4>
+    </div>
+  </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table">
+          <tbody>
+            {% trans "Metal ring" as metal_ring %}
+            {% trans "Code" as code %}
+            {% trans "Color" as color %}
+            {% trans "Banding date" as banding_date %}
+
+            {% include "skeletons/horizontal_row.html" with label=metal_ring value=plover.metal_ring %}
+            {% include "skeletons/horizontal_row.html" with label=code value=plover.code %}
+            {% include "skeletons/horizontal_row.html" with label=color value=plover.color|color_to_string %}
+            {% include "skeletons/horizontal_row.html" with label=banding_date value=plover.banding_date %}
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table class="table">
+          <tbody>
+            {% trans "Sex" as sex %}
+            {% trans "Banding location" as banding_location %}
+            {% trans "Bander" as bander %}
+
+            {% include "skeletons/horizontal_row.html" with label=sex value=plover.sex %}
+            {% include "skeletons/horizontal_row.html" with label=banding_location value=plover.location.minimal_location %}
+            {% include "skeletons/horizontal_row.html" with label=bander value=plover.bander.full_name %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <table class="table table-striped">
       <thead>
         <tr>

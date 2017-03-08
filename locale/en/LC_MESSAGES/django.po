@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-08 12:40+0100\n"
+"POT-Creation-Date: 2017-03-08 16:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,7 +54,7 @@ msgid "Green"
 msgstr "Green"
 
 #: .\core\forms.py:40 .\core\forms.py:42 .\templates\core\observations.html:40
-#: .\templates\core\result.html:16
+#: .\templates\core\result.html:16 .\templates\core\search.html:56
 msgid "Code"
 msgstr "Code"
 
@@ -63,7 +63,7 @@ msgid "Comment"
 msgstr "Comment"
 
 #: .\core\forms.py:65 .\templates\core\observations.html:9
-#: .\templates\core\search.html:42
+#: .\templates\core\search.html:85
 msgid "Date"
 msgstr "Date"
 
@@ -100,7 +100,7 @@ msgstr "Bretagne vivante"
 
 #: .\templates\core\map.html:5 .\templates\core\observations.html:5
 #: .\templates\core\observations.html:7 .\templates\core\result.html:5
-#: .\templates\core\search.html:5
+#: .\templates\core\search.html:6
 msgid "Set your observations"
 msgstr "Set your observations"
 
@@ -116,7 +116,7 @@ msgstr "Geolocate me"
 msgid "Submit"
 msgstr "Submit"
 
-#: .\templates\core\observations.html:10 .\templates\core\search.html:45
+#: .\templates\core\observations.html:10 .\templates\core\search.html:88
 msgid "Observer"
 msgstr "Observer"
 
@@ -133,10 +133,12 @@ msgid "All the plovers seized"
 msgstr "All the plovers seized"
 
 #: .\templates\core\observations.html:41 .\templates\core\result.html:18
+#: .\templates\core\search.html:57
 msgid "Color"
 msgstr "Color"
 
 #: .\templates\core\observations.html:42 .\templates\core\result.html:19
+#: .\templates\core\search.html:70
 msgid "Sex"
 msgstr "Sex"
 
@@ -164,41 +166,65 @@ msgstr "See the history"
 msgid "Rejected observations"
 msgstr "Rejected observations"
 
-#: .\templates\core\search.html:7 .\templates\template.html:44
+#: .\templates\core\search.html:8 .\templates\template.html:44
 msgid "Search a plover"
-msgstr "Rechercher un gravelot"
+msgstr "Search a plover"
 
-#: .\templates\core\search.html:11
+#: .\templates\core\search.html:12
 msgid "Search by metal ring code"
-msgstr "Rechercher par le code de la bague métal"
+msgstr "Search by metal ring code"
 
-#: .\templates\core\search.html:14
+#: .\templates\core\search.html:15
 msgid "Search by color code"
-msgstr "Rechercher par le code couleur"
+msgstr "Search by color code"
 
-#: .\templates\core\search.html:30
+#: .\templates\core\search.html:31
 msgid "Search"
-msgstr "Rechercher"
+msgstr "Search"
 
-#: .\templates\core\search.html:38
-msgid "Observations about the plover"
-msgstr "Observations à propos du gravelot"
+#: .\templates\core\search.html:42
+msgid "GONm logo"
+msgstr "GONm logo"
 
-#: .\templates\core\search.html:43
+#: .\templates\core\search.html:46
+msgid "History of observations about a banded kentish plover"
+msgstr "History of observations about a banded kentish plover"
+
+#: .\templates\core\search.html:47
+msgid "Charadrius alexandrinus"
+msgstr "Charadrius alexandrinus"
+
+#: .\templates\core\search.html:55
+msgid "Metal ring"
+msgstr "Metal ring"
+
+#: .\templates\core\search.html:58
+msgid "Banding date"
+msgstr "Banding date"
+
+#: .\templates\core\search.html:71
+msgid "Banding location"
+msgstr "Banding location"
+
+#: .\templates\core\search.html:72
+msgid "Bander"
+msgstr "Bander"
+
+#: .\templates\core\search.html:86
 msgid "Town"
 msgstr "Town"
 
-#: .\templates\core\search.html:44
+#: .\templates\core\search.html:87
 msgid "Country"
 msgstr "Country"
 
-#: .\templates\core\search.html:63
+#: .\templates\core\search.html:106
 msgid "Error"
-msgstr "Erreur"
+msgstr "Error"
 
-#: .\templates\core\search.html:64
+#: .\templates\core\search.html:107
 msgid "The plover with this code doesn't exist"
-msgstr "Le gravelot avec ce code n'existe pas"
+msgstr "The plover with this code doesn't exist"
 
 #: .\templates\template.html:12 .\templates\template.html:37
 msgid "Home"
