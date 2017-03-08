@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from core.models import Location, Observer, Observation, Plover
 
-from .forms import MapForm, PloverForm
+from .forms import MapForm, PloverForm, CodeForm, MetalForm
 
 
 def index(request):
@@ -71,7 +71,6 @@ def observations(request):
         if request.method == 'POST':
             plover_form = PloverForm(request.POST)
 
-            # check whether it's valid:
             if plover_form.is_valid():
                 form_data = plover_form.cleaned_data
 
@@ -158,11 +157,58 @@ def validate_plovers(request):
     return render(request, 'core/result.html', result)
 
 
-def get_history_by_metal_ring(request, ring):
-    plover = get_object_or_404(Plover, metal_ring=ring)
-    return render(request, 'core/plover.html', {'plover': plover})
+def search_formatter(plover_collector, form_class, form_url, request):
+    data = {
+        'form_url': form_url,
+        'not_found': False
+    }
+
+    if request.method == 'POST':
+        form = form_class(request.POST)
+
+        if form.is_valid():
+            plover = plover_collector()
+
+            if plover:
+                data['plover'] = plover
+            else:
+                data['not_found'] = True
+    else:
+        form = form_class()
+
+    data['form'] = form
+
+    return data
 
 
-def get_history_by_code(request, number, color):
-    plover = get_object_or_404(Plover, code=number, color=color)
-    return render(request, 'core/plover.html', {'plover': plover})
+def search_by_code(request):
+    def collector():
+        try:
+            plover = Plover.objects.get(
+                code=request.POST.get('code'),
+                color=request.POST.get('color')
+            )
+        except Plover.DoesNotExist:
+            plover = None
+
+        return plover
+
+    data = search_formatter(collector, CodeForm, 'search_by_code', request)
+
+    return render(request, 'core/search.html', data)
+
+
+def search_by_metal(request):
+    def collector():
+        try:
+            plover = Plover.objects.get(
+                metal_ring=request.POST.get('metal_ring'),
+            )
+        except Plover.DoesNotExist:
+            plover = None
+
+        return plover
+
+    data = search_formatter(collector, MetalForm, 'search_by_metal', request)
+
+    return render(request, 'core/search.html', data)

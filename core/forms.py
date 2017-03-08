@@ -3,24 +3,50 @@ from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 
-class PloverForm(forms.Form):
-    def format_choicefield(label, choices):
-        return forms.ChoiceField(
-            label=_(label),
-            choices=choices,
-            widget=forms.Select(attrs={
-                'class': 'form-control'
-            })
-        )
-
-    code = forms.IntegerField(
-        label=_('Code'),
+def format_charfield(label, max_length, placeholder, required=True):
+    return forms.CharField(
+        label=_(label),
+        required=required,
+        max_length=max_length,
         widget=forms.TextInput(attrs={
-            'placeholder': _('Code'),
+            'placeholder': _(placeholder),
             'class': 'form-control'
         })
     )
 
+
+def format_coordinate_field(label, placeholder):
+    return forms.FloatField(
+        label=_(label),
+        required=False,
+        widget=forms.TextInput(attrs={
+            'placeholder': _(placeholder),
+            'class': 'form-control'
+        })
+    )
+
+
+def format_choicefield(label, choices):
+    return forms.ChoiceField(
+        label=_(label),
+        choices=choices,
+        widget=forms.Select(attrs={
+            'class': 'form-control'
+        })
+    )
+
+
+code = forms.IntegerField(
+    label=_('Code'),
+    widget=forms.TextInput(attrs={
+        'placeholder': _('Code'),
+        'class': 'form-control'
+    })
+)
+
+
+class PloverForm(forms.Form):
+    code = code
     color = format_choicefield('Color', settings.COLOR_CHOICES)
     sex = format_choicefield('Sex', settings.SEX_CHOICES)
 
@@ -35,27 +61,6 @@ class PloverForm(forms.Form):
 
 
 class MapForm(forms.Form):
-    def format_charfield(label, max_length, placeholder, required=True):
-        return forms.CharField(
-            label=_(label),
-            required=required,
-            max_length=max_length,
-            widget=forms.TextInput(attrs={
-                'placeholder': _(placeholder),
-                'class': 'form-control'
-            })
-        )
-
-    def format_coordinate_field(label, placeholder):
-        return forms.FloatField(
-            label=_(label),
-            required=False,
-            widget=forms.TextInput(attrs={
-                'placeholder': _(placeholder),
-                'class': 'form-control'
-            })
-        )
-
     date = forms.DateField(
         label=_('Date'),
         widget=forms.DateInput(attrs={
@@ -73,3 +78,12 @@ class MapForm(forms.Form):
 
     coordinate_x = format_coordinate_field('X coordinate', 'X coordinate')
     coordinate_y = format_coordinate_field('X coordinate', 'X coordinate')
+
+
+class CodeForm(forms.Form):
+    code = code
+    color = format_choicefield('Color', settings.COLOR_CHOICES)
+
+
+class MetalForm(forms.Form):
+    metal_ring = format_charfield('Metal ring', 10, 'Metal ring')
