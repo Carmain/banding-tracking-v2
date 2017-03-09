@@ -5,22 +5,22 @@ from django.utils.translation import ugettext_lazy as _
 
 def format_charfield(label, max_length, placeholder, required=True):
     return forms.CharField(
-        label=_(label),
+        label=label,
         required=required,
         max_length=max_length,
         widget=forms.TextInput(attrs={
-            'placeholder': _(placeholder),
+            'placeholder': placeholder,
             'class': 'form-control'
         })
     )
 
 
-def format_coordinate_field(label, placeholder):
+def format_coordinatefield(label, placeholder):
     return forms.FloatField(
-        label=_(label),
+        label=label,
         required=False,
         widget=forms.TextInput(attrs={
-            'placeholder': _(placeholder),
+            'placeholder': placeholder,
             'readonly': True,
             'class': 'form-control'
         })
@@ -29,7 +29,7 @@ def format_coordinate_field(label, placeholder):
 
 def format_choicefield(label, choices):
     return forms.ChoiceField(
-        label=_(label),
+        label=label,
         choices=choices,
         widget=forms.Select(attrs={
             'class': 'form-control'
@@ -48,8 +48,8 @@ CODE = forms.IntegerField(
 
 class PloverForm(forms.Form):
     code = CODE
-    color = format_choicefield('Color', COLOR_CHOICES)
-    sex = format_choicefield('Sex', SEX_CHOICES)
+    color = format_choicefield(_('Color'), COLOR_CHOICES)
+    sex = format_choicefield(_('Sex'), SEX_CHOICES)
 
     comment = forms.CharField(
         label=_('Comment'),
@@ -70,21 +70,21 @@ class MapForm(forms.Form):
         })
     )
 
-    last_name = format_charfield('Last name', 255, 'Last name')
-    first_name = format_charfield('First name', 255, 'First name')
-    town = format_charfield('Town', 255, 'Town')
-    department = format_charfield('Department', 255, 'Department')
-    country = format_charfield('Country', 255, 'Country')
-    location = format_charfield('Location', 255, 'Location', False)
+    last_name = format_charfield(_('Last name'), 255, _('Last name'))
+    first_name = format_charfield(_('First name'), 255, _('First name'))
+    town = format_charfield(_('Town'), 255, _('Town'))
+    department = format_charfield(_('Department'), 255, _('Department'))
+    country = format_charfield(_('Country'), 255, _('Country'))
+    locality = format_charfield(_('Locality'), 255, _('Locality'), False)
 
-    coordinate_x = format_coordinate_field('X coordinate', 'X coordinate')
-    coordinate_y = format_coordinate_field('X coordinate', 'X coordinate')
+    coordinate_x = format_coordinatefield(_('X coordinate'), _('X coordinate'))
+    coordinate_y = format_coordinatefield(_('Y coordinate'), _('Y coordinate'))
 
 
 class CodeForm(forms.Form):
     code = CODE
-    color = format_choicefield('Color', COLOR_CHOICES)
+    color = format_choicefield(_('Color'), COLOR_CHOICES)
 
 
 class MetalForm(forms.Form):
-    metal_ring = format_charfield('Metal ring', 10, 'Metal ring')
+    metal_ring = format_charfield(_('Metal ring'), 10, _('Metal ring'))

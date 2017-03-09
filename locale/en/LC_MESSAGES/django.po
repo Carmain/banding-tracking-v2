@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-08 16:36+0100\n"
+"POT-Creation-Date: 2017-03-09 16:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,57 +25,131 @@ msgstr "French"
 msgid "English"
 msgstr "English"
 
-#: .\banding_tracking\settings.py:123
-msgid "Male"
-msgstr "Male"
-
-#: .\banding_tracking\settings.py:124
-msgid "Female"
-msgstr "Female"
-
-#: .\banding_tracking\settings.py:125
-msgid "Undetermined"
-msgstr "Undetermined"
-
-#: .\banding_tracking\settings.py:129
-msgid "Red"
-msgstr "Red"
-
-#: .\banding_tracking\settings.py:130
-msgid "White"
-msgstr "White"
-
-#: .\banding_tracking\settings.py:131
-msgid "Yellow"
-msgstr "Yellow"
-
-#: .\banding_tracking\settings.py:132
-msgid "Green"
-msgstr "Green"
-
-#: .\core\forms.py:40 .\core\forms.py:42 .\templates\core\observations.html:40
+#: .\core\forms.py:41 .\core\forms.py:43 .\templates\core\observations.html:40
 #: .\templates\core\result.html:16 .\templates\core\search.html:56
 msgid "Code"
 msgstr "Code"
 
-#: .\core\forms.py:54
+#: .\core\forms.py:51 .\core\forms.py:86 .\templates\core\observations.html:41
+#: .\templates\core\result.html:18 .\templates\core\search.html:57
+msgid "Color"
+msgstr "Color"
+
+#: .\core\forms.py:52 .\templates\core\observations.html:42
+#: .\templates\core\result.html:19 .\templates\core\search.html:70
+msgid "Sex"
+msgstr "Sex"
+
+#: .\core\forms.py:55
 msgid "Comment"
 msgstr "Comment"
 
-#: .\core\forms.py:65 .\templates\core\observations.html:9
+#: .\core\forms.py:66 .\templates\core\observations.html:9
 #: .\templates\core\search.html:85
 msgid "Date"
 msgstr "Date"
+
+#: .\core\forms.py:73
+msgid "Last name"
+msgstr "Last name"
+
+#: .\core\forms.py:74
+msgid "First name"
+msgstr "First name"
+
+#: .\core\forms.py:75 .\templates\core\search.html:86
+msgid "Town"
+msgstr "Town"
+
+#: .\core\forms.py:76
+msgid "Department"
+msgstr "Department"
+
+#: .\core\forms.py:77 .\templates\core\search.html:87
+msgid "Country"
+msgstr "Country"
+
+#: .\core\forms.py:78
+msgid "Locality"
+msgstr "Locality"
+
+#: .\core\forms.py:80
+msgid "X coordinate"
+msgstr "X coordinate"
+
+#: .\core\forms.py:81
+msgid "Y coordinate"
+msgstr "Y coordinate"
+
+#: .\core\forms.py:90 .\templates\core\search.html:55
+msgid "Metal ring"
+msgstr "Metal ring"
+
+#: .\core\models.py:5
+msgid "Male"
+msgstr "Male"
+
+#: .\core\models.py:6
+msgid "Female"
+msgstr "Female"
+
+#: .\core\models.py:7
+msgid "Undetermined"
+msgstr "Undetermined"
+
+#: .\core\models.py:11
+msgid "Red"
+msgstr "Red"
+
+#: .\core\models.py:12
+msgid "White"
+msgstr "White"
+
+#: .\core\models.py:13
+msgid "Yellow"
+msgstr "Yellow"
+
+#: .\core\models.py:14
+msgid "Green"
+msgstr "Green"
+
+#: .\core\models.py:25 .\templates\core\observations.html:11
+msgid "Location"
+msgstr "Location"
+
+#: .\core\models.py:26
+msgid "Locations"
+msgstr "Locations"
+
+#: .\core\models.py:44 .\templates\core\observations.html:10
+#: .\templates\core\search.html:88
+msgid "Observer"
+msgstr "Observer"
+
+#: .\core\models.py:45
+msgid "Observers"
+msgstr "Observer"
+
+#: .\core\models.py:63
+msgid "Kentish plover"
+msgstr "Kentish plover"
+
+#: .\core\models.py:64
+msgid "Kentish plovers"
+msgstr "Kentish plovers"
+
+#: .\core\models.py:87
+msgid "Observation"
+msgstr "Observation"
+
+#: .\core\models.py:88
+msgid "Observations"
+msgstr "Observations"
 
 #: .\templates\core\about.html:4 .\templates\core\about.html:6
 #: .\templates\template.html:43
 msgid "About"
 msgstr "About"
-
-#: .\templates\core\administration.html:4
-#: .\templates\core\administration.html:6 .\templates\template.html:42
-msgid "Administration"
-msgstr "Administration"
 
 #: .\templates\core\home.html:7
 msgid "Study tool for ringed birds' populations"
@@ -115,14 +189,6 @@ msgstr "Geolocate me"
 msgid "Submit"
 msgstr "Submit"
 
-#: .\templates\core\observations.html:10 .\templates\core\search.html:88
-msgid "Observer"
-msgstr "Observer"
-
-#: .\templates\core\observations.html:11
-msgid "Location"
-msgstr "Location"
-
 #: .\templates\core\observations.html:28
 msgid "Add my observation"
 msgstr "Add my observation"
@@ -130,16 +196,6 @@ msgstr "Add my observation"
 #: .\templates\core\observations.html:36
 msgid "All the plovers seized"
 msgstr "All the plovers seized"
-
-#: .\templates\core\observations.html:41 .\templates\core\result.html:18
-#: .\templates\core\search.html:57
-msgid "Color"
-msgstr "Color"
-
-#: .\templates\core\observations.html:42 .\templates\core\result.html:19
-#: .\templates\core\search.html:70
-msgid "Sex"
-msgstr "Sex"
 
 #: .\templates\core\observations.html:64
 msgid "Send my observations"
@@ -193,10 +249,6 @@ msgstr "History of observations about a banded kentish plover"
 msgid "Charadrius alexandrinus"
 msgstr "Charadrius alexandrinus"
 
-#: .\templates\core\search.html:55
-msgid "Metal ring"
-msgstr "Metal ring"
-
 #: .\templates\core\search.html:58
 msgid "Banding date"
 msgstr "Banding date"
@@ -208,14 +260,6 @@ msgstr "Banding location"
 #: .\templates\core\search.html:72
 msgid "Bander"
 msgstr "Bander"
-
-#: .\templates\core\search.html:86
-msgid "Town"
-msgstr "Town"
-
-#: .\templates\core\search.html:87
-msgid "Country"
-msgstr "Country"
 
 #: .\templates\core\search.html:106
 msgid "Error"
@@ -237,27 +281,22 @@ msgstr "Toggle navigation"
 msgid "Did you saw a kentish plover ?"
 msgstr "Did you saw a kentish plover ?"
 
+#: .\templates\template.html:42
+msgid "Administration"
+msgstr "Administration"
+
 #: .\templates\template.html:45
 msgid "The C.R.B.P.O"
 msgstr "The C.R.B.P.O"
 
+#~ msgid "Plover"
+#~ msgstr "Plover"
+
+#~ msgid "Plovers"
+#~ msgstr "Plovers"
+
 #~ msgid "Validated"
 #~ msgstr "Validated"
-
-#~ msgid "Last name"
-#~ msgstr "Last name"
-
-#~ msgid "First name"
-#~ msgstr "First name"
-
-#~ msgid "Department"
-#~ msgstr "Department"
-
-#~ msgid "X coordinate"
-#~ msgstr "X coordinate"
-
-#~ msgid "Y coordinate"
-#~ msgstr "Y coordinate"
 
 #~ msgid "City"
 #~ msgstr "City"

@@ -21,6 +21,10 @@ class Location(models.Model):
         return pattern.format(self.town, self.locality,
                               self.department, self.country)
 
+    class Meta:
+        verbose_name = _('Location')
+        verbose_name_plural = _('Locations')
+
     @property
     def minimal_location(self):
         return '{} ({})'.format(self.town, self.country)
@@ -37,6 +41,8 @@ class Observer(models.Model):
 
     class Meta:
         unique_together = ('last_name', 'first_name')
+        verbose_name = _('Observer')
+        verbose_name_plural = _('Observers')
 
     @property
     def full_name(self):
@@ -54,6 +60,8 @@ class Plover(models.Model):
 
     class Meta:
         unique_together = ('metal_ring', 'code', 'color')
+        verbose_name = _('Kentish plover')
+        verbose_name_plural = _('Kentish plovers')
 
     bander = models.ForeignKey(Observer, related_name='plovers',
                                on_delete=models.PROTECT)
@@ -76,6 +84,8 @@ class Observation(models.Model):
                              self.location)
 
     class Meta:
+        verbose_name = _('Observation')
+        verbose_name_plural = _('Observations')
         ordering = ['-date']
 
     observer = models.ForeignKey(Observer, related_name='observations',

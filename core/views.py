@@ -32,7 +32,7 @@ def map(request):
                 'town': request.POST.get('town'),
                 'department': request.POST.get('department'),
                 'country': request.POST.get('country'),
-                'location': request.POST.get('location'),
+                'locality': request.POST.get('locality'),
                 'coordinate_x': request.POST.get('coordinate_x'),
                 'coordinate_y': request.POST.get('coordinate_y')
             }
