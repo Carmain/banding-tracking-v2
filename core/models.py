@@ -2,16 +2,16 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 SEX_CHOICES = (
-    (0, _('Male')),
-    (1, _('Female')),
-    (2, _('Undetermined'))
+    ('M', _('Male')),
+    ('F', _('Female')),
+    ('U', _('Undetermined'))
 )
 
 COLOR_CHOICES = (
-    (0, _('Red')),
-    (1, _('White')),
-    (2, _('Yellow')),
-    (3, _('Green'))
+    ('R', _('Red')),
+    ('W', _('White')),
+    ('Y', _('Yellow')),
+    ('G', _('Green'))
 )
 
 
@@ -49,12 +49,8 @@ class Observer(models.Model):
 
 class Plover(models.Model):
     def __str__(self):
-        # FIXME: It seem that the get_color_display() doesn't work
-        for choice in COLOR_CHOICES:
-            if choice[0] == int(self.color):
-                color = choice[1]
-
-        return '{} {} ({})'.format(self.code, color, self.metal_ring)
+        return '{} {} ({})'.format(self.code, self.get_color_display(),
+                                   self.metal_ring)
 
     class Meta:
         unique_together = ('metal_ring', 'code', 'color')

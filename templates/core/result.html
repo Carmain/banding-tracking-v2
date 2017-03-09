@@ -25,8 +25,8 @@
         <tr>
           <td>{{plover.metal_ring}}</td>
           <td>{{plover.code}}</td>
-          <td>{{plover.color|color_to_string}}</td>
-          <td>{{plover.sex|sex_to_string}}</td>
+          <td>{{plover.get_color_display}}</td>
+          <td>{{plover.get_sex_display}}</td>
           <td>{% trans 'See the history' %}</td>
         </tr>
       {% endfor %}
@@ -39,7 +39,7 @@
   </h3>
   <ul>
     {% for observation in rejected_observations %}
-      <li>{{observation.code}} {{observation.color}}</li>
+      <li>{{observation.code}} {{observation.color|color_to_string}}</li>
     {% endfor %}
   </ul>
 {% endblock %}

@@ -59,7 +59,7 @@
 
             {% include "skeletons/horizontal_row.html" with label=metal_ring value=plover.metal_ring %}
             {% include "skeletons/horizontal_row.html" with label=code value=plover.code %}
-            {% include "skeletons/horizontal_row.html" with label=color value=plover.color|color_to_string %}
+            {% include "skeletons/horizontal_row.html" with label=color value=plover.get_color_display %}
             {% include "skeletons/horizontal_row.html" with label=banding_date value=plover.banding_date %}
           </tbody>
         </table>
