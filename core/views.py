@@ -17,10 +17,6 @@ def about(request):
     return render(request, 'core/about.html')
 
 
-def administration(request):
-    return render(request, 'core/administration.html')
-
-
 def map(request):
     flush_session(request, ('plovers', 'general'))
 
