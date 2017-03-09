@@ -21,6 +21,7 @@ def format_coordinate_field(label, placeholder):
         required=False,
         widget=forms.TextInput(attrs={
             'placeholder': _(placeholder),
+            'readonly': True,
             'class': 'form-control'
         })
     )
