@@ -1,5 +1,5 @@
 from django import forms
-from django.conf import settings
+from core.models import SEX_CHOICES, COLOR_CHOICES
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -36,7 +36,7 @@ def format_choicefield(label, choices):
     )
 
 
-code = forms.IntegerField(
+CODE = forms.IntegerField(
     label=_('Code'),
     widget=forms.TextInput(attrs={
         'placeholder': _('Code'),
@@ -46,9 +46,9 @@ code = forms.IntegerField(
 
 
 class PloverForm(forms.Form):
-    code = code
-    color = format_choicefield('Color', settings.COLOR_CHOICES)
-    sex = format_choicefield('Sex', settings.SEX_CHOICES)
+    code = CODE
+    color = format_choicefield('Color', COLOR_CHOICES)
+    sex = format_choicefield('Sex', SEX_CHOICES)
 
     comment = forms.CharField(
         label=_('Comment'),
@@ -81,8 +81,8 @@ class MapForm(forms.Form):
 
 
 class CodeForm(forms.Form):
-    code = code
-    color = format_choicefield('Color', settings.COLOR_CHOICES)
+    code = CODE
+    color = format_choicefield('Color', COLOR_CHOICES)
 
 
 class MetalForm(forms.Form):

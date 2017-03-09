@@ -1,5 +1,18 @@
 from django.db import models
-from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
+
+SEX_CHOICES = (
+    (0, _('Male')),
+    (1, _('Female')),
+    (2, _('Undetermined'))
+)
+
+COLOR_CHOICES = (
+    (0, _('Red')),
+    (1, _('White')),
+    (2, _('Yellow')),
+    (3, _('Green'))
+)
 
 
 class Location(models.Model):
@@ -37,7 +50,7 @@ class Observer(models.Model):
 class Plover(models.Model):
     def __str__(self):
         # FIXME: It seem that the get_color_display() doesn't work
-        for choice in settings.COLOR_CHOICES:
+        for choice in COLOR_CHOICES:
             if choice[0] == int(self.color):
                 color = choice[1]
 
@@ -51,8 +64,8 @@ class Plover(models.Model):
     banding_year = models.IntegerField()
     metal_ring = models.CharField(max_length=20, unique=True)
     code = models.IntegerField()
-    color = models.CharField(choices=settings.COLOR_CHOICES, max_length=20)
-    sex = models.CharField(choices=settings.SEX_CHOICES, max_length=20)
+    color = models.CharField(choices=COLOR_CHOICES, max_length=20, default=0)
+    sex = models.CharField(choices=SEX_CHOICES, max_length=20, default=2)
     age = models.CharField(max_length=5)
     banding_date = models.DateField()
     banding_time = models.TimeField(blank=True)
@@ -71,8 +84,8 @@ class Observation(models.Model):
     plover = models.ForeignKey(Plover, related_name='observations')
     location = models.ForeignKey(Location, related_name='observations')
     date = models.DateField()
-    supposed_sex = models.CharField(choices=settings.SEX_CHOICES,
-                                    max_length=20)
+    supposed_sex = models.CharField(choices=SEX_CHOICES,
+                                    max_length=20, default=2)
     coordinate_x = models.FloatField(null=True)
     coordinate_y = models.FloatField(null=True)
     comment = models.TextField(null=True)

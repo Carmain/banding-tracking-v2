@@ -8,8 +8,8 @@
       "banding_year": 2016,
       "metal_ring": "SE22622",
       "code": 112,
-      "color": 1,
-      "sex": 1,
+      "color": 0,
+      "sex": 0,
       "age": "+1A",
       "banding_date": "2012-01-01",
       "banding_time": "16:00:00.000000"
@@ -24,8 +24,8 @@
       "banding_year": 2014,
       "metal_ring": "SE22412",
       "code": 59,
-      "color": 2,
-      "sex": 2,
+      "color": 1,
+      "sex": 1,
       "age": "PUL",
       "banding_date": "2012-08-10",
       "banding_time": "12:45:00.000000"
@@ -40,8 +40,8 @@
       "banding_year": 2015,
       "metal_ring": "SE22527",
       "code": 142,
-      "color": 3,
-      "sex": 3,
+      "color": 2,
+      "sex": 2,
       "age": "+1A",
       "banding_date": "2016-05-21",
       "banding_time": "10:52:00.000000"

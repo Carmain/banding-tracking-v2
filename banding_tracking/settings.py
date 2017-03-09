@@ -119,20 +119,6 @@ STATICFILES_DIRS = (BASE_DIR, 'static')
 # Seeds for the database
 FIXTURE_DIRS = (BASE_DIR, 'fixtures')
 
-# Const for the plovers
-SEX_CHOICES = (
-    (1, _('Male')),
-    (2, _('Female')),
-    (3, _('Undetermined'))
-)
-
-COLOR_CHOICES = (
-    (1, _('Red')),
-    (2, _('White')),
-    (3, _('Yellow')),
-    (4, _('Green'))
-)
-
 # Import all the local settings
 try:
     from .local_settings import *
