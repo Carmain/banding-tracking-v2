@@ -3,6 +3,11 @@ from django.conf import settings
 
 
 class Location(models.Model):
+    def __str__(self):
+        pattern = '{} - {}, {} ({})'
+        return pattern.format(self.town, self.locality,
+                              self.department, self.country)
+
     @property
     def minimal_location(self):
         return '{} ({})'.format(self.town, self.country)
@@ -14,6 +19,9 @@ class Location(models.Model):
 
 
 class Observer(models.Model):
+    def __str__(self):
+        return self.full_name
+
     class Meta:
         unique_together = ('last_name', 'first_name')
 
@@ -27,6 +35,14 @@ class Observer(models.Model):
 
 
 class Plover(models.Model):
+    def __str__(self):
+        # FIXME: It seem that the get_color_display() doesn't work
+        for choice in settings.COLOR_CHOICES:
+            if choice[0] == int(self.color):
+                color = choice[1]
+
+        return '{} {} ({})'.format(self.code, color, self.metal_ring)
+
     class Meta:
         unique_together = ('metal_ring', 'code', 'color')
 
@@ -43,6 +59,11 @@ class Plover(models.Model):
 
 
 class Observation(models.Model):
+    def __str__(self):
+        patern = '{} {} : {} - {}'
+        return patern.format(self.date, self.observer, self.plover,
+                             self.location)
+
     class Meta:
         ordering = ['-date']
 
