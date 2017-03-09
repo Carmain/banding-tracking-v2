@@ -78,11 +78,9 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.core.context_processors.i18n',  # i18N
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                'django.core.context_processors.i18n'
+                'django.contrib.messages.context_processors.messages'
             ],
         },
     },

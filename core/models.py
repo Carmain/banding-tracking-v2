@@ -59,8 +59,10 @@ class Plover(models.Model):
     class Meta:
         unique_together = ('metal_ring', 'code', 'color')
 
-    bander = models.ForeignKey(Observer, related_name='plovers')
-    location = models.ForeignKey(Location, related_name='plovers')
+    bander = models.ForeignKey(Observer, related_name='plovers',
+                               on_delete=models.PROTECT)
+    location = models.ForeignKey(Location, related_name='plovers',
+                                 on_delete=models.PROTECT)
     banding_year = models.IntegerField()
     metal_ring = models.CharField(max_length=20, unique=True)
     code = models.IntegerField()
@@ -80,9 +82,12 @@ class Observation(models.Model):
     class Meta:
         ordering = ['-date']
 
-    observer = models.ForeignKey(Observer, related_name='observations')
-    plover = models.ForeignKey(Plover, related_name='observations')
-    location = models.ForeignKey(Location, related_name='observations')
+    observer = models.ForeignKey(Observer, related_name='observations',
+                                 null=True, on_delete=models.SET_NULL)
+    plover = models.ForeignKey(Plover, related_name='observations',
+                               on_delete=models.CASCADE)
+    location = models.ForeignKey(Location, related_name='observations',
+                                 on_delete=models.CASCADE)
     date = models.DateField()
     supposed_sex = models.CharField(choices=SEX_CHOICES,
                                     max_length=20, default=2)
