@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-09 16:48+0100\n"
+"POT-Creation-Date: 2017-03-15 10:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,63 +26,69 @@ msgstr "Français"
 msgid "English"
 msgstr "Anglais"
 
-#: .\core\forms.py:41 .\core\forms.py:43 .\templates\core\observations.html:40
-#: .\templates\core\result.html:16 .\templates\core\search.html:56
+#: .\core\admin.py:60 .\templates\template.html:42
+msgid "Administration"
+msgstr "Administration"
+
+#: .\core\forms.py:41 .\core\forms.py:43 .\core\models.py:76
+#: .\templates\core\observations.html:40 .\templates\core\result.html:16
+#: .\templates\core\search.html:56
 msgid "Code"
 msgstr "Code"
 
-#: .\core\forms.py:51 .\core\forms.py:86 .\templates\core\observations.html:41
-#: .\templates\core\result.html:18 .\templates\core\search.html:57
+#: .\core\forms.py:51 .\core\forms.py:86 .\core\models.py:78
+#: .\templates\core\observations.html:41 .\templates\core\result.html:18
+#: .\templates\core\search.html:57
 msgid "Color"
 msgstr "Couleur"
 
-#: .\core\forms.py:52 .\templates\core\observations.html:42
+#: .\core\forms.py:52 .\core\models.py:80 .\templates\core\observations.html:42
 #: .\templates\core\result.html:19 .\templates\core\search.html:70
 msgid "Sex"
 msgstr "Sexe"
 
-#: .\core\forms.py:55
+#: .\core\forms.py:55 .\core\models.py:111
 msgid "Comment"
 msgstr "Commentaire"
 
-#: .\core\forms.py:66 .\templates\core\observations.html:9
+#: .\core\forms.py:66 .\core\models.py:106 .\templates\core\observations.html:9
 #: .\templates\core\search.html:85
 msgid "Date"
 msgstr "Date"
 
-#: .\core\forms.py:73
+#: .\core\forms.py:73 .\core\models.py:52
 msgid "Last name"
 msgstr "Nom"
 
-#: .\core\forms.py:74
+#: .\core\forms.py:74 .\core\models.py:53
 msgid "First name"
 msgstr "Prénom"
 
-#: .\core\forms.py:75 .\templates\core\search.html:86
+#: .\core\forms.py:75 .\core\models.py:33 .\templates\core\search.html:86
 msgid "Town"
 msgstr "Ville"
 
-#: .\core\forms.py:76
+#: .\core\forms.py:76 .\core\models.py:34
 msgid "Department"
 msgstr "Département"
 
-#: .\core\forms.py:77 .\templates\core\search.html:87
+#: .\core\forms.py:77 .\core\models.py:32 .\templates\core\search.html:87
 msgid "Country"
 msgstr "Pays"
 
-#: .\core\forms.py:78
+#: .\core\forms.py:78 .\core\models.py:36
 msgid "Locality"
 msgstr "Lieu-dit"
 
-#: .\core\forms.py:80
+#: .\core\forms.py:80 .\core\models.py:109
 msgid "X coordinate"
 msgstr "Coordonnée X"
 
-#: .\core\forms.py:81
+#: .\core\forms.py:81 .\core\models.py:110
 msgid "Y coordinate"
 msgstr "Coordonnée Y"
 
-#: .\core\forms.py:90 .\templates\core\search.html:55
+#: .\core\forms.py:90 .\core\models.py:75 .\templates\core\search.html:55
 msgid "Metal ring"
 msgstr "Bague métal"
 
@@ -114,7 +120,8 @@ msgstr "Jaune"
 msgid "Green"
 msgstr "Vert"
 
-#: .\core\models.py:25 .\templates\core\observations.html:11
+#: .\core\models.py:25 .\core\models.py:72 .\core\models.py:105
+#: .\templates\core\observations.html:11
 msgid "Location"
 msgstr "Localisation"
 
@@ -122,30 +129,71 @@ msgstr "Localisation"
 msgid "Locations"
 msgstr "Localisations"
 
-#: .\core\models.py:44 .\templates\core\observations.html:10
-#: .\templates\core\search.html:88
+#: .\core\models.py:45 .\core\models.py:99
+#: .\templates\core\observations.html:10 .\templates\core\search.html:88
 msgid "Observer"
 msgstr "Observateur"
 
-#: .\core\models.py:45
+#: .\core\models.py:46
 msgid "Observers"
 msgstr "Observateurs"
 
-#: .\core\models.py:63
+#: .\core\models.py:54
+msgid "Is bander"
+msgstr "Est bagueur"
+
+#: .\core\models.py:64
 msgid "Kentish plover"
 msgstr "Gravelot à collier interrompu"
 
-#: .\core\models.py:64
+#: .\core\models.py:65
 msgid "Kentish plovers"
 msgstr "Gravelots à collier interrompu"
 
-#: .\core\models.py:87
+#: .\core\models.py:69 .\templates\core\search.html:72
+msgid "Bander"
+msgstr "Bagueur"
+
+#: .\core\models.py:73
+msgid "Banding year"
+msgstr "Année de baguage"
+
+#: .\core\models.py:81
+msgid "Age"
+msgstr "Âge"
+
+#: .\core\models.py:82 .\templates\core\search.html:58
+msgid "Banding date"
+msgstr "Date de baguage"
+
+#: .\core\models.py:83
+msgid "Banding time"
+msgstr "Heure de baguage"
+
+#: .\core\models.py:93
 msgid "Observation"
 msgstr "Observation"
 
-#: .\core\models.py:88
+#: .\core\models.py:94
 msgid "Observations"
 msgstr "Observations"
+
+#: .\core\models.py:102
+msgid "Plover"
+msgstr "Gravelot"
+
+#: .\core\models.py:108
+msgid "Supposed Sex"
+msgstr "Sexe supposé"
+
+#: .\templates\admin\import.html:6 .\templates\template.html:12
+#: .\templates\template.html:37
+msgid "Home"
+msgstr "Accueil"
+
+#: .\templates\admin\import.html:7
+msgid "Import new banded kentish plovers"
+msgid "Importer de nouveaux gravelots à collier interrompu"
 
 #: .\templates\core\about.html:4 .\templates\core\about.html:6
 #: .\templates\template.html:43
@@ -250,17 +298,9 @@ msgstr "Historique des observations d'un gravelot à collier interrompu"
 msgid "Charadrius alexandrinus"
 msgstr "Charadrius alexandrinus"
 
-#: .\templates\core\search.html:58
-msgid "Banding date"
-msgstr "Date de baguage"
-
 #: .\templates\core\search.html:71
 msgid "Banding location"
 msgstr "Lieu de baguage"
-
-#: .\templates\core\search.html:72
-msgid "Bander"
-msgstr "Bagueur"
 
 #: .\templates\core\search.html:106
 msgid "Error"
@@ -270,10 +310,6 @@ msgstr "Error"
 msgid "The plover with this code doesn't exist"
 msgstr "The plover with this code doesn't exist"
 
-#: .\templates\template.html:12 .\templates\template.html:37
-msgid "Home"
-msgstr "Accueil"
-
 #: .\templates\template.html:32
 msgid "Toggle navigation"
 msgstr "Basculer la navigation"
@@ -282,13 +318,12 @@ msgstr "Basculer la navigation"
 msgid "Did you saw a kentish plover ?"
 msgstr "Vous avez vu un gravelot à collier interrompu ?"
 
-#: .\templates\template.html:42
-msgid "Administration"
-msgstr "Administration"
-
 #: .\templates\template.html:45
 msgid "The C.R.B.P.O"
 msgstr "Le C.R.B.P.O"
+
+#~ msgid "Import plovers"
+#~ msgstr "Importer les gravelots"
 
 #~ msgid "Validated"
 #~ msgstr "Validés"
