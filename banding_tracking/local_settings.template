@@ -18,5 +18,5 @@ DATABASES = {
     }
 }
 
-# WARNING: keeep secret your own access token!
+# WARNING: keep secret your own access token!
 ROLLBAR_ACCESS_TOKEN = ''

@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-import rollbar
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -123,12 +122,14 @@ try:
 except ImportError as e:
     print('Error : ', e)
 
+if 'ROLLBAR_ACCESS_TOKEN' in locals():
+    import rollbar
 
-# Rollbar configuration
-ROLLBAR = {
-    'access_token': ROLLBAR_ACCESS_TOKEN,
-    'environment': 'development' if DEBUG else 'production',
-    'root': BASE_DIR,
-}
+    # Rollbar configuration
+    ROLLBAR = {
+        'access_token': ROLLBAR_ACCESS_TOKEN,
+        'environment': 'development' if DEBUG else 'production',
+        'root': BASE_DIR,
+    }
 
-rollbar.init(**ROLLBAR)
+    rollbar.init(**ROLLBAR)
