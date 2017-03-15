@@ -9,6 +9,7 @@ SEX_CHOICES = (
 
 COLOR_CHOICES = (
     ('R', _('Red')),
+    ('P', _('Pink')),
     ('W', _('White')),
     ('Y', _('Yellow')),
     ('G', _('Green'))
