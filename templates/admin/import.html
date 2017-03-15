@@ -1,0 +1,13 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block breadcrumbs %}
+  <div class="breadcrumbs">
+    <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+    &rsaquo; {% trans 'Import new banded kentish plovers' %}
+  </div>
+{% endblock %}
+
+{% block content %}
+  <h1>Hello</h1>
+{% endblock %}

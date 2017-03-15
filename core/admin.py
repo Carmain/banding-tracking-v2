@@ -1,7 +1,25 @@
 from django.contrib import admin
+from django.contrib.admin import AdminSite
+from django.shortcuts import render
+from django.utils.translation import ugettext_lazy as _
+
 from .models import Plover, Observation, Observer, Location
 
 PAGINATION = 25
+
+
+class MyAdminSite(AdminSite):
+    def get_urls(self):
+        from django.conf.urls import url
+        urls = super(MyAdminSite, self).get_urls()
+        urls += [
+            url(r'^import-plovers/$', self.admin_view(self.import_plovers),
+                name='import_plovers')
+        ]
+        return urls
+
+    def import_plovers(self, request):
+        return render(request, 'admin/import.html')
 
 
 class PloverAdmin(admin.ModelAdmin):
@@ -37,6 +55,9 @@ class LocationAdmin(admin.ModelAdmin):
     list_filter = ('country', 'town', 'department')
     ordering = ('id',)
     list_per_page = PAGINATION
+
+admin.site = MyAdminSite()
+admin.site.site_header = _('Administration')
 
 admin.site.register(Plover, PloverAdmin)
 admin.site.register(Observation, ObservationAdmin)
