@@ -88,3 +88,9 @@ class CodeForm(forms.Form):
 
 class MetalForm(forms.Form):
     metal_ring = format_charfield(_('Metal ring'), 10, _('Metal ring'))
+
+
+# Extra forms for the admin section
+
+class ImportPloversForm(forms.Form):
+    file = forms.FileField(label=_('File'))

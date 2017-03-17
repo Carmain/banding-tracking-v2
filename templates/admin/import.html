@@ -9,5 +9,23 @@
 {% endblock %}
 
 {% block content %}
-  <h1>Hello</h1>
+  <h1>{% trans 'Import new banded kentish plovers' %}</h1>
+  <form action="/admin/import-plovers/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+      <div>
+        {{ form.file.errors }}
+        <label class="required" for="id_location">{{ form.file.label_tag }}</label>
+        {{ form.file }}
+      </div>
+    </div>
+    <div class="submit-row">
+      <input type="submit" value="{% trans 'Import' %}" class="default" />
+    </div>
+  </form>
+
+  {% for row in rows %}
+    {{row}}
+  {% endfor %}
+
 {% endblock %}
