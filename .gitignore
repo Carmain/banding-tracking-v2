@@ -61,11 +61,15 @@ docs/_build/
 # PyBuilder
 target/
 
-#Ipython Notebook
+# Ipython Notebook
 .ipynb_checkpoints
 
-#Bower folder
+# Bower folder
 static/libs
 
-#sqlite3 db
+# sqlite3 db
 *.sqlite3
+
+# Upload folder
+media/upload/*
+!media/upload/.gitkeep
