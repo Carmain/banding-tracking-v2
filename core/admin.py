@@ -6,8 +6,10 @@ from django.utils.translation import ugettext_lazy as _
 from .models import Plover, Observation, Observer, Location
 from .forms import ImportPloversForm
 
-import os
 import csv
+import datetime
+import os
+import re
 
 PAGINATION = 25
 
@@ -42,6 +44,70 @@ class MyAdminSite(AdminSite):
 
         return observer
 
+    def format_time(self, str_time):
+        time = None
+        if(str_time != ''):
+            time_format = '%H:%M'
+            if(re.match(r'\d{1,2}h\d{2}', str_time)):
+                time_format = '%Hh%M'
+            elif(re.match(r'\d{1,2}H\d{2}', str_time)):
+                time_format = '%HH%M'
+
+            time = datetime.datetime.strptime(str_time, time_format)
+
+        return time
+
+    def format_date(self, str_date):
+        date = None
+        if(str_date != ''):
+            date = datetime.datetime.strptime(str_date, '%d/%m/%Y')
+
+        return date
+
+    def format_color(self, color):
+        COLOR_CHOICES = (
+            ('R', _('Red')),
+            ('P', _('Pink')),
+            ('W', _('White')),
+            ('Y', _('Yellow')),
+            ('G', _('Green'))
+        )
+
+        color = color.lower()
+        code_color = None
+
+        if(color == 'rouge'):
+            code_color = 'R'  # Red
+        elif(color == 'rose'):
+            code_color = 'P'  # Pink
+        elif(color == 'blanc'):
+            code_color = 'W'  # White
+        elif(color == 'jaune'):
+            code_color = 'Y'  # Yellow
+        elif(color == 'vert'):
+            code_color = 'G'  # Green
+
+        return code_color
+
+    def save_bird(self, bird, bander, location):
+        date = self.format_date(bird['banding_date'])
+        time = self.format_time(bird['banding_time'])
+
+        bird, bird_exist = Plover.objects.get_or_create(
+            bander=bander,
+            location=location,
+            banding_year=bird['banding_year'],
+            metal_ring=bird['metal_ring'],
+            code=bird['code'],
+            color=bird['color'],
+            sex=bird['sex'],
+            age=bird['age'],
+            banding_date=date,
+            banding_time=time
+        )
+
+        return bird
+
     def handle_files(self, uploaded_file):
         path = 'media/upload/'
 
@@ -64,22 +130,27 @@ class MyAdminSite(AdminSite):
         }
 
         for row in cr:
-            location = self.save_location(row['town'], row['department'],
-                                          row['locality'])
-            bander = self.save_bander(row['first_name_observer'],
-                                      row['observer'])
+            code = int(row['number'])
+            color = row['color']
 
-            # DATA FROM OLD PLOVER TABLE
-            # "year",
-            # "banding_year",
-            # "action",
-            # "metal_ring",
-            # "number",
-            # "color",
-            # "sex",
-            # "age",
-            # "date",
-            # "banding_time",
+            if (code != 0 and color is not None):
+                bird = {
+                    'banding_year': row['banding_year'],
+                    'metal_ring': row['metal_ring'],
+                    'code': code,
+                    'color': self.format_color(color),
+                    'sex': row['sex'],
+                    'age': row['age'],
+                    'banding_date': row['date'],
+                    'banding_time': row['banding_time']
+                }
+                location = self.save_location(row['town'], row['department'],
+                                              row['locality'])
+                bander = self.save_bander(row['first_name_observer'],
+                                          row['observer'])
+                bird = self.save_bird(bird, bander, location)
+
+                print('{} saved !'.format(bird))
 
     # This section is coded only to migrate old data to this project
     def import_plovers(self, request):

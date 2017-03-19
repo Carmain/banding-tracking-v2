@@ -75,13 +75,15 @@ class Plover(models.Model):
     metal_ring = models.CharField(max_length=20, unique=True,
                                   verbose_name=_('Metal ring'))
     code = models.IntegerField(verbose_name=_('Code'))
-    color = models.CharField(choices=COLOR_CHOICES, max_length=20, default=0,
+    color = models.CharField(choices=COLOR_CHOICES, max_length=1, default=0,
                              verbose_name=_('Color'))
     sex = models.CharField(choices=SEX_CHOICES, max_length=20, default=2,
                            verbose_name=_('Sex'))
     age = models.CharField(max_length=5, verbose_name=_('Age'))
-    banding_date = models.DateField(verbose_name=_('Banding date'))
-    banding_time = models.TimeField(blank=True, verbose_name=_('Banding time'))
+    banding_date = models.DateField(blank=True, null=True,
+                                    verbose_name=_('Banding date'))
+    banding_time = models.TimeField(blank=True, null=True,
+                                    verbose_name=_('Banding time'))
 
 
 class Observation(models.Model):
