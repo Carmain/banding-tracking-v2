@@ -24,8 +24,42 @@
     </div>
   </form>
 
-  {% for row in rows %}
-    {{row}}
-  {% endfor %}
+  {% if recorded %}
+  <table>
+    <caption class="section">{% trans 'Imported plovers' %}</caption>
+    <tbody>
+      {% for bird in recorded %}
+        <tr>
+          <td>{{ bird }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
 
+  {% if already_saved %}
+    <table>
+      <caption class="section">{% trans 'Already saved' %}</caption>
+      <tbody>
+        {% for bird in already_saved %}
+          <tr>
+            <td>{{ bird }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+
+  {% if rejected %}
+    <table>
+      <caption class="section">{% trans 'Rejected' %}</caption>
+      <tbody>
+        {% for bird in rejected %}
+          <tr>
+            <td>{{ bird.code }} {{ bird.color }} ({{ bird.metal_ring }})</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
 {% endblock %}

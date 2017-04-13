@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.admin import AdminSite
 from django.shortcuts import render
 from django.utils.translation import ugettext_lazy as _
+from django.db import IntegrityError
 
 from .models import Plover, Observation, Observer, Location
 from .forms import ImportPloversForm
@@ -106,9 +107,9 @@ class MyAdminSite(AdminSite):
             banding_time=time
         )
 
-        return bird
+        return bird, bird_exist
 
-    def handle_files(self, uploaded_file):
+    def import_plovers_from_csv(self, uploaded_file):
         path = 'media/upload/'
 
         # If the upload folder doesn't exist, we create it
@@ -121,9 +122,9 @@ class MyAdminSite(AdminSite):
                 destination.write(chunk)
                 print(destination)
 
-        cr = csv.DictReader(open(path + str(uploaded_file), 'r',
-                                 encoding='utf-8'))
-        plovers = {
+        filepath = path + str(uploaded_file)
+        cr = csv.DictReader(open(filepath, 'r', encoding='utf-8'))
+        saved_plovers = {
             'recorded': [],
             'already_saved': [],
             'rejected': []
@@ -148,23 +149,31 @@ class MyAdminSite(AdminSite):
                                               row['locality'])
                 bander = self.save_bander(row['first_name_observer'],
                                           row['observer'])
-                bird = self.save_bird(bird, bander, location)
 
-                print('{} saved !'.format(bird))
+                try:
+                    bird, bird_exist = self.save_bird(bird, bander, location)
+                except IntegrityError as e:
+                    saved_plovers['rejected'].append(bird)
+                    print('Error : {}'.format(e))
+                else:
+                    if(bird_exist):
+                        saved_plovers['recorded'].append(bird)
+                        print('{} saved !'.format(bird))
+                    else:
+                        saved_plovers['already_saved'].append(bird)
+                        print('{} already saved !'.format(bird))
+
+        return saved_plovers
 
     # This section is coded only to migrate old data to this project
     def import_plovers(self, request):
-        data = {
-            'recorded': [],
-            'already_saved': [],
-            'rejected': []
-        }
+        data = {}
 
         if request.method == 'POST':
             form = ImportPloversForm(request.POST, request.FILES)
             data['form'] = form
             if form.is_valid():
-                self.handle_files(request.FILES['file'])
+                data = self.import_plovers_from_csv(request.FILES['file'])
 
         else:
             data['form'] = ImportPloversForm()
