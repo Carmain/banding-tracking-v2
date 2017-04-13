@@ -80,10 +80,10 @@ def observations(request):
         return HttpResponseRedirect(reverse('map'))
 
 
-def remove_plover(request, uuid):
-    plovers_in_session = request.session.get('plovers')
-    plovers = [el for el in plovers_in_session if el.get('uuid') != uuid]
-    request.session['plovers'] = plovers
+def remove_bird_in_session(request, uuid):
+    bird_in_session = request.session.get('plovers')
+    bird = [el for el in bird_in_session if el.get('uuid') != uuid]
+    request.session['plovers'] = bird
 
     return HttpResponseRedirect(reverse('observations'))
 
@@ -136,6 +136,7 @@ def validate_plovers(request):
         'accepted_observations': accepted_observations,
         'rejected_observations': rejected_observations
     }
+
     return render(request, 'core/result.html', result)
 
 
