@@ -6,13 +6,12 @@ from django.db import IntegrityError
 
 from .models import Plover, Observation, Observer, Location
 from .forms import ImportPloversForm
+from .extras.formatter import *
 
 import csv
-import datetime
 import os
-import re
 
-PAGINATION = 25
+DEFAULT_PAGINATION = 25
 
 
 class MyAdminSite(AdminSite):
@@ -45,54 +44,9 @@ class MyAdminSite(AdminSite):
 
         return observer
 
-    def format_time(self, str_time):
-        time = None
-        if(str_time != ''):
-            time_format = '%H:%M'
-            if(re.match(r'\d{1,2}h\d{2}', str_time)):
-                time_format = '%Hh%M'
-            elif(re.match(r'\d{1,2}H\d{2}', str_time)):
-                time_format = '%HH%M'
-
-            time = datetime.datetime.strptime(str_time, time_format)
-
-        return time
-
-    def format_date(self, str_date):
-        date = None
-        if(str_date != ''):
-            date = datetime.datetime.strptime(str_date, '%d/%m/%Y')
-
-        return date
-
-    def format_color(self, color):
-        COLOR_CHOICES = (
-            ('R', _('Red')),
-            ('P', _('Pink')),
-            ('W', _('White')),
-            ('Y', _('Yellow')),
-            ('G', _('Green'))
-        )
-
-        color = color.lower()
-        code_color = None
-
-        if(color == 'rouge'):
-            code_color = 'R'  # Red
-        elif(color == 'rose'):
-            code_color = 'P'  # Pink
-        elif(color == 'blanc'):
-            code_color = 'W'  # White
-        elif(color == 'jaune'):
-            code_color = 'Y'  # Yellow
-        elif(color == 'vert'):
-            code_color = 'G'  # Green
-
-        return code_color
-
     def save_bird(self, bird, bander, location):
-        date = self.format_date(bird['banding_date'])
-        time = self.format_time(bird['banding_time'])
+        date = format_date(bird['banding_date'])
+        time = format_time(bird['banding_time'])
 
         bird, bird_exist = Plover.objects.get_or_create(
             bander=bander,
@@ -139,7 +93,7 @@ class MyAdminSite(AdminSite):
                     'banding_year': row['banding_year'],
                     'metal_ring': row['metal_ring'],
                     'code': code,
-                    'color': self.format_color(color),
+                    'color': format_color(color),
                     'sex': row['sex'],
                     'age': row['age'],
                     'banding_date': row['date'],
@@ -186,7 +140,7 @@ class PloverAdmin(admin.ModelAdmin):
     search_fields = ('code', 'color', 'metal_ring')
     list_filter = ('code', 'color')
     ordering = ('id',)
-    list_per_page = PAGINATION
+    list_per_page = DEFAULT_PAGINATION
 
 
 class ObservationAdmin(admin.ModelAdmin):
@@ -195,7 +149,7 @@ class ObservationAdmin(admin.ModelAdmin):
     search_fields = ('observer', 'plover', 'date', 'location')
     list_filter = ('plover',)
     ordering = ('-date',)
-    list_per_page = PAGINATION
+    list_per_page = DEFAULT_PAGINATION
 
 
 class ObserverAdmin(admin.ModelAdmin):
@@ -204,7 +158,7 @@ class ObserverAdmin(admin.ModelAdmin):
     search_fields = ('last_name', 'first_name')
     list_filter = ('last_name', 'first_name')
     ordering = ('id',)
-    list_per_page = PAGINATION
+    list_per_page = DEFAULT_PAGINATION
 
 
 class LocationAdmin(admin.ModelAdmin):
@@ -213,7 +167,7 @@ class LocationAdmin(admin.ModelAdmin):
     search_fields = ('country', 'town', 'department')
     list_filter = ('country', 'town', 'department')
     ordering = ('id',)
-    list_per_page = PAGINATION
+    list_per_page = DEFAULT_PAGINATION
 
 admin.site = MyAdminSite()
 admin.site.site_header = _('Administration')
