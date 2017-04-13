@@ -6,7 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from core.models import Location, Observer, Observation, Plover
 
 from .forms import MapForm, PloverForm, CodeForm, MetalForm
-from .views_snippets import *
+from .extras.views_snippets import *
 
 
 def index(request):
