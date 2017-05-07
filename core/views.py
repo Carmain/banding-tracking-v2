@@ -30,6 +30,7 @@ def map(request):
                 'date': request.POST.get('date'),
                 'last_name': request.POST.get('last_name').upper(),
                 'first_name': request.POST.get('first_name').capitalize(),
+                'email': request.POST.get('email'),
                 'town': request.POST.get('town'),
                 'department': request.POST.get('department'),
                 'country': request.POST.get('country'),
@@ -104,7 +105,8 @@ def validate_plovers(request):
 
     observer, observer_exist = Observer.objects.get_or_create(
         last_name=general.get('last_name'),
-        first_name=general.get('first_name')
+        first_name=general.get('first_name'),
+        email=general.get('email')
     )
 
     for observation in observations:
