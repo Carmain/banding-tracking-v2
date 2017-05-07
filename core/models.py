@@ -42,7 +42,6 @@ class Observer(models.Model):
         return self.full_name
 
     class Meta:
-        unique_together = ('last_name', 'first_name')
         verbose_name = _('Observer')
         verbose_name_plural = _('Observers')
 
@@ -52,6 +51,8 @@ class Observer(models.Model):
 
     last_name = models.CharField(max_length=255, verbose_name=_('Last name'))
     first_name = models.CharField(max_length=255, verbose_name=_('First name'))
+    email = models.EmailField(
+        max_length=254, verbose_name=_('Email'), null=True)
     is_bander = models.BooleanField(default=False, verbose_name=_('Is bander'))
 
 

@@ -154,10 +154,9 @@ class ObservationAdmin(admin.ModelAdmin):
 
 
 class ObserverAdmin(admin.ModelAdmin):
-    list_display = ('id', 'last_name', 'first_name')
+    list_display = ('id', 'last_name', 'first_name', 'email')
     list_filter = ('last_name', 'first_name')
-    search_fields = ('last_name', 'first_name')
-    list_filter = ('last_name', 'first_name')
+    search_fields = ('last_name', 'first_name', 'email')
     ordering = ('id',)
     list_per_page = DEFAULT_PAGINATION
 
@@ -166,7 +165,6 @@ class LocationAdmin(admin.ModelAdmin):
     list_display = ('id', 'country', 'town', 'department', 'locality')
     list_filter = ('country', 'town', 'department')
     search_fields = ('country', 'town', 'department')
-    list_filter = ('country', 'town', 'department')
     ordering = ('id',)
     list_per_page = DEFAULT_PAGINATION
 
