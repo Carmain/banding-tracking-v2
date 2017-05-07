@@ -1,4 +1,5 @@
 - model: core.location
+  pk: 1
   fields:
     country: France
     town: MERVILLE-FRANCEVILLE-PLAGE
@@ -6,6 +7,7 @@
     locality: Plage
 
 - model: core.location
+  pk: 2
   fields:
     country: France
     town: AGON-COUTAINVILLE
@@ -13,6 +15,7 @@
     locality: Pointe d'Agon
 
 - model: core.location
+  pk: 3
   fields:
     country: France
     town: COSQUEVILLE
