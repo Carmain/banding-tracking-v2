@@ -1,12 +1,13 @@
 import uuid
 
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.core.urlresolvers import reverse
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from core.models import Location, Observer, Observation, Plover
+from extras.views_snippets import flush_session, add_plover_in_session
+from extras.views_snippets import search_formatter
 
 from .forms import MapForm, PloverForm, CodeForm, MetalForm
-from .extras.views_snippets import *
 
 
 def index(request):

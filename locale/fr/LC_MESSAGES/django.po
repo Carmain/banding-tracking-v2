@@ -193,7 +193,7 @@ msgstr "Accueil"
 
 #: .\templates\admin\import.html:7
 msgid "Import new banded kentish plovers"
-msgid "Importer de nouveaux gravelots à collier interrompu"
+msgstr "Importer de nouveaux gravelots à collier interrompu"
 
 #: .\templates\core\about.html:4 .\templates\core\about.html:6
 #: .\templates\template.html:43

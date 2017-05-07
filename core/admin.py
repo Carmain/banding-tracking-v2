@@ -6,7 +6,7 @@ from django.db import IntegrityError
 
 from .models import Plover, Observation, Observer, Location
 from .forms import ImportPloversForm
-from .extras.formatter import *
+from extras.formatter import format_date, format_time, format_color
 
 import csv
 import os
@@ -99,10 +99,10 @@ class MyAdminSite(AdminSite):
                     'banding_date': row['date'],
                     'banding_time': row['banding_time']
                 }
-                location = self.save_location(row['town'], row['department'],
-                                              row['locality'])
-                bander = self.save_bander(row['first_name_observer'],
-                                          row['observer'])
+                location = self.save_location(
+                    row['town'], row['department'], row['locality'])
+                bander = self.save_bander(
+                    row['first_name_observer'], row['observer'])
 
                 try:
                     bird, bird_exist = self.save_bird(bird, bander, location)
@@ -144,8 +144,9 @@ class PloverAdmin(admin.ModelAdmin):
 
 
 class ObservationAdmin(admin.ModelAdmin):
-    list_display = ('id', 'date', 'observer', 'plover', 'location',
-                    'supposed_sex', 'coordinate_x', 'coordinate_y', 'comment')
+    list_display = (
+        'id', 'date', 'observer', 'plover', 'location', 'supposed_sex',
+        'coordinate_x', 'coordinate_y', 'comment')
     search_fields = ('observer', 'plover', 'date', 'location')
     list_filter = ('plover',)
     ordering = ('-date',)
@@ -168,6 +169,7 @@ class LocationAdmin(admin.ModelAdmin):
     list_filter = ('country', 'town', 'department')
     ordering = ('id',)
     list_per_page = DEFAULT_PAGINATION
+
 
 admin.site = MyAdminSite()
 admin.site.site_header = _('Administration')
