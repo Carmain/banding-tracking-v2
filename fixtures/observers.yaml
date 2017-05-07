@@ -4,6 +4,7 @@
     last_name: JEAN BAPTISTE
     first_name: James
     is_bander: true
+    email: james.j@example.com
 
 - model: core.observer
   pk: 2
@@ -11,3 +12,4 @@
     last_name: BILLARD
     first_name: Martin
     is_bander: true
+    email: martin.b@example.com
