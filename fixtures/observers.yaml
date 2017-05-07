@@ -1,0 +1,13 @@
+- model: core.observer
+  pk: 1
+  fields:
+    last_name: JEAN BAPTISTE
+    first_name: James
+    is_bander: true
+
+- model: core.observer
+  pk: 2
+  fields:
+    last_name: BILLARD
+    first_name: Martin
+    is_bander: true
