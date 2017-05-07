@@ -27,14 +27,6 @@ def format_date(str_date):
 
 
 def format_color(color):
-    COLOR_CHOICES = (
-        ('R', _('Red')),
-        ('P', _('Pink')),
-        ('W', _('White')),
-        ('Y', _('Yellow')),
-        ('G', _('Green'))
-    )
-
     color = color.lower()
     code_color = None
 

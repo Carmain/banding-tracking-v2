@@ -19,8 +19,8 @@ COLOR_CHOICES = (
 class Location(models.Model):
     def __str__(self):
         pattern = '{} - {}, {} ({})'
-        return pattern.format(self.town, self.locality,
-                              self.department, self.country)
+        return pattern.format(
+            self.town, self.locality, self.department, self.country)
 
     class Meta:
         verbose_name = _('Location')
@@ -33,8 +33,8 @@ class Location(models.Model):
     country = models.CharField(max_length=255, verbose_name=_('Country'))
     town = models.CharField(max_length=255, verbose_name=_('Town'))
     department = models.CharField(max_length=255, verbose_name=_('Department'))
-    locality = models.CharField(max_length=255, null=True,
-                                verbose_name=_('Locality'))
+    locality = models.CharField(
+        max_length=255, null=True, verbose_name=_('Locality'))
 
 
 class Observer(models.Model):
@@ -65,50 +65,52 @@ class Plover(models.Model):
         verbose_name = _('Kentish plover')
         verbose_name_plural = _('Kentish plovers')
 
-    bander = models.ForeignKey(Observer, related_name='plovers',
-                               on_delete=models.PROTECT,
-                               verbose_name=_('Bander'))
-    location = models.ForeignKey(Location, related_name='plovers',
-                                 on_delete=models.PROTECT,
-                                 verbose_name=_('Location'))
+    bander = models.ForeignKey(
+        Observer, related_name='plovers', on_delete=models.PROTECT,
+        verbose_name=_('Bander'))
+    location = models.ForeignKey(
+        Location, related_name='plovers', on_delete=models.PROTECT,
+        verbose_name=_('Location'))
     banding_year = models.IntegerField(verbose_name=_('Banding year'))
-    metal_ring = models.CharField(max_length=20, unique=True,
-                                  verbose_name=_('Metal ring'))
+    metal_ring = models.CharField(
+        max_length=20, unique=True, verbose_name=_('Metal ring'))
     code = models.IntegerField(verbose_name=_('Code'))
-    color = models.CharField(choices=COLOR_CHOICES, max_length=1, default=0,
-                             verbose_name=_('Color'))
-    sex = models.CharField(choices=SEX_CHOICES, max_length=20, default=2,
-                           verbose_name=_('Sex'))
+    color = models.CharField(
+        choices=COLOR_CHOICES, max_length=1, default=0,
+        verbose_name=_('Color'))
+    sex = models.CharField(
+        choices=SEX_CHOICES, max_length=20, default=2, verbose_name=_('Sex'))
     age = models.CharField(max_length=5, verbose_name=_('Age'))
-    banding_date = models.DateField(blank=True, null=True,
-                                    verbose_name=_('Banding date'))
-    banding_time = models.TimeField(blank=True, null=True,
-                                    verbose_name=_('Banding time'))
+    banding_date = models.DateField(
+        blank=True, null=True, verbose_name=_('Banding date'))
+    banding_time = models.TimeField(
+        blank=True, null=True, verbose_name=_('Banding time'))
 
 
 class Observation(models.Model):
     def __str__(self):
         patern = '{} {} : {} - {}'
-        return patern.format(self.date, self.observer, self.plover,
-                             self.location)
+        return patern.format(
+            self.date, self.observer, self.plover, self.location)
 
     class Meta:
         verbose_name = _('Observation')
         verbose_name_plural = _('Observations')
         ordering = ['-date']
 
-    observer = models.ForeignKey(Observer, related_name='observations',
-                                 null=True, on_delete=models.SET_NULL,
-                                 verbose_name=_('Observer'))
-    plover = models.ForeignKey(Plover, related_name='observations',
-                               on_delete=models.CASCADE,
-                               verbose_name=_('Plover'))
-    location = models.ForeignKey(Location, related_name='observations',
-                                 on_delete=models.CASCADE,
-                                 verbose_name=_('Location'))
+    observer = models.ForeignKey(
+        Observer, related_name='observations', null=True,
+        on_delete=models.SET_NULL, verbose_name=_('Observer'))
+    plover = models.ForeignKey(
+        Plover, related_name='observations', on_delete=models.CASCADE,
+        verbose_name=_('Plover'))
+    location = models.ForeignKey(
+        Location, related_name='observations', on_delete=models.CASCADE,
+        verbose_name=_('Location'))
     date = models.DateField(verbose_name=_('Date'))
-    supposed_sex = models.CharField(choices=SEX_CHOICES, max_length=20,
-                                    default=2, verbose_name=_('Supposed Sex'))
+    supposed_sex = models.CharField(
+        choices=SEX_CHOICES, max_length=20, default=2,
+        verbose_name=_('Supposed Sex'))
     coordinate_x = models.FloatField(null=True, verbose_name=_('X coordinate'))
     coordinate_y = models.FloatField(null=True, verbose_name=_('Y coordinate'))
     comment = models.TextField(null=True, verbose_name=_('Comment'))
