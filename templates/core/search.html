@@ -36,6 +36,13 @@
   {% include "skeletons/form_errors.html" %}
 
   {% if plover %}
+  <hr />
+
+  <a href="{% url 'get_report' plover.metal_ring %}" class="btn btn-primary large-button" role="button">
+    <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+    {% trans "Download into PDF" %}
+  </a>
+
   <div class="row">
     <div class="col-md-4">
       <div class="thumbnail">
