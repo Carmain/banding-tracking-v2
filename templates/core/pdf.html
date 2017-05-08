@@ -1,0 +1,16 @@
+{% load i18n %}
+{% load staticfiles %}
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <img class="history-logo" src="{% static 'media/gonm.jpg' %}" alt="{% trans 'GONm logo' %}">
+    </div>
+  </div>
+  <div class="col-md-8">
+    <h3 class="text-center">{% trans "History of observations about a banded kentish plover" %}<b></b></h3>
+    <h4 class="text-center"><i>{% trans "Charadrius alexandrinus" %}</i></h4>
+  </div>
+</div>
+
+{% include "skeletons/plover_informations.html" %}

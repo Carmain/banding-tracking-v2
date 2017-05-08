@@ -183,7 +183,7 @@ def search_by_metal(request):
 def get_report(request, metal_ring):
     plover = get_object_or_404(Plover, metal_ring=metal_ring)
 
-    html_template = get_template('report/result.html')
+    html_template = get_template('core/pdf.html')
 
     rendered_html = html_template.render(
         {'plover': plover}).encode(encoding="UTF-8")
