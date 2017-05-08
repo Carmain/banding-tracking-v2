@@ -1,0 +1,11 @@
+@page {
+    size: a4 portrait;
+    margin: 27mm 10mm 27mm 10mm;
+    counter-increment: page;
+    @bottom-center {
+        content: 'GONm - Page ' counter(page);
+        white-space: pre;
+        color: grey;
+    }
+
+}

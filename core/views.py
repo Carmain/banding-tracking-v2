@@ -1,11 +1,15 @@
 import uuid
 
-from django.shortcuts import render
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect
+from django.conf import settings
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404
+from django.template.loader import get_template
+
 from core.models import Location, Observer, Observation, Plover
 from extras.views_snippets import flush_session, add_plover_in_session
 from extras.views_snippets import search_formatter
+from weasyprint import HTML, CSS
 
 from .forms import MapForm, PloverForm, CodeForm, MetalForm
 
@@ -174,3 +178,30 @@ def search_by_metal(request):
     data = search_formatter(collector, MetalForm, 'search_by_metal', request)
 
     return render(request, 'core/search.html', data)
+
+
+def get_report(request, metal_ring):
+    plover = get_object_or_404(Plover, metal_ring=metal_ring)
+
+    html_template = get_template('core/pdf.html')
+
+    rendered_html = html_template.render(
+        {'plover': plover}).encode(encoding="UTF-8")
+    print(settings.STATIC_URL)
+
+    boostrap_css = CSS('{}{}libs/bootstrap/dist/css/bootstrap.min.css'.format(
+        settings.BASE_DIR, settings.STATIC_URL))
+
+    pdf_css = CSS('{}{}css/pdf.css'.format(
+        settings.BASE_DIR, settings.STATIC_URL))
+
+    pdf_file = HTML(
+        string=rendered_html,
+        base_url=request.build_absolute_uri()
+        ).write_pdf(stylesheets=[boostrap_css, pdf_css])
+
+    response = HttpResponse(pdf_file, content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="{}.pdf"'.format(
+        plover.metal_ring)
+
+    return response
