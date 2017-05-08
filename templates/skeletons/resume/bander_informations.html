@@ -1,0 +1,9 @@
+{% load i18n %}
+
+{% trans "Bander" as bander %}
+{% trans "Banding location" as banding_location %}
+{% trans "Banding date" as banding_date %}
+
+{% include "skeletons/horizontal_row.html" with label=bander value=plover.bander.full_name %}
+{% include "skeletons/horizontal_row.html" with label=banding_date value=plover.banding_date %}
+{% include "skeletons/horizontal_row.html" with label=banding_location value=plover.location.minimal_location %}

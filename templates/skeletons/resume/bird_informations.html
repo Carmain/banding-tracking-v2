@@ -1,0 +1,11 @@
+{% load i18n %}
+
+{% trans "Metal ring" as metal_ring %}
+{% trans "Code" as code %}
+{% trans "Color" as color %}
+{% trans "Sex" as sex %}
+
+{% include "skeletons/horizontal_row.html" with label=metal_ring value=plover.metal_ring %}
+{% include "skeletons/horizontal_row.html" with label=code value=plover.code %}
+{% include "skeletons/horizontal_row.html" with label=color value=plover.get_color_display %}
+{% include "skeletons/horizontal_row.html" with label=sex value=plover.sex %}
