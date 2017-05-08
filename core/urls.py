@@ -12,6 +12,6 @@ urlpatterns = [
     url(r'^validation$', views.validate_plovers, name='validate_plovers'),
     url(r'^search/metal$', views.search_by_metal, name='search_by_metal'),
     url(r'^search/code$', views.search_by_code, name='search_by_code'),
-    url(r'^get-report/(?P<metal_ring>\w+)$', views.get_report,
+    url(r'^export-to-pdf/(?P<metal_ring>\w+)$', views.get_report,
         name='get_report'),
 ]
