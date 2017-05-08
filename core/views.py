@@ -189,13 +189,16 @@ def get_report(request, metal_ring):
         {'plover': plover}).encode(encoding="UTF-8")
     print(settings.STATIC_URL)
 
-    boostrap_path = '{}{}libs/bootstrap/dist/css/bootstrap.min.css'.format(
-        settings.BASE_DIR, settings.STATIC_URL)
+    boostrap_css = CSS('{}{}libs/bootstrap/dist/css/bootstrap.min.css'.format(
+        settings.BASE_DIR, settings.STATIC_URL))
+
+    pdf_css = CSS('{}{}css/pdf.css'.format(
+        settings.BASE_DIR, settings.STATIC_URL))
 
     pdf_file = HTML(
         string=rendered_html,
         base_url=request.build_absolute_uri()
-        ).write_pdf(stylesheets=[CSS(boostrap_path)])
+        ).write_pdf(stylesheets=[boostrap_css, pdf_css])
 
     response = HttpResponse(pdf_file, content_type='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="{}.pdf"'.format(
