@@ -9,12 +9,18 @@ The project was written with `Python 3`. If `Python 3` is your default version, 
 
 #### Install the python dependencies
 
+##### Important information before begin
+Please visit the documentation of [WeazyPrint](http://weasyprint.readthedocs.io/en/latest/).
+WeazyPrint depends on packages which need to be installed separately. See platform-specific instructions for Linux, OS X and Windows in the documentation.
+
+**P.S :** On Ubuntu 16.04, you will probably need to install `libffi-dev` too.
+
 You can install all the python dependencies for this project with the command `pip install -r requirements.txt`.
 
 Some packages are in the requirements.txt but are optional :
  * [django-extensions](https://github.com/django-extensions/django-extensions): collection of custom extensions for the Django Framework.
  * [Pyrollbar (Rollbar for python)](https://github.com/rollbar/pyrollbar) : notifier for reporting exceptions, errors, and log messages to Rollbar.
-
+ * [WeazyPrint](http://weasyprint.org/): visual rendering engine for HTML and CSS that can export to PDF.
 
 #### Other dependencies
  * [gettext](https://www.gnu.org/software/gettext/)
