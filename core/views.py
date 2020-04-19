@@ -9,7 +9,6 @@ from django.template.loader import get_template
 from core.models import Location, Observer, Observation, Plover
 from extras.views_snippets import flush_session, add_plover_in_session
 from extras.views_snippets import search_formatter
-from weasyprint import HTML, CSS
 
 from .forms import MapForm, PloverForm, CodeForm, MetalForm
 
@@ -189,7 +188,7 @@ def get_report(request, metal_ring):
         {'plover': plover}).encode(encoding="UTF-8")
     print(settings.STATIC_URL)
 
-    boostrap_css = CSS('{}{}libs/bootstrap/dist/css/bootstrap.min.css'.format(
+    boostrap_css = CSS('{}{}node_modules/bootstrap/dist/css/bootstrap.min.css'.format(
         settings.BASE_DIR, settings.STATIC_URL))
 
     pdf_css = CSS('{}{}css/pdf.css'.format(
@@ -198,7 +197,7 @@ def get_report(request, metal_ring):
     pdf_file = HTML(
         string=rendered_html,
         base_url=request.build_absolute_uri()
-        ).write_pdf(stylesheets=[boostrap_css, pdf_css])
+    ).write_pdf(stylesheets=[boostrap_css, pdf_css])
 
     response = HttpResponse(pdf_file, content_type='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="{}.pdf"'.format(

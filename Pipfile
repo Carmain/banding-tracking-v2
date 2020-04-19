@@ -1,0 +1,19 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+autopep8 = "*"
+flake8 = "*"
+ipython = "*"
+django-extensions = "~=1.7.8"
+pyyaml = "*"
+
+[packages]
+django = "~=1.11"
+rollbar = "~=0.13.11"
+psycopg2-binary = "*"
+
+[requires]
+python_version = "3.8"
