@@ -12,7 +12,33 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 from django.utils.translation import ugettext_lazy as _
+from dotenv import load_dotenv
 
+load_dotenv()
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.getenv("SECRET_KEY")
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = os.getenv("DEBUG") == "True"
+
+ALLOWED_HOSTS = []
+
+ROLLBAR_ACCESS_TOKEN = os.getenv("ROLLBAR_ACCESS_TOKEN")
+
+# Database
+# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv("DATABASE_NAME"),
+        'USER': os.getenv("DATABASE_USER"),
+        'PASSWORD': os.getenv("DATABASE_PASSWORD"),
+        'HOST': os.getenv("DATABASE_HOST"),
+        'PORT': os.getenv("DATABASE_PORT"),
+    }
+}
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,6 +46,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
+
+TIME_ZONE = 'Europe/Paris'
 
 LANGUAGE_CODE = 'en-us'
 
@@ -114,16 +142,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (BASE_DIR, 'static')
 
 GRAPH_MODELS = {
-  'all_applications': True,
-  'group_models': True,
-  'output': 'graph.png'
+    'all_applications': True,
+    'group_models': True,
+    'output': 'graph.png'
 }
-
-# Import all the local settings
-try:
-    from .local_settings import *
-except ImportError as e:
-    print('Error : ', e)
 
 if 'ROLLBAR_ACCESS_TOKEN' in locals():
     import rollbar
