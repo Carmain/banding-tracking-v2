@@ -14,6 +14,7 @@ pyyaml = "*"
 django = "~=1.11"
 rollbar = "~=0.13.11"
 psycopg2-binary = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.8"
