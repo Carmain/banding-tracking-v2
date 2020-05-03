@@ -9,6 +9,8 @@ flake8 = "*"
 ipython = "*"
 django-extensions = "~=1.7.8"
 pyyaml = "*"
+pydocstyle = "*"
+pylint = "*"
 
 [packages]
 django = "~=1.11"
