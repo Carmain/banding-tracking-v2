@@ -121,6 +121,9 @@ LANGUAGES = (
     ('en', _('English'))
 )
 
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 USE_I18N = True
 
