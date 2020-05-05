@@ -20,57 +20,57 @@ msgstr ""
 
 #: app/settings.py:113
 msgid "French"
-msgstr ""
+msgstr "Français"
 
 #: app/settings.py:114
 msgid "English"
-msgstr ""
+msgstr "Anglais"
 
 #: templates/template.html:12 templates/template.html:35
 msgid "Home"
-msgstr ""
+msgstr "Accueil"
 
 #: templates/template.html:30
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Basculer la navigation"
 
 #: templates/template.html:40 templates/website/home.html:11
 msgid "Record an observation"
-msgstr ""
+msgstr "Ajouter une observation"
 
 #: templates/template.html:41
 msgid "Administration"
-msgstr ""
+msgstr "Administration"
 
 #: templates/template.html:42 templates/website/about.html:4
 #: templates/website/about.html:6
 msgid "About"
-msgstr ""
+msgstr "A propos"
 
 #: templates/template.html:43
 msgid "Search a plover"
-msgstr ""
+msgstr "Rechercher un gravelot"
 
 #: templates/template.html:44
 msgid "The C.R.B.P.O"
-msgstr ""
+msgstr "Le C.R.B.P.O"
 
 #: templates/template.html:62
 msgid "Submit"
-msgstr ""
+msgstr "Valider"
 
 #: templates/website/home.html:7
 msgid "Study tool for ringed birds' populations"
-msgstr ""
+msgstr "Outil d'étude pour la population des oiseaux bagués"
 
 #: templates/website/home.html:19
 msgid "GONm website"
-msgstr ""
+msgstr "Site web du GONm"
 
 #: templates/website/home.html:20
 msgid "The GONm"
-msgstr ""
+msgstr "Le GONm"
 
 #: templates/website/home.html:25
 msgid "Bretagne vivante"
-msgstr ""
+msgstr "Bretagne vivante"
