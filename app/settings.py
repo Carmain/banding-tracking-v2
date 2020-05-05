@@ -139,3 +139,18 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+
+ROLLBAR_TOKEN = os.getenv("ROLLBAR_ACCESS_TOKEN")
+
+if ROLLBAR_TOKEN:
+    import rollbar
+
+    # Rollbar configuration
+    ROLLBAR = {
+        'access_token': ROLLBAR_TOKEN,
+        'environment': 'development' if DEBUG else 'production',
+        'root': BASE_DIR,
+    }
+
+    rollbar.init(**ROLLBAR)
