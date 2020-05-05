@@ -1,8 +1,12 @@
 {% load static %}
 {% load i18n %}
 
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}">
 
 <head>
   <meta charset="utf-8">
@@ -44,18 +48,15 @@
           <li><a href="http://crbpo.mnhn.fr/" target="_blank">{% trans "The C.R.B.P.O" %}</a></li>
         </ul>
 
-        <form class="navbar-form navbar-right" action="#" method="post">
+        <form class="navbar-form navbar-right" action="{% url 'set_language' %}" method="post">
           {% csrf_token %}
           <div class="form-group">
-            <input name="next" type="hidden" value="{{ redirect_to }}" />
+            <input name="next" type="hidden" value="{{ redirect_to }}">
             <select name="language" class="form-control">
-              {% get_current_language as LANGUAGE_CODE %}
-              {% get_available_languages as LANGUAGES %}
-              {% get_language_info_list for LANGUAGES as languages %}
               {% for language in languages %}
-              <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-                {{ language.name_local }}
-              </option>
+                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                  {{ language.name_local }}
+                </option>
               {% endfor %}
             </select>
           </div>

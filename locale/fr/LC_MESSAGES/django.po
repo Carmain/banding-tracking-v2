@@ -1,0 +1,76 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-05 18:16+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: app/settings.py:113
+msgid "French"
+msgstr ""
+
+#: app/settings.py:114
+msgid "English"
+msgstr ""
+
+#: templates/template.html:12 templates/template.html:35
+msgid "Home"
+msgstr ""
+
+#: templates/template.html:30
+msgid "Toggle navigation"
+msgstr ""
+
+#: templates/template.html:40 templates/website/home.html:11
+msgid "Record an observation"
+msgstr ""
+
+#: templates/template.html:41
+msgid "Administration"
+msgstr ""
+
+#: templates/template.html:42 templates/website/about.html:4
+#: templates/website/about.html:6
+msgid "About"
+msgstr ""
+
+#: templates/template.html:43
+msgid "Search a plover"
+msgstr ""
+
+#: templates/template.html:44
+msgid "The C.R.B.P.O"
+msgstr ""
+
+#: templates/template.html:62
+msgid "Submit"
+msgstr ""
+
+#: templates/website/home.html:7
+msgid "Study tool for ringed birds' populations"
+msgstr ""
+
+#: templates/website/home.html:19
+msgid "GONm website"
+msgstr ""
+
+#: templates/website/home.html:20
+msgid "The GONm"
+msgstr ""
+
+#: templates/website/home.html:25
+msgid "Bretagne vivante"
+msgstr ""
