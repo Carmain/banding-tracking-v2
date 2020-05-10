@@ -31,3 +31,15 @@ def search_formatter(plover, form_class, form_url, request):
     data['form'] = form
 
     return data
+
+
+def add_plover_in_session(request, plover):
+    if 'plovers' not in request.session or not request.session['plovers']:
+        request.session['plovers'] = [plover]
+    else:
+        plovers_list = request.session['plovers']
+
+        if not any(bird['color'] == plover['color'] and
+                   bird['code'] == plover['code'] for bird in plovers_list):
+            plovers_list.append(plover)
+            request.session['plovers'] = plovers_list
