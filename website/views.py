@@ -109,6 +109,10 @@ def remove_bird_in_session(request, uuid):
 
 
 def validate_plovers(request):
+    def parse_form_coords(coord):
+        coord = coord.strip()
+        return float(coord) if coord else 0
+
     general = request.session.get('general')
     observations = request.session.get('plovers')
     accepted_observations = []
@@ -144,8 +148,8 @@ def validate_plovers(request):
                 date=general.get('date'),
                 supposed_sex=observation.get('sex'),
                 comment=observation.get('comment'),
-                coordinate_x=general.get('coordinate_x'),
-                coordinate_y=general.get('coordinate_y')
+                coordinate_x=parse_form_coords(general.get('coordinate_x')),
+                coordinate_y=parse_form_coords(general.get('coordinate_y'))
             )
 
             accepted_observations.append(plover)
