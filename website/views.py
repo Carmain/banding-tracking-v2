@@ -1,3 +1,5 @@
+import os
+
 from django.shortcuts import render
 from django.urls import reverse
 from website.utils.views_sinppets import (
@@ -56,7 +58,10 @@ def map(request):
     else:
         map_form = MapForm()
 
-    return render(request, 'website/map.html', {'form': map_form})
+    return render(request, 'website/map.html', {
+        'form': map_form,
+        'google_map_api_key': os.getenv("GOOGLE_MAP_API_KEY")
+    })
 
 
 def observations(request):
