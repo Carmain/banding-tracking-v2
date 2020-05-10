@@ -12,4 +12,6 @@ urlpatterns = [
     path(r'^remove-plover/(?P<uuid>\w+)$', views.remove_bird_in_session,
          name='remove_bird_in_session'),
     path('validation', views.validate_plovers, name='validate_plovers'),
+    path(r'^export-to-pdf/(?P<metal_ring>\w+)$', views.get_report,
+         name='get_report'),
 ]

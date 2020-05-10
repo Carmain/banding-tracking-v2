@@ -16,6 +16,7 @@ django = "~=3.0.6"
 rollbar = "~=0.15.0"
 psycopg2-binary = "*"
 python-dotenv = "~=0.13.0 "
+weasyprint = "*"
 
 [requires]
 python_version = "3.8"

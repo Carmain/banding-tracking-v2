@@ -37,7 +37,7 @@
   {% if plover %}
   <hr />
 
-  <a href="#" class="btn btn-primary large-button" role="button">
+  <a href="{% url 'get_report' plover.metal_ring %}" class="btn btn-primary large-button" role="button">
     <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
     {% trans "Download into PDF" %}
   </a>

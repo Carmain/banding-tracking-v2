@@ -1,13 +1,18 @@
 import os
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.template.loader import get_template
 from django.urls import reverse
+from django.conf import settings
+from django.http import HttpResponse, HttpResponseRedirect
 from website.utils.views_sinppets import (
     get_or_none, search_formatter, flush_session, add_plover_in_session)
 from website.models import Plover, Location, Observer, Observation
 from website.forms import CodeForm, MetalForm, MapForm, PloverForm
-from django.http import HttpResponseRedirect
+
 from uuid import uuid4
+
+from weasyprint import HTML, CSS
 
 
 def index(request):
@@ -163,3 +168,25 @@ def validate_plovers(request):
     }
 
     return render(request, 'website/result.html', result)
+
+
+def get_report(request, metal_ring):
+    plover = get_object_or_404(Plover, metal_ring=metal_ring)
+
+    html_template = get_template('website/pdf_export.html')
+
+    boostrap_css = CSS(
+        f'{settings.BASE_DIR}{settings.STATIC_URL}node_modules/bootstrap/dist/css/bootstrap.min.css')
+
+    pdf_css = CSS(f'{settings.BASE_DIR}{settings.STATIC_URL}css/pdf.css')
+
+    pdf_file = HTML(
+        string=html_template.render(
+            {'plover': plover}).encode(encoding="UTF-8"),
+        base_url=request.build_absolute_uri()
+    ).write_pdf(stylesheets=[boostrap_css, pdf_css])
+
+    response = HttpResponse(pdf_file, content_type='application/pdf')
+    response['Content-Disposition'] = f'attachment; filename="{plover.metal_ring}.pdf"'
+
+    return response

@@ -30,7 +30,7 @@
           <td>{{plover.get_sex_display}}</td>
           <td>{% trans 'See the history' %}</td>
           <td>
-            <a href="#">
+            <a href="{% url 'get_report' plover.metal_ring %}">
               <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
               {% trans "Download into PDF" %}
             </a>
