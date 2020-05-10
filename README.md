@@ -17,47 +17,47 @@ Your probably will need to install `gettext` ([https://www.gnu.org/software/gett
 
 1. Install all the dependencies with `pipenv` :
 
-    ```bash
-    pipenv install # For production
-    pipenv install --dev # For development
-    ```
+   ```bash
+   pipenv install # For production
+   pipenv install --dev # For development
+   ```
 
 2. Install the front dependencies
 
-    ```bash
-    yarn install
-    ```
+   ```bash
+   yarn install
+   ```
 
 3. Add the `.env` file & fill all the informations needed (`ROLLBAR_ACCESS_TOKEN` is optionnal)
 
-    ```bash
-    cp .env.example .env
-    ```
+   ```bash
+   cp .env.example .env
+   ```
 
 4. Compile all the translation dictionaries
 
-    ```bash
-    python manage.py compilemessages
-    ```
+   ```bash
+   python manage.py compilemessages
+   ```
 
 5. Migrate the database
 
-    ```bash
-    python manage.py migrate
-    ```
+   ```bash
+   python manage.py migrate
+   ```
 
 6. Load seeds if needed
 
-    ```bash
-    python manage.py loaddata fixtures/*
-    ```
+   ```bash
+   python manage.py loaddata seeders/*
+   ```
 
 ### Retreive a rollbar access token
 
 Initiate the Rollbar intergration :
 
--   Go to https://rollbar.com and get an access token for this project
--   Set it in `ROLLBAR_ACCESS_TOKEN`
+- Go to https://rollbar.com and get an access token for this project
+- Set it in `ROLLBAR_ACCESS_TOKEN`
 
 ## How to lauch the project
 
