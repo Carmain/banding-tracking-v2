@@ -5,6 +5,12 @@ def get_or_none(class_model, **kwargs):
         return None
 
 
+def flush_session(request, keys):
+    for key in keys:
+        if key in request.session:
+            del request.session[key]
+
+
 def search_formatter(plover, form_class, form_url, request):
     data = {
         'form_url': form_url,
