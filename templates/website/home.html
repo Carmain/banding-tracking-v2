@@ -10,19 +10,19 @@
   <div class="col-sm-8">
     {% trans "Record an observation" as title %}
     {% comment %} {% url 'map' as map_url %} {% endcomment %}
-    {% include "skeletons/home_card.html" with src="#" picture="media/plover.jpg" alt=title title=title %}
+    {% include "components/home_card.html" with src="#" picture="media/plover.jpg" alt=title title=title %}
   </div>
 
   <div class="col-sm-4">
     <div class="col-sm-12">
       {% trans "GONm website" as alt %}
       {% trans "The GONm" as title %}
-      {% include "skeletons/home_card.html" with src="http://www.gonm.org/" target="_blank" picture="media/gonm.jpg" alt=alt title=title %}
+      {% include "components/home_card.html" with src="http://www.gonm.org/" target="_blank" picture="media/gonm.jpg" alt=alt title=title %}
     </div>
 
     <div class="col-sm-12">
       {% trans "Bretagne vivante" as title %}
-      {% include "skeletons/home_card.html" with src="http://www.bretagne-vivante-dev.org/gravelot/index.php" target="_blank" picture="media/bretagne_vivante.jpg" alt=title title=title %}
+      {% include "components/home_card.html" with src="http://www.bretagne-vivante-dev.org/gravelot/index.php" target="_blank" picture="media/bretagne_vivante.jpg" alt=title title=title %}
     </div>
   </div>
 </div>
