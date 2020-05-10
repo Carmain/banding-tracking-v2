@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-10 16:14+0200\n"
+"POT-Creation-Date: 2020-05-10 16:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,56 +20,56 @@ msgstr ""
 
 #: app/settings.py:121
 msgid "French"
-msgstr ""
+msgstr "French"
 
 #: app/settings.py:122
 msgid "English"
-msgstr ""
+msgstr "English"
 
 #: templates/components/bird_resume.html:35
 #: templates/website/observations.html:9 website/forms.py:29
 #: website/models.py:142
 msgid "Date"
-msgstr ""
+msgstr "Date"
 
 #: templates/components/bird_resume.html:36 website/forms.py:39
 #: website/models.py:32
 msgid "Town"
-msgstr ""
+msgstr "Town"
 
 #: templates/components/bird_resume.html:37 website/forms.py:41
 #: website/models.py:31
 msgid "Country"
-msgstr ""
+msgstr "Country"
 
 #: templates/components/bird_resume.html:38
 #: templates/website/observations.html:10 website/models.py:46
 #: website/models.py:130
 msgid "Observer"
-msgstr ""
+msgstr "Observer"
 
 #: templates/components/resume/bander_informations.html:3 website/models.py:76
 msgid "Bander"
-msgstr ""
+msgstr "Bander"
 
 #: templates/components/resume/bander_informations.html:4
 msgid "Banding location"
-msgstr ""
+msgstr "Banding location"
 
 #: templates/components/resume/bander_informations.html:5 website/models.py:107
 msgid "Banding date"
-msgstr ""
+msgstr "Banding date"
 
 #: templates/components/resume/bird_informations.html:3 website/forms.py:24
 #: website/models.py:88
 msgid "Metal ring"
-msgstr ""
+msgstr "Metal ring"
 
 #: templates/components/resume/bird_informations.html:4
 #: templates/website/observations.html:40 templates/website/result.html:16
 #: website/forms.py:10 website/forms.py:12 website/models.py:90
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 #: templates/components/resume/bird_informations.html:5
 #: templates/website/observations.html:41 templates/website/result.html:18
@@ -81,257 +81,257 @@ msgstr ""
 #: templates/website/observations.html:42 templates/website/result.html:19
 #: website/forms.py:53 website/models.py:101
 msgid "Sex"
-msgstr ""
+msgstr "Sex"
 
 #: templates/template.html:16 templates/template.html:39
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #: templates/template.html:34
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Toggle navigation"
 
 #: templates/template.html:44 templates/website/home.html:11
 #: templates/website/observations.html:15
 msgid "Record an observation"
-msgstr ""
+msgstr "Record an observation"
 
 #: templates/template.html:45 website/admin.py:41
 msgid "Administration"
-msgstr ""
+msgstr "Administration"
 
 #: templates/template.html:46 templates/website/about.html:4
 #: templates/website/about.html:6
 msgid "About"
-msgstr ""
+msgstr "About"
 
 #: templates/template.html:47 templates/website/search.html:7
 msgid "Search a plover"
-msgstr ""
+msgstr "Search a plover"
 
 #: templates/template.html:48
 msgid "The C.R.B.P.O"
-msgstr ""
+msgstr "The C.R.B.P.O"
 
 #: templates/template.html:63 templates/website/map.html:68
 msgid "Submit"
-msgstr ""
+msgstr "Submit"
 
 #: templates/website/home.html:7
 msgid "Study tool for ringed birds' populations"
-msgstr ""
+msgstr "Study tool for ringed birds' populations"
 
 #: templates/website/home.html:19
 msgid "GONm website"
-msgstr ""
+msgstr "GONm website"
 
 #: templates/website/home.html:20
 msgid "The GONm"
-msgstr ""
+msgstr "The GONm"
 
 #: templates/website/home.html:25
 msgid "Bretagne vivante"
-msgstr ""
+msgstr "Bretagne vivante"
 
 #: templates/website/map.html:5 templates/website/observations.html:5
 #: templates/website/observations.html:7 templates/website/result.html:5
 #: templates/website/search.html:5
 msgid "Set your observations"
-msgstr ""
+msgstr "Set your observations"
 
 #: templates/website/map.html:7
 msgid "Set a location and a date"
-msgstr ""
+msgstr "Set a location and a date"
 
 #: templates/website/map.html:12
 msgid "Geolocate me"
-msgstr ""
+msgstr "Geolocate me"
 
 #: templates/website/observations.html:11 website/models.py:24
 #: website/models.py:82 website/models.py:140
 msgid "Location"
-msgstr ""
+msgstr "Location"
 
 #: templates/website/observations.html:28
 msgid "Add my observation"
-msgstr ""
+msgstr "Add my observation"
 
 #: templates/website/observations.html:36
 msgid "All the plovers seized"
-msgstr ""
+msgstr "All the plovers seized"
 
 #: templates/website/observations.html:64
 msgid "Send my observations"
-msgstr ""
+msgstr "Send my observations"
 
 #: templates/website/pdf_export.html:7 templates/website/search.html:48
 msgid "GONm logo"
-msgstr ""
+msgstr "GONm logo"
 
 #: templates/website/pdf_export.html:11 templates/website/search.html:52
 msgid "History of observations about a banded kentish plover"
-msgstr ""
+msgstr "History of observations about a banded kentish plover"
 
 #: templates/website/pdf_export.html:12 templates/website/search.html:53
 msgid "Charadrius alexandrinus"
-msgstr ""
+msgstr "Charadrius alexandrinus"
 
 #: templates/website/result.html:7
 msgid "Result"
-msgstr ""
+msgstr "Result"
 
 #: templates/website/result.html:11
 msgid "Accepted observations"
-msgstr ""
+msgstr "Accepted observations"
 
 #: templates/website/result.html:17
 msgid "Number"
-msgstr ""
+msgstr "Number"
 
 #: templates/website/result.html:31
 msgid "See the history"
-msgstr ""
+msgstr "See the history"
 
 #: templates/website/result.html:35 templates/website/search.html:42
 msgid "Download into PDF"
-msgstr ""
+msgstr "Download into PDF"
 
 #: templates/website/result.html:45
 msgid "Rejected observations"
-msgstr ""
+msgstr "Rejected observations"
 
 #: templates/website/search.html:11
 msgid "Search by metal ring code"
-msgstr ""
+msgstr "Search by metal ring code"
 
 #: templates/website/search.html:14
 msgid "Search by color code"
-msgstr ""
+msgstr "Search by color code"
 
 #: templates/website/search.html:30
 msgid "Search"
-msgstr ""
+msgstr "Search"
 
 #: templates/website/search.html:61
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 #: templates/website/search.html:62
 msgid "The plover with this code doesn't exist"
-msgstr ""
+msgstr "The plover with this code doesn't exist"
 
 #: website/admin.py:42
 msgid "Banding tracking"
-msgstr ""
+msgstr "Banding tracking"
 
 #: website/forms.py:36 website/models.py:53
 msgid "Last name"
-msgstr ""
+msgstr "Last name"
 
 #: website/forms.py:37 website/models.py:54
 msgid "First name"
-msgstr ""
+msgstr "First name"
 
 #: website/forms.py:38 website/models.py:57
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 #: website/forms.py:40 website/models.py:33
 msgid "Department"
-msgstr ""
+msgstr "Department"
 
 #: website/forms.py:42 website/models.py:37
 msgid "Locality"
-msgstr ""
+msgstr "Locality"
 
 #: website/forms.py:45 website/models.py:149
 msgid "X coordinate"
-msgstr ""
+msgstr "X coordinate"
 
 #: website/forms.py:47 website/models.py:150
 msgid "Y coordinate"
-msgstr ""
+msgstr "Y coordinate"
 
 #: website/forms.py:56 website/models.py:151
 msgid "Comment"
-msgstr ""
+msgstr "Comment"
 
 #: website/models.py:5
 msgid "Male"
-msgstr ""
+msgstr "Male"
 
 #: website/models.py:6
 msgid "Female"
-msgstr ""
+msgstr "Female"
 
 #: website/models.py:7
 msgid "Undetermined"
-msgstr ""
+msgstr "Undetermined"
 
 #: website/models.py:11
 msgid "Red"
-msgstr ""
+msgstr "Red"
 
 #: website/models.py:12
 msgid "Pink"
-msgstr ""
+msgstr "Pink"
 
 #: website/models.py:13
 msgid "White"
-msgstr ""
+msgstr "White"
 
 #: website/models.py:14
 msgid "Yellow"
-msgstr ""
+msgstr "Yellow"
 
 #: website/models.py:15
 msgid "Green"
-msgstr ""
+msgstr "Green"
 
 #: website/models.py:25
 msgid "Locations"
-msgstr ""
+msgstr "Locations"
 
 #: website/models.py:47
 msgid "Observers"
-msgstr ""
+msgstr "Observers"
 
 #: website/models.py:60
 msgid "Is bander"
-msgstr ""
+msgstr "Is bander"
 
 #: website/models.py:69
 msgid "Kentish plover"
-msgstr ""
+msgstr "Kentish plover"
 
 #: website/models.py:70
 msgid "Kentish plovers"
-msgstr ""
+msgstr "Kentish plovers"
 
 #: website/models.py:84
 msgid "Banding year"
-msgstr ""
+msgstr "Banding year"
 
 #: website/models.py:103
 msgid "Age"
-msgstr ""
+msgstr "Age"
 
 #: website/models.py:112
 msgid "Banding time"
-msgstr ""
+msgstr "Banding time"
 
 #: website/models.py:121
 msgid "Observation"
-msgstr ""
+msgstr "Observation"
 
 #: website/models.py:122
 msgid "Observations"
-msgstr ""
+msgstr "Observations"
 
 #: website/models.py:135
 msgid "Plover"
-msgstr ""
+msgstr "Plover"
 
 #: website/models.py:147
 msgid "Supposed Sex"
-msgstr ""
+msgstr "Supposed Sex"
