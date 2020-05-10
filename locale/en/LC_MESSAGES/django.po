@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-10 12:24+0200\n"
+"POT-Creation-Date: 2020-05-10 15:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,19 +26,24 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: templates/components/bird_resume.html:35 website/models.py:142
+#: templates/components/bird_resume.html:35
+#: templates/website/observations.html:9 website/forms.py:29
+#: website/models.py:142
 msgid "Date"
 msgstr ""
 
-#: templates/components/bird_resume.html:36 website/models.py:32
+#: templates/components/bird_resume.html:36 website/forms.py:39
+#: website/models.py:32
 msgid "Town"
 msgstr ""
 
-#: templates/components/bird_resume.html:37 website/models.py:31
+#: templates/components/bird_resume.html:37 website/forms.py:41
+#: website/models.py:31
 msgid "Country"
 msgstr ""
 
-#: templates/components/bird_resume.html:38 website/models.py:46
+#: templates/components/bird_resume.html:38
+#: templates/website/observations.html:10 website/models.py:46
 #: website/models.py:130
 msgid "Observer"
 msgstr ""
@@ -55,22 +60,26 @@ msgstr ""
 msgid "Banding date"
 msgstr ""
 
-#: templates/components/resume/bird_informations.html:3 website/forms.py:23
+#: templates/components/resume/bird_informations.html:3 website/forms.py:24
 #: website/models.py:88
 msgid "Metal ring"
 msgstr ""
 
-#: templates/components/resume/bird_informations.html:4 website/forms.py:9
-#: website/forms.py:11 website/models.py:90
+#: templates/components/resume/bird_informations.html:4
+#: templates/website/observations.html:40 templates/website/result.html:16
+#: website/forms.py:10 website/forms.py:12 website/models.py:90
 msgid "Code"
 msgstr ""
 
-#: templates/components/resume/bird_informations.html:5 website/forms.py:19
-#: website/models.py:95
+#: templates/components/resume/bird_informations.html:5
+#: templates/website/observations.html:41 templates/website/result.html:18
+#: website/forms.py:20 website/forms.py:52 website/models.py:95
 msgid "Color"
 msgstr ""
 
-#: templates/components/resume/bird_informations.html:6 website/models.py:101
+#: templates/components/resume/bird_informations.html:6
+#: templates/website/observations.html:42 templates/website/result.html:19
+#: website/forms.py:53 website/models.py:101
 msgid "Sex"
 msgstr ""
 
@@ -83,6 +92,7 @@ msgid "Toggle navigation"
 msgstr ""
 
 #: templates/template.html:44 templates/website/home.html:11
+#: templates/website/observations.html:15
 msgid "Record an observation"
 msgstr ""
 
@@ -103,7 +113,7 @@ msgstr ""
 msgid "The C.R.B.P.O"
 msgstr ""
 
-#: templates/template.html:63
+#: templates/template.html:63 templates/website/map.html:68
 msgid "Submit"
 msgstr ""
 
@@ -123,8 +133,59 @@ msgstr ""
 msgid "Bretagne vivante"
 msgstr ""
 
+#: templates/website/map.html:5 templates/website/observations.html:5
+#: templates/website/observations.html:7 templates/website/result.html:5
 #: templates/website/search.html:5
 msgid "Set your observations"
+msgstr ""
+
+#: templates/website/map.html:7
+msgid "Set a location and a date"
+msgstr ""
+
+#: templates/website/map.html:12
+msgid "Geolocate me"
+msgstr ""
+
+#: templates/website/observations.html:11 website/models.py:24
+#: website/models.py:82 website/models.py:140
+msgid "Location"
+msgstr ""
+
+#: templates/website/observations.html:28
+msgid "Add my observation"
+msgstr ""
+
+#: templates/website/observations.html:36
+msgid "All the plovers seized"
+msgstr ""
+
+#: templates/website/observations.html:64
+msgid "Send my observations"
+msgstr ""
+
+#: templates/website/result.html:7
+msgid "Result"
+msgstr ""
+
+#: templates/website/result.html:11
+msgid "Accepted observations"
+msgstr ""
+
+#: templates/website/result.html:17
+msgid "Number"
+msgstr ""
+
+#: templates/website/result.html:31
+msgid "See the history"
+msgstr ""
+
+#: templates/website/result.html:35 templates/website/search.html:42
+msgid "Download into PDF"
+msgstr ""
+
+#: templates/website/result.html:45
+msgid "Rejected observations"
 msgstr ""
 
 #: templates/website/search.html:11
@@ -137,10 +198,6 @@ msgstr ""
 
 #: templates/website/search.html:30
 msgid "Search"
-msgstr ""
-
-#: templates/website/search.html:42
-msgid "Download into PDF"
 msgstr ""
 
 #: templates/website/search.html:48
@@ -165,6 +222,38 @@ msgstr ""
 
 #: website/admin.py:42
 msgid "Banding tracking"
+msgstr ""
+
+#: website/forms.py:36 website/models.py:53
+msgid "Last name"
+msgstr ""
+
+#: website/forms.py:37 website/models.py:54
+msgid "First name"
+msgstr ""
+
+#: website/forms.py:38 website/models.py:57
+msgid "Email"
+msgstr ""
+
+#: website/forms.py:40 website/models.py:33
+msgid "Department"
+msgstr ""
+
+#: website/forms.py:42 website/models.py:37
+msgid "Locality"
+msgstr ""
+
+#: website/forms.py:45 website/models.py:149
+msgid "X coordinate"
+msgstr ""
+
+#: website/forms.py:47 website/models.py:150
+msgid "Y coordinate"
+msgstr ""
+
+#: website/forms.py:56 website/models.py:151
+msgid "Comment"
 msgstr ""
 
 #: website/models.py:5
@@ -199,36 +288,12 @@ msgstr ""
 msgid "Green"
 msgstr ""
 
-#: website/models.py:24 website/models.py:82 website/models.py:140
-msgid "Location"
-msgstr ""
-
 #: website/models.py:25
 msgid "Locations"
 msgstr ""
 
-#: website/models.py:33
-msgid "Department"
-msgstr ""
-
-#: website/models.py:37
-msgid "Locality"
-msgstr ""
-
 #: website/models.py:47
 msgid "Observers"
-msgstr ""
-
-#: website/models.py:53
-msgid "Last name"
-msgstr ""
-
-#: website/models.py:54
-msgid "First name"
-msgstr ""
-
-#: website/models.py:57
-msgid "Email"
 msgstr ""
 
 #: website/models.py:60
@@ -269,16 +334,4 @@ msgstr ""
 
 #: website/models.py:147
 msgid "Supposed Sex"
-msgstr ""
-
-#: website/models.py:149
-msgid "X coordinate"
-msgstr ""
-
-#: website/models.py:150
-msgid "Y coordinate"
-msgstr ""
-
-#: website/models.py:151
-msgid "Comment"
 msgstr ""
