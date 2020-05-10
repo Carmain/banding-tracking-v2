@@ -1,4 +1,11 @@
-def search_formatter(plover_collector, form_class, form_url, request):
+def get_or_none(class_model, **kwargs):
+    try:
+        return class_model.objects.get(**kwargs)
+    except class_model.DoesNotExist:
+        return None
+
+
+def search_formatter(plover, form_class, form_url, request):
     data = {
         'form_url': form_url,
         'not_found': False
@@ -8,8 +15,6 @@ def search_formatter(plover_collector, form_class, form_url, request):
         form = form_class(request.POST)
 
         if form.is_valid():
-            plover = plover_collector()
-
             if plover:
                 data['plover'] = plover
             else:
