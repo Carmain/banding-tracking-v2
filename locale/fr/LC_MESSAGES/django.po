@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-10 11:36+0200\n"
+"POT-Creation-Date: 2020-05-10 12:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Record an observation"
 msgstr ""
 
-#: templates/template.html:45
+#: templates/template.html:45 website/admin.py:41
 msgid "Administration"
 msgstr ""
 
@@ -161,6 +161,10 @@ msgstr ""
 
 #: templates/website/search.html:62
 msgid "The plover with this code doesn't exist"
+msgstr ""
+
+#: website/admin.py:42
+msgid "Banding tracking"
 msgstr ""
 
 #: website/models.py:5
