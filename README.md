@@ -13,6 +13,12 @@
 
 Your probably will need to install `gettext` ([https://www.gnu.org/software/gettext/](https://www.gnu.org/software/gettext/)) for the translations. For Linux users, the package is usually installed by default. For Windows, [see here](https://docs.djangoproject.com/en/1.9/topics/i18n/translation/#gettext-on-windows]).
 
+#### Important information before begin
+
+Please visit the documentation of WeazyPrint. WeazyPrint depends on packages which need to be installed separately. See platform-specific instructions for Linux, OS X and Windows in the documentation.
+
+**P.S** : On Ubuntu 16.04, you will probably need to install libffi-dev too.
+
 ### Installation roadmap
 
 1. Install all the dependencies with `pipenv` :
@@ -56,7 +62,7 @@ Your probably will need to install `gettext` ([https://www.gnu.org/software/gett
 
 Initiate the Rollbar intergration :
 
-- Go to https://rollbar.com and get an access token for this project
+- Go to [https://rollbar.com](https://rollbar.com) and get an access token for this project
 - Set it in `ROLLBAR_ACCESS_TOKEN`
 
 ## How to lauch the project
