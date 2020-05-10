@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-10 15:26+0200\n"
+"POT-Creation-Date: 2020-05-10 16:14+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -164,6 +164,18 @@ msgstr ""
 msgid "Send my observations"
 msgstr ""
 
+#: templates/website/pdf_export.html:7 templates/website/search.html:48
+msgid "GONm logo"
+msgstr ""
+
+#: templates/website/pdf_export.html:11 templates/website/search.html:52
+msgid "History of observations about a banded kentish plover"
+msgstr ""
+
+#: templates/website/pdf_export.html:12 templates/website/search.html:53
+msgid "Charadrius alexandrinus"
+msgstr ""
+
 #: templates/website/result.html:7
 msgid "Result"
 msgstr ""
@@ -198,18 +210,6 @@ msgstr ""
 
 #: templates/website/search.html:30
 msgid "Search"
-msgstr ""
-
-#: templates/website/search.html:48
-msgid "GONm logo"
-msgstr ""
-
-#: templates/website/search.html:52
-msgid "History of observations about a banded kentish plover"
-msgstr ""
-
-#: templates/website/search.html:53
-msgid "Charadrius alexandrinus"
 msgstr ""
 
 #: templates/website/search.html:61
