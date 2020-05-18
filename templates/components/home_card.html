@@ -1,10 +1,10 @@
 {% load static %}
+{% load i18n %}
 
-<a href="{{ src }}" {% if target %}target="{{target}}"{% endif %}>
-  <div class="thumbnail">
-    <img src="{% static picture %}" alt="{{ alt }}">
-    <div class="caption">
-      <h3>{{ title }}</h3>
-    </div>
+<div class="card mb-4 box-shadow">
+  <img class="card-img-top" src="{% static picture %}" alt="{{ alt }}">
+  <div class="card-body">
+    <h2 class="card-text">{{ title }}</h2>
+    <a href="{{ src }}" {% if target %}target="{{target}}"{% endif %} class="btn btn-primary">{% trans "Go" %}</a>
   </div>
-</a>
+</div>
