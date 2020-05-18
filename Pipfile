@@ -7,16 +7,16 @@ verify_ssl = true
 autopep8 = "*"
 flake8 = "*"
 ipython = "*"
-django-extensions = "~=1.7.8"
 pyyaml = "*"
 pydocstyle = "*"
 pylint = "*"
 
 [packages]
-django = "~=1.11"
-rollbar = "~=0.13.11"
+django = "~=3.0.6"
+rollbar = "~=0.15.0"
 psycopg2-binary = "*"
-python-dotenv = "*"
+python-dotenv = "~=0.13.0 "
+weasyprint = "*"
 
 [requires]
 python_version = "3.8"

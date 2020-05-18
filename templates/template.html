@@ -1,8 +1,12 @@
-{% load staticfiles %}
+{% load static %}
 {% load i18n %}
 
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}">
 
 <head>
   <meta charset="utf-8">
@@ -11,8 +15,6 @@
 
   <title>Banding tracking - {% block title %}{% trans "Home" %}{% endblock %}</title>
   <link rel="shortcut icon" type="image/png" href="{% static 'media/fav_icon.png' %}"/>
-
-  <!-- Bootstrap -->
   <link href="{% static 'node_modules/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,26 +38,25 @@
         </button>
         <a class="navbar-brand" href="{% url 'index' %}">{% trans "Home" %}</a>
       </div>
+
       <div class="collapse navbar-collapse" id="navbar-collapse-burger">
         <ul class="nav navbar-nav">
-          <li><a href="{% url 'map' %}">{% trans "Record an observation" %}</a></li>
-          <li><a href="admin/">{% trans "Administration" %}</a></li>
-          <li><a href="{% url 'about' %}">{% trans "About" %}</a></li>
-          <li><a href="{% url 'search_by_code' %}">{% trans "Search a plover" %}</a></li>
-          <li><a href="http://crbpo.mnhn.fr/" target="_blank">{% trans "The C.R.B.P.O" %}</a></li>
+          <li><a href="/map">{% trans "Record an observation" %}</a></li>
+          <li><a href="/admin/">{% trans "Administration" %}</a></li>
+          <li><a href="/about">{% trans "About" %}</a></li>
+          <li><a href="/search/code">{% trans "Search a plover" %}</a></li>
+          <li><a href="https://crbpo.mnhn.fr/" target="_blank">{% trans "The C.R.B.P.O" %}</a></li>
         </ul>
+
         <form class="navbar-form navbar-right" action="{% url 'set_language' %}" method="post">
           {% csrf_token %}
           <div class="form-group">
-            <input name="next" type="hidden" value="{{ redirect_to }}" />
+            <input name="next" type="hidden" value="{{ redirect_to }}">
             <select name="language" class="form-control">
-              {% get_current_language as LANGUAGE_CODE %}
-              {% get_available_languages as LANGUAGES %}
-              {% get_language_info_list for LANGUAGES as languages %}
               {% for language in languages %}
-              <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
-                {{ language.name_local }}
-              </option>
+                <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                  {{ language.name_local }}
+                </option>
               {% endfor %}
             </select>
           </div>
@@ -69,9 +70,7 @@
     {% endblock %}
   </div>
 
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="{% static 'node_modules/jquery/dist/jquery.min.js' %}"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="{% static 'node_modules/bootstrap/dist/js/bootstrap.min.js' %}"></script>
 
   {% block extrajs %}
